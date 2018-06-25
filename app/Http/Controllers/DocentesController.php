@@ -41,8 +41,11 @@ class DocentesController extends Controller
         $this->validate($request,[
           'nombres'=>'required|alpha_spaces',
           'apellidos'=>'required|alpha_spaces',
-          'no_escalafon'=>'required|min:7|max:7',
+          'no_escalafon'=>'required|numeric|digits:7',
           'no_dui'=>'required|min:10|max:10',
+          'direccion'=>'required',
+          'telefono'=>'required|numeric|digits:8',
+          'correo'=>'required',
         ]);
         Docentes::create($request->all());
         return redirect()->route('docentes.index')->with('success','Docente guardado con éxito');
@@ -84,8 +87,11 @@ class DocentesController extends Controller
         $this->validate($request,[
           'nombres'=>'required|alpha_spaces',
           'apellidos'=>'required|alpha_spaces',
-          'no_escalafon'=>'required|min:7|max:7',
+          'no_escalafon'=>'required|numeric|digits:7',
           'no_dui'=>'required|min:10|max:10',
+          'direccion'=>'required',
+          'telefono'=>'required|numeric|digits:8',
+          'correo'=>'required',
         ]);
         Docentes::find($id)->update($request->all());
         return redirect()->route('docentes.index')->with('success','Docente actualizado con exito');

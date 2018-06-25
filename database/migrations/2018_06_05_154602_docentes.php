@@ -18,8 +18,11 @@ class Docentes extends Migration
             $table->increments('id');
             $table->string('nombres',20);
             $table->string('apellidos',20);
-            $table->string('no_escalafon',7);
+            $table->integer('no_escalafon');
             $table->string('no_dui',10);
+            $table->string('direccion');
+            $table->integer('telefono');
+            $table->string('correo');
             $table->timestamps();
 
         });

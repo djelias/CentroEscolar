@@ -13,6 +13,7 @@
           <p>{{ $message }}</p>
       </div>
   @endif
+      <div>
         <a href="{{route('docentes.create')}}" class="btn btn-success btn-lg">
             <i class="glyphicon glyphicon-plus"> NUEVO</i>
         </a>
@@ -22,14 +23,19 @@
         </div>
          <button type="submit" class="glyphicon glyphicon-search btn-sm" data-toggle="tooltip" data-placement="top" title="Buscar"></button>
         {!! Form::close()!!}
-  <table class="table table-bordered">
+      </div>
+      <br>
+  <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
-      <th>Nombres</th>
-      <th>Apellidos</th>
-      <th>Numero de DUI</th>
-      <th>Numero de Escalafón</th>
-      <th>Acción</th>
+      <th style="text-align:center">Nombres</th>
+      <th style="text-align:center">Apellidos</th>
+      <th style="text-align:center">DUI</th>
+      <th style="text-align:center">Escalafón</th>
+      <th style="text-align:center">Teléfono</th>
+      <th style="text-align:center">Dirección</th>
+      <th style="text-align:center">E-mail</th>
+      <th style="text-align:center">Acción</th>
     </tr>
     <?php $no=1; ?>
     @foreach ($docentes as $key => $value)
@@ -39,6 +45,9 @@
         <td>{{ $value->apellidos }}</td>
         <td>{{ $value->no_dui }}</td>
         <td>{{ $value->no_escalafon }}</td>
+        <td>{{ $value->telefono }}</td>
+        <td>{{ $value->direccion }}</td>
+        <td>{{ $value->correo }}</td>
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('docentes.show',$value->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
