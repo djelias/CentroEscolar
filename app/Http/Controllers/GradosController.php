@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Grados;
+use App\Docentes;
 use grados1\http\Request\GradosRequest;
 
 class GradosController extends Controller
@@ -29,7 +30,10 @@ class GradosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+          'id_docente'=>'required|numeric|digits:1',
+          'id_secretaria'=>'required|numeric|digits:1',
           'codigo'=>'required|alpha_spaces',
+          'seccion'=>'required|alpha_spaces',
           'capacidad'=>'required|min:2|max:3',
         ]);
         Grados::create($request->all());
@@ -70,7 +74,10 @@ class GradosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
+          'id_docente'=>'required|numeric|digits:1',
+          'id_secretaria'=>'required|numeric|digits:1',
           'codigo'=>'required|alpha_spaces',
+          'seccion'=>'required|alpha_spaces',
           'capacidad'=>'required|min:2|max:3',
         ]);
         Grados::find($id)->update($request->all());

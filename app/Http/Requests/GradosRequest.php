@@ -25,6 +25,7 @@ class GradosRequest extends FormRequest
     {
         return [
             'codigo'=> 'required',
+            'seccion'=>'required',
             'capacidad'=> 'required',
             ];
     }

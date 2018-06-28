@@ -17,6 +17,7 @@ class CreateGradosTable extends Migration
             $table->increments('id');
             $table->string('codigo');
             $table->integer('capacidad');
+            $table->integer('seccion');
             $table->timestamps();
         });
     }
