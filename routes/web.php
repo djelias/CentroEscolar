@@ -18,6 +18,7 @@ Route::get('/SGECECST', function () {
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< HEAD
 Route::get('/home', 'HomeController@index')->name('home');
  Route::get('gestion', function()
 	{
@@ -30,3 +31,15 @@ Route::group(['middleware' => 'auth'], function() {
    	Route::resource('docentes','DocentesController'); 
 	Route::resource('grados','GradosController');
 });
+=======
+
+Route::resource('docentes','DocentesController'); 
+Route::resource('grados','GradosController');
+Route::resource('alumnos','AlumnosController');
+Route::resource('secretarias','SecretariasController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+>>>>>>> b783b869fc0bf2f240e633651a1e0d86131b370f
