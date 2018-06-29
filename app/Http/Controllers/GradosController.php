@@ -12,7 +12,7 @@ class GradosController extends Controller
     public function index(Request $request)
     {
         $nombre =$request->get('nombre');
-        $grados = Grados::orderBy('id','DESC')->nombre($nombre)->paginate();
+        $grados = Grados::orderBy('id','DESC')->nombre($nombre)->paginate(10);
         return view('grados.index',compact('grados'));
     }
 

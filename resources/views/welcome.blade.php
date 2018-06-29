@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -69,26 +70,39 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/gestion') }}">Gestión</a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}">Ingresar</a>
+                        <a href="{{ url('/register') }}">Registro</a>
                     @endif
                 </div>
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Sistema
+                <div>
+                    <h1>SISTEMA DE GESTION ESCOLAR</h1>
+                    <h3>CENTRO ESCOLAR CATOLICO SANTO TOMAS</h3> 
+                    <br>
+                    <div>
+                    <img src="{{URL::asset('/img/logo.png')}}" alt="profile Pic" height="200" width="200"></img>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div>
+                        <h4>
+                            <i>
+                            Calle Alberto Masferrer, Contiguo a Iglesia parroquial, Santo Tomás
+                            </i>
+                        </h4> 
                 </div>
+                 <div>
+                        <h4>
+                            <i>
+                            Teléfono: 2220-9942, correo eléctronico: catolicosantotomas@gmail.com
+                            </i>
+                        </h4> 
+                </div>
+                <br>
+                </div>
+                <br>
             </div>
         </div>
     </body>

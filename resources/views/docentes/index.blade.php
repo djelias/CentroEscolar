@@ -60,6 +60,10 @@
       </tr>
     @endforeach
   </table>
+  {!!$docentes->render()!!}
+ <div class="text-center">
+    <a class="btn btn-primary" href="{{ url('/gestion') }}">Regresar</a>
+  </div>
 @endsection
 
 

@@ -11,16 +11,22 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/SGECECST', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('docentes','DocentesController'); 
-Route::resource('grados','GradosController');
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+ Route::get('gestion', function()
+	{
+    return view('gestion');
+	});
+	Auth::routes();
+	Auth::routes();
+
+Route::group(['middleware' => 'auth'], function() {
+   	Route::resource('docentes','DocentesController'); 
+	Route::resource('grados','GradosController');
+});
