@@ -22,7 +22,7 @@
         </div>
          <button type="submit" class="glyphicon glyphicon-search btn-sm" data-toggle="tooltip" data-placement="top" title="Buscar"></button>
         {!! Form::close()!!}
-  <table class="table table-bordered">
+   <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
       <th>Rol</th>
@@ -48,5 +48,9 @@
       </tr>
     @endforeach
   </table>
+  {!!$secretarias->render()!!}
+ <div class="text-center">
+    <a class="btn btn-primary" href="{{ url('/gestion') }}">Regresar</a>
+  </div>
 @endsection
 

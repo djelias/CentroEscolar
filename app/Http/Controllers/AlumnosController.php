@@ -16,7 +16,7 @@ class AlumnosController extends Controller
     public function index(Request $request)
     {
         $nombre =$request->get('nombre');
-        $alumnos = Alumnos::orderBy('id','DESC')->nombre($nombre)->paginate();
+        $alumnos = Alumnos::orderBy('id','DESC')->nombre($nombre)->paginate(20);
         return view('alumnos.index',compact('alumnos'));
     }
 

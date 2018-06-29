@@ -7,13 +7,15 @@
                 <div class="navbar-header">
                     <!-- Branding Image -->
                     <ul class="nav navbar-nav">
-                    <li><a href="{{ route('docentes.index') }}">Docentes /</a></li>
-                    <li><a href="{{ route('docentes.index') }}"> Estudiantes /</a></li>
-                    <li><a href="{{ route('grados.index') }}">Grados </a></li>
+                    <li><a href="{{ route('secretarias.index') }}"><b>Secretaria /</b></a></li>
+                    <li><a href="{{ route('docentes.index') }}"><b>Docentes /</b></a></li>
+                    <li><a href="{{ route('alumnos.index') }}"><b> Estudiantes /</b></a></li>
+                    <li><a href="{{ route('grados.index') }}"><b>Grados </b></a></li>
                      </ul>
                 </div>
             </div>
         </nav>
+        <br>
             <div class="content">
                     <h3>BIENVENIDO/A <small> al Sistema de Gestión Escolar del Centro Escolar Católico Santo Tomás</small></h3>
                 </div>

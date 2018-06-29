@@ -16,7 +16,7 @@ class SecretariasController extends Controller
     public function index(Request $request)
     {
         $nombre =$request->get('nombre');
-        $secretarias = Secretarias::orderBy('id','DESC')->nombre($nombre)->paginate();
+        $secretarias = Secretarias::orderBy('id','DESC')->nombre($nombre)->paginate(10);
         return view('secretarias.index',compact('secretarias'));
     }
 

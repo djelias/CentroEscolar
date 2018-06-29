@@ -17,8 +17,8 @@
 
 </head>
 <body>
-    <div id="app"  >
-        <nav class="navbar navbar-default "role="navigation">
+    <div id="app" style="overflow-y: auto; overflow-x: hidden;"  >
+        <nav class="navbar navbar-default "role="navigation" style="background-color: #A9D0F5;">
             <div class="container">
                 <div class="navbar-header">
 
@@ -72,18 +72,19 @@
                 </div>
             </div>
     </nav>
-<div class="container" style="overflow-y: auto; overflow-x: hidden;">
+<div class="container">
     @yield('content')
 </div>
 <br>
-    <br>
-    <br>
-    <br>
-        <nav class="navbar navbar-default">
-        <p><span class="glyphicon glyphicon-copyright-mark"></span> Centro Escolar Católico Santo Tomas, 2018</p>
-</nav>
-</div>
+<br>
+<br>
+        <div>
 
+            <nav class=" navbar navbar-fixed-bottom" style="background-color: #D6EAF8 ; padding-top: 10px;">
+        <p> &emsp;<span class="glyphicon glyphicon-copyright-mark"></span> Centro Escolar Católico Santo Tomas, 2018</p>
+        </nav>
+        </div>     
+</div>
 </div>
     <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
