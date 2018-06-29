@@ -1,3 +1,45 @@
+ <div class="row">
+    <div class="col-sm-2">
+      {!! form::label('id_docente','Docente') !!}
+    </div>
+    <div class="col-sm-10">
+      <div class="form-group {{ $errors->has('id_docente') ? 'has-error' : "" }}">
+       <i>{{ Form::text('id_docente',NULL, ['class'=>'form-control', 'id'=>'id_docente', 'placeholder'=>'Correlativo del docente...']) }}</i> 
+        <div class="help-block" > 
+          <strong>{{ $errors->first('corre', '**Ingrese datos válidos A-Z') }}</strong>
+      </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="row">
+    <div class="col-sm-2">
+      {!! form::label('id_grado','Grado') !!}
+    </div>
+    <div class="col-sm-10">
+      <div class="form-group {{ $errors->has('id_grado') ? 'has-error' : "" }}">
+       <i>{{ Form::text('id_grado',NULL, ['class'=>'form-control', 'id'=>'id_grado', 'placeholder'=>'Correlativo del grado...']) }}</i> 
+        <div class="help-block" > 
+          <strong>{{ $errors->first('correlativo', '**Ingrese datos válidos A-Z') }}</strong>
+      </div>
+      </div>
+    </div>
+  </div>
+
+   <div class="row">
+    <div class="col-sm-2">
+      {!! form::label('id_secretaria','Secretaria') !!}
+    </div>
+    <div class="col-sm-10">
+      <div class="form-group {{ $errors->has('id_secretaria') ? 'has-error' : "" }}">
+       <i>{{ Form::text('id_secretaria',NULL, ['class'=>'form-control', 'id'=>'id_secretaria', 'placeholder'=>'Correlativo de la secretaria...']) }}</i> 
+        <div class="help-block" > 
+          <strong>{{ $errors->first('correlativo', '**Ingrese datos válidos A-Z') }}</strong>
+      </div>
+      </div>
+    </div>
+  </div>
+
    <div class="row">
     <div class="col-sm-2">
       {!! form::label('nombres','Nombres') !!}

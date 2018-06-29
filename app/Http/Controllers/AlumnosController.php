@@ -39,6 +39,9 @@ class AlumnosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'id_docente'=>'required|numeric',
+            'id_grado'=>'required|numeric',
+            'id_secretaria'=>'required|numeric',
             'nombres'=>'required|alpha_spaces',
             'apellidos'=>'required|alpha_spaces',
             'correo'=>'required|email',
@@ -86,6 +89,9 @@ class AlumnosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
+            'id_docente'=>'required|numeric',
+            'id_grado'=>'required|numeric',
+            'id_secretaria'=>'required|numeric',
             'nombres'=>'required|alpha_spaces',
             'apellidos'=>'required|alpha_spaces',
             'correo'=>'required|email',

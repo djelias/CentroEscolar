@@ -30,8 +30,8 @@ class GradosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-          'id_docente'=>'required|numeric|digits:1',
-          'id_secretaria'=>'required|numeric|digits:1',
+          'id_docente'=>'required|numeric',
+          'id_secretaria'=>'required|numeric',
           'codigo'=>'required|alpha_spaces',
           'seccion'=>'required|alpha_spaces',
           'capacidad'=>'required|min:2|max:3',
@@ -74,8 +74,8 @@ class GradosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-          'id_docente'=>'required|numeric|digits:1',
-          'id_secretaria'=>'required|numeric|digits:1',
+          'id_docente'=>'required|numeric',
+          'id_secretaria'=>'required|numeric',
           'codigo'=>'required|alpha_spaces',
           'seccion'=>'required|alpha_spaces',
           'capacidad'=>'required|min:2|max:3',

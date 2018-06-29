@@ -24,6 +24,9 @@ class AlumnosRequest extends FormRequest
     public function rules()
     {
         return [
+            'id_docente'=>'required|numeric',
+            'id_grado'=>'required|numeric',
+            'id_secretaria'=>'required|numeric',
             'nombres'=>'required|alpha_spaces',
             'apellidos'=>'required|alpha_spaces',
             'correo'=>'required|email',
