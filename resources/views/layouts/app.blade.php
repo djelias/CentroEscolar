@@ -78,8 +78,8 @@
 <br>
 <br>
 <br>
+<br>
         <div>
-
             <nav class=" navbar navbar-fixed-bottom" style="background-color: #D6EAF8 ; padding-top: 10px;">
         <p> &emsp;<span class="glyphicon glyphicon-copyright-mark"></span> Centro Escolar Católico Santo Tomas, 2018</p>
         </nav>

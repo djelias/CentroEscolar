@@ -20,10 +20,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
- Route::get('gestion', function()
-	{
-    return view('gestion');
-	});
+
 	Auth::routes();
 	Auth::routes();
 
@@ -32,6 +29,10 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::resource('grados','GradosController');
 	Route::resource('alumnos','AlumnosController');
 	Route::resource('secretarias','SecretariasController');
+	 Route::get('gestion', function()
+	{
+    return view('gestion');
+	});
 });
 
 
