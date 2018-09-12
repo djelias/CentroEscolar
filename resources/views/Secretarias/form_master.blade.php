@@ -12,6 +12,7 @@
     </div>
   </div>
 
+    <!-- -->
     <div class="row">
     <div class="col-sm-2">
       {!! form::label('nombre','Nombre') !!}

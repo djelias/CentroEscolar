@@ -4,7 +4,7 @@
     </div>
     <div class="col-sm-10">
       <div class="form-group {{ $errors->has('apellidos') ? 'has-error' : "" }}">
-       <i>{{ Form::text('nombres',NULL, ['class'=>'form-control', 'id'=>'nombres', 'placeholder'=>'Nombres del docente...']) }}</i> 
+       <i>{{ Form::text('nombres',NULL, ['class'=>'form-control', 'id'=>'nombres', 'placeholder'=>'No mbres del docente...']) }}</i> 
         <div class="help-block" > 
           <strong>{{ $errors->first('nombres', '**Ingrese datos válidos A-Z') }}</strong>
       </div>

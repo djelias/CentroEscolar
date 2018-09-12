@@ -33,7 +33,11 @@
       <th style="text-align:center">Secretaria</th>
       <th style="text-align:center">Nombres</th>
       <th style="text-align:center">Apellidos</th>
-      <th style="text-align:center">E-mail</th>
+      
+      <!-- -->
+        <th style="text-align:center">E-mail</th>
+
+      
       <th style="text-align:center">NIE</th>
       <th style="text-align:center">Grado</th>
       <th style="text-align:center">Matricula</th>
@@ -49,7 +53,9 @@
         <td>{{ $value->id_secretaria }}</td>
         <td>{{ $value->nombres }}</td>
         <td>{{ $value->apellidos }}</td>
-        <td>{{ $value->correo }}</td>
+        <!-- -->
+          <td>{{ $value->correo }}</td>
+
         <td>{{ $value->no_nie }}</td>
         <td>{{ $value->grado }}</td>
         <td>{{ $value->t_matricula }}</td>
