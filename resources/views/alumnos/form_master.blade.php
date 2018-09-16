@@ -1,45 +1,3 @@
- <div class="row">
-    <div class="col-sm-2">
-      {!! form::label('id_docente','Docente') !!}
-    </div>
-    <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('id_docente') ? 'has-error' : "" }}">
-       <i>{{ Form::text('id_docente',NULL, ['class'=>'form-control', 'id'=>'id_docente', 'placeholder'=>'Correlativo del docente...']) }}</i> 
-        <div class="help-block" > 
-          <strong>{{ $errors->first('corre', '**Ingrese datos válidos A-Z') }}</strong>
-      </div>
-      </div>
-    </div>
-  </div>
-
-      <div class="row">
-    <div class="col-sm-2">
-      {!! form::label('id_grado','Grado') !!}
-    </div>
-    <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('id_grado') ? 'has-error' : "" }}">
-       <i>{{ Form::text('id_grado',NULL, ['class'=>'form-control', 'id'=>'id_grado', 'placeholder'=>'Correlativo del grado...']) }}</i> 
-        <div class="help-block" > 
-          <strong>{{ $errors->first('correlativo', '**Ingrese datos válidos A-Z') }}</strong>
-      </div>
-      </div>
-    </div>
-  </div>
-
-   <div class="row">
-    <div class="col-sm-2">
-      {!! form::label('id_secretaria','Secretaria') !!}
-    </div>
-    <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('id_secretaria') ? 'has-error' : "" }}">
-       <i>{{ Form::text('id_secretaria',NULL, ['class'=>'form-control', 'id'=>'id_secretaria', 'placeholder'=>'Correlativo de la secretaria...']) }}</i> 
-        <div class="help-block" > 
-          <strong>{{ $errors->first('correlativo', '**Ingrese datos válidos A-Z') }}</strong>
-      </div>
-      </div>
-    </div>
-  </div>
-
    <div class="row">
     <div class="col-sm-2">
       {!! form::label('nombres','Nombres') !!}
@@ -53,6 +11,7 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-sm-2">
       {!! form::label('apellidos','Apellidos') !!}
@@ -66,19 +25,7 @@
       </div>
     </div>
     </div>
-    <div class="row">
-	    <div class="col-sm-5">
-	      {!! form::label('correo','Correo Electrónico') !!}
-	    </div>
-      <div class="col-sm-7">
-	    <div class="form-group {{ $errors->has('correo') ? 'has-error' : "" }}">
-	      <i>{{Form :: text ('correo', NULL, ['class'=>'form-control', 'id'=>'correo', 'placeholder'=>'E-mail'])}}</i>
-	        <div class="help-block"> 
-	          <strong>{{ $errors->first('correo', '**Ingrese Direccion de correo electrónico') }}</strong>
-          </div>
-	        </div>
-	    </div>
-    </div>
+
     <div class="row">
     <div class="col-sm-5">
       {!! form::label('no_nie','Numero de NIE') !!}
@@ -91,34 +38,9 @@
       </div>
     </div>
   </div>
-      </div>
+</div>
+
   <div class="row">
-    <div class="col-sm-5">
-      {!! form::label('grado','Grado') !!}
-    </div>
-    <div class="col-sm-5">
-      <div class="form-group {{ $errors->has('grado') ? 'has-error' : "" }}">
-       <i>{{ Form::text('grado',NULL, ['class'=>'form-control', 'id'=>'grado', 'placeholder'=>'Grado del alumno...']) }} </i>
-        <div class="help-block"> 
-          <strong>{{ $errors->first('grado', '**Ingrese Grado correctamente') }}</strong>
-      </div>
-    </div>
-    </div>
-   </div>
-      <div class="row">
-    <div class="col-sm-5">
-      {!! form::label('t_matricula','Tipo de Matricula') !!}
-    </div>
-    <div class="col-sm-5">
-    <div class="form-group {{ $errors->has('t_matricula') ? 'has-error' : "" }}">
-      <i>{{Form :: text ('t_matricula', NULL, ['class'=>'form-control', 'id'=>'t_matricula', 'placeholder'=>'Tipo'])}}</i>
-        <div class="help-block"> 
-          <strong>{{ $errors->first('t_matricula', '**Ingrese Tipo correctamente') }}</strong>
-    </div>
-    </div>
-    </div>
-    </div>
-   <div class="row">
     <div class="col-sm-5">
       {!! form::label('f_nacimiento','Fecha de nacimiento') !!}
     </div>

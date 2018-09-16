@@ -1,18 +1,4 @@
-    <div class="row">
-    <div class="col-sm-2">
-      {!! form::label('id_materia','Codigo Materia') !!}
-    </div>
-    <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('nombre') ? 'has-error' : "" }}">
-       <i>{{ Form::text('id_materia',NULL, ['class'=>'form-control', 'id'=>'id_materia', 'placeholder'=>'Codigo de la materia...']) }}</i> 
-        <div class="help-block" > 
-          <strong>{{ $errors->first('id_materia', '**Ingrese datos válidos A-Z') }}</strong>
-      </div>
-      </div>
-    </div>
-  </div>
-
-    <div class="row">
+<div class="row">
     <div class="col-sm-2">
       {!! form::label('nombre','Nombre Materia') !!}
     </div>

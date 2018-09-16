@@ -25,21 +25,17 @@
    <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
-      <th>Codigo</th>
+      <th>Nombre</th>
       <th>Seccion</th>
       <th>Capacidad</th>
-      <th>Docente</th>
-      <th>Secretaria</th>
     </tr>
     <?php $no=1; ?>
     @foreach ($grados as $key => $value)
     <tr>
         <td>{{$no++}}</td>
-        <td>{{ $value->codigo }}</td>
+        <td>{{ $value->nombre }}</td>
         <td>{{ $value->seccion }}</td>
         <td>{{ $value->capacidad }}</td>
-        <td>{{ $value->id_docente }}</td>
-        <td>{{ $value->id_secretaria }}</td>
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('grados.show',$value->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>

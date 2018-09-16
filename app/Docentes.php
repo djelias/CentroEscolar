@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Docentes extends Model
 {
-    protected $fillable = ['nombres','apellidos','no_dui','no_escalafon','telefono','direccion','correo'];
+    protected $fillable = ['id_usuario','no_dui','no_escalafon','telefono','direccion'];
     protected $dates = ['created_at','updated_at'];
 
-    public function scopeNombre($query, $nombre)
+    public function scopeNombre($query, $id_usuario)
 	{
-		return $query->where('nombres', 'LIKE', "%$nombre%");
+		return $query->where('id_usuario', 'LIKE', "%$id_usuario%");
 	}
 
 }

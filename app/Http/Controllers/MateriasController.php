@@ -29,7 +29,6 @@ class MateriasController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-          'id_materia'=>'required|numeric',
           'nombre'=>'required|alpha_spaces',
         ]);
         Materias::create($request->all());
@@ -70,7 +69,6 @@ class MateriasController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-          'id_materia'=>'required|numeric',
           'nombre'=>'required|alpha_spaces',
         ]);
         Materias::find($id)->update($request->all());

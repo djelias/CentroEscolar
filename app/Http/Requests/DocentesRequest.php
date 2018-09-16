@@ -24,8 +24,6 @@ class DocentesRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombres'=> 'required',
-            'apellidos'=> 'required',
             'no_escalafon'=> 'required',
                 ];
     }

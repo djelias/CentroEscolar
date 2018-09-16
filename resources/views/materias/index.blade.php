@@ -25,7 +25,6 @@
    <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
-      <th>id Materia</th>
       <th>Nombre</th>
      
           </tr>
@@ -33,7 +32,6 @@
     @foreach ($materias as $key => $value)
     <tr>
         <td>{{$no++}}</td>
-        <td>{{ $value->id_materia }}</td>
         <td>{{ $value->nombre }}</td>
         
        

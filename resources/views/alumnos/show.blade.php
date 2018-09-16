@@ -21,30 +21,14 @@
             {{ $alumno->apellidos}}
         </div>
     </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Correo Electrónico: </strong>
-            {{ $alumno->correo}}
-        </div>
-    </div>
+        
      <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Número de NIE: </strong>
             {{ $alumno->no_nie}}
         </div>
     </div>
-     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Grado : </strong>
-            {{ $alumno->grado}}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Tipo de Matricula : </strong>
-            {{ $alumno->t_matricula}}
-        </div>
-    </div>
+     
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Fecha de Nacimiento: </strong>

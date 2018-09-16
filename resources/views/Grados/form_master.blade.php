@@ -1,40 +1,12 @@
-    <div class="row">
+<div class="row">
     <div class="col-sm-2">
-      {!! form::label('id_docente','Docente') !!}
+      {!! form::label('nombre','Nombre') !!}
     </div>
     <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('id_docente') ? 'has-error' : "" }}">
-       <i>{{ Form::text('id_docente',NULL, ['class'=>'form-control', 'id'=>'id_docente', 'placeholder'=>'Correlativo del docente...']) }}</i> 
+      <div class="form-group {{ $errors->has('nombre') ? 'has-error' : "" }}">
+       <i>{{ Form::text('nombre',NULL, ['class'=>'form-control', 'id'=>'nombre', 'placeholder'=>'Nombre del grado...']) }}</i> 
         <div class="help-block" > 
-          <strong>{{ $errors->first('corre', '**Ingrese datos válidos A-Z') }}</strong>
-      </div>
-      </div>
-    </div>
-  </div>
-
-    <div class="row">
-    <div class="col-sm-2">
-      {!! form::label('id_secretaria','Secretaria') !!}
-    </div>
-    <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('id_secretaria') ? 'has-error' : "" }}">
-       <i>{{ Form::text('id_secretaria',NULL, ['class'=>'form-control', 'id'=>'id_secretaria', 'placeholder'=>'Correlativo de la secretaria...']) }}</i> 
-        <div class="help-block" > 
-          <strong>{{ $errors->first('corre', '**Ingrese datos válidos A-Z') }}</strong>
-      </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-2">
-      {!! form::label('codigo','Codigo') !!}
-    </div>
-    <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('codigo') ? 'has-error' : "" }}">
-       <i>{{ Form::text('codigo',NULL, ['class'=>'form-control', 'id'=>'codigo', 'placeholder'=>'Codigo del grado...']) }}</i> 
-        <div class="help-block" > 
-          <strong>{{ $errors->first('codigo', '**Ingrese datos válidos A-Z') }}</strong>
+          <strong>{{ $errors->first('nombre', '**Ingrese datos válidos A-Z') }}</strong>
       </div>
       </div>
     </div>

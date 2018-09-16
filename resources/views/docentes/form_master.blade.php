@@ -1,29 +1,17 @@
-   <div class="row">
+<div class="row">
     <div class="col-sm-2">
-      {!! form::label('nombres','Nombres') !!}
+      {!! form::label('id_usuario','Usuario') !!}
     </div>
     <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('apellidos') ? 'has-error' : "" }}">
-       <i>{{ Form::text('nombres',NULL, ['class'=>'form-control', 'id'=>'nombres', 'placeholder'=>'No mbres del docente...']) }}</i> 
+      <div class="form-group {{ $errors->has('id_usuario') ? 'has-error' : "" }}">
+       <i>{{ Form::text('id_usuario',NULL, ['class'=>'form-control', 'id'=>'id_usuario', 'placeholder'=>'Correlativo del usuario...']) }}</i> 
         <div class="help-block" > 
-          <strong>{{ $errors->first('nombres', '**Ingrese datos válidos A-Z') }}</strong>
+          <strong>{{ $errors->first('corre', '**Ingrese datos válidos') }}</strong>
       </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-2">
-      {!! form::label('apellidos','Apellidos') !!}
-    </div>
-    <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('apellidos') ? 'has-error' : "" }}">
-        <i>{{ Form::text('apellidos',NULL, ['class'=>'form-control', 'id'=>'apellidos', 'placeholder'=>'Apellidos del docente...']) }}</i>
-        <div class="help-block" >
-        <strong>{{ $errors->first('apellidos', '**Ingrese datos válidos A-Z') }}</strong> 
-      </div>
-      </div>
-    </div>
-    </div>
+
     <div class="row">
     <div class="col-sm-5">
       {!! form::label('no_dui','Numero de DUI') !!}
@@ -74,17 +62,7 @@
     </div>
     </div>
     </div>
-    <div class="row">
-    <div class="col-sm-5">
-      {!! form::label('correo','Correo Electrónico') !!}
-    </div>
-    <div class="form-group {{ $errors->has('correo') ? 'has-error' : "" }}">
-      <i>{{Form :: text ('correo', NULL, ['class'=>'form-control', 'id'=>'correo', 'placeholder'=>'E-mail'])}}</i>
-        <div class="help-block"> 
-          <strong>{{ $errors->first('correo', '**Ingrese Direccion de correo electrónico') }}</strong>
-    </div>
-    </div>
-    </div>
+ 
     <br>
        <div class="form-group text-center" >
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}

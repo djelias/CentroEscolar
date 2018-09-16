@@ -24,7 +24,7 @@ class GradosRequest extends FormRequest
     public function rules()
     {
         return [
-            'codigo'=> 'required',
+            'nombre'=> 'required',
             'seccion'=>'required',
             'capacidad'=> 'required',
             ];

@@ -39,15 +39,9 @@ class AlumnosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'id_docente'=>'required|numeric',
-            'id_grado'=>'required|numeric',
-            'id_secretaria'=>'required|numeric',
             'nombres'=>'required|alpha_spaces',
             'apellidos'=>'required|alpha_spaces',
-            'correo'=>'required|email',
             'no_nie'=>'required|numeric',
-            'grado'=>'required',
-            't_matricula'=>'required',
             'f_nacimiento'=>'required|date',
             'edad'=>'required|numeric'
         ]);
@@ -89,15 +83,9 @@ class AlumnosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'id_docente'=>'required|numeric',
-            'id_grado'=>'required|numeric',
-            'id_secretaria'=>'required|numeric',
             'nombres'=>'required|alpha_spaces',
             'apellidos'=>'required|alpha_spaces',
-            'correo'=>'required|email',
             'no_nie'=>'required|numeric',
-            'grado'=>'required',
-            't_matricula'=>'required',
             'f_nacimiento'=>'required|date',
             'edad'=>'required|numeric'
         ]);

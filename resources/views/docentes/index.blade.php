@@ -28,26 +28,22 @@
   <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
-      <th style="text-align:center">Nombres</th>
-      <th style="text-align:center">Apellidos</th>
+      <th style="text-align:center">Usuario</th>
       <th style="text-align:center">DUI</th>
       <th style="text-align:center">Escalafón</th>
       <th style="text-align:center">Teléfono</th>
       <th style="text-align:center">Dirección</th>
-      <th style="text-align:center">E-mail</th>
       <th style="text-align:center">Acción</th>
     </tr>
     <?php $no=1; ?>
     @foreach ($docentes as $key => $value)
     <tr>
         <td>{{$no++}}</td>
-        <td>{{ $value->nombres }}</td>
-        <td>{{ $value->apellidos }}</td>
+        <td>{{ $value->id_usuario }}</td>
         <td>{{ $value->no_dui }}</td>
         <td>{{ $value->no_escalafon }}</td>
         <td>{{ $value->telefono }}</td>
         <td>{{ $value->direccion }}</td>
-        <td>{{ $value->correo }}</td>
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('docentes.show',$value->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>

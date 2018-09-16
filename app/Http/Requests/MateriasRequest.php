@@ -24,7 +24,6 @@ class MateriasRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_materia'=> 'required',
             'nombre'=>'required',
             
             ];

@@ -30,11 +30,9 @@ class GradosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-          'id_docente'=>'required|numeric',
-          'id_secretaria'=>'required|numeric',
-          'codigo'=>'required|alpha_spaces',
+          'nombre'=>'required|alpha_spaces',
           'seccion'=>'required|alpha_spaces',
-          'capacidad'=>'required|min:2|max:3',
+          'capacidad'=>'required|numeric',
         ]);
         Grados::create($request->all());
         return redirect()->route('grados.index')->with('success','Grado guardado con éxito');
@@ -74,11 +72,9 @@ class GradosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-          'id_docente'=>'required|numeric',
-          'id_secretaria'=>'required|numeric',
-          'codigo'=>'required|alpha_spaces',
+          'nombre'=>'required|alpha_spaces',
           'seccion'=>'required|alpha_spaces',
-          'capacidad'=>'required|min:2|max:3',
+          'capacidad'=>'required|numeric',
         ]);
         Grados::find($id)->update($request->all());
         return redirect()->route('grados.index')->with('success','Grado actualizado con exito');
