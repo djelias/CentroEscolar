@@ -12,13 +12,13 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Nombres : </strong>
-            {{ $docente->nombres}}
+            {{ $docente->User->name}}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Apellidos : </strong>
-            {{ $docente->apellidos}}
+            {{ $docente->User->apellidos}}
         </div>
     </div>
      <div class="col-xs-12 col-sm-12 col-md-12">

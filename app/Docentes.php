@@ -14,4 +14,8 @@ class Docentes extends Model
 		return $query->where('id_usuario', 'LIKE', "%$id_usuario%");
 	}
 
+	public function user(){
+    return $this->belongsTo('App\User', 'id_usuario');
+}
+
 }
