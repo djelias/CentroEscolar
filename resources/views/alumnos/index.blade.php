@@ -33,6 +33,7 @@
       <th style="text-align:center">NIE</th>
       <th style="text-align:center">F Nacimiento</th>
       <th style="text-align:center">Edad</th>
+      <th style="text-align:center">Accion</th>
     </tr>
     <?php $no=1; ?>
     @foreach ($alumnos as $key => $value)
@@ -42,7 +43,12 @@
         <td>{{ $value->apellidos }}</td>
         <td>{{ $value->no_nie }}</td>
         <td>{{ $value->f_nacimiento }}</td>
-        <td>{{ $value->edad }}</td>
+        <td><?php
+    $cumpleanos = new DateTime($value->f_nacimiento);
+    $hoy = new DateTime();
+    $annos = $hoy->diff($cumpleanos);
+    echo $annos->y;
+    ?></td>
         
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('alumnos.show',$value->id)}}">

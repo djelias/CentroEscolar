@@ -27,8 +27,7 @@ class AlumnosRequest extends FormRequest
             'nombres'=>'required|alpha_spaces',
             'apellidos'=>'required|alpha_spaces',
             'no_nie'=>'required|numeric|min:7',
-            'f_nacimiento'=>'required|date',
-            'edad'=>'required|numeric'
+            'f_nacimiento'=>'required|date'
         ];
     }
 }

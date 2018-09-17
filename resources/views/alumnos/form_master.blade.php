@@ -46,26 +46,14 @@
     </div>
     <div class="col-sm-5">
       <div class="form-group {{ $errors->has('f_nacimiento') ? 'has-error' : "" }}">
-       <i>{{ Form::text('f_nacimiento',NULL, ['class'=>'form-control', 'id'=>'f_nacimiento', 'placeholder'=>'Fecha(yyyy-mm-dd)']) }} </i> 
-        <div class="help-block"> 
+       <i>{{ Form::text('f_nacimiento',NULL, ['class'=>'form-control', 'id'=>'f_nacimiento', 'placeholder'=>'Fecha(yyyy-mm-dd)']) }} </i>
+               <div class="help-block"> 
           <strong>{{ $errors->first('f_nacimiento', '**Ingrese la Fecha correctamente') }}</strong>
       </div>
     </div>
   </div>
       </div>
-     <div class="row">
-    <div class="col-sm-5">
-      {!! form::label('edad','Edad') !!}
-    </div>
-    <div class="col-sm-5">
-    <div class="form-group {{ $errors->has('edad') ? 'has-error' : "" }}">
-      <i>{{Form :: text ('edad', NULL, ['class'=>'form-control', 'id'=>'edad', 'placeholder'=>'Edad'])}}</i>
-        <div class="help-block"> 
-          <strong>{{ $errors->first('edad', '**Ingrese Edad correctamente') }}</strong>
-    </div>
-    </div>
-    </div>
-  </div>
+
 
 
     <br>

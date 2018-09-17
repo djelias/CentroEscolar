@@ -28,6 +28,7 @@
       <th>Nombre</th>
       <th>Seccion</th>
       <th>Capacidad</th>
+      <th>Accion</th>
     </tr>
     <?php $no=1; ?>
     @foreach ($grados as $key => $value)

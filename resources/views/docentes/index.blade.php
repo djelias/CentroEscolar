@@ -32,9 +32,10 @@
       <th style="text-align:center">Apellidos</th>
       <th style="text-align:center">DUI</th>
       <th style="text-align:center">Escalafón</th>
-      <th style="text-align:center">Teléfono</th>
-      <th style="text-align:center">Dirección</th>
-      <th style="text-align:center">Acción</th>
+      <th style="text-align:center">Telefono</th>
+      <th style="text-align:center">Direccion</th>
+      <th style="text-align:center">Correo</th>
+      <th style="text-align:center">Accion</th>
     </tr>
     <?php $no=1; ?>
     @foreach ($docentes as $key => $value)
@@ -42,11 +43,11 @@
         <td>{{$no++}}</td>
         <td>{{ $value->User->name }}</td>
         <td>{{ $value->User->apellidos }}</td>
-        <td>{{ $value->id_usuario }}</td>
         <td>{{ $value->no_dui }}</td>
         <td>{{ $value->no_escalafon }}</td>
         <td>{{ $value->telefono }}</td>
         <td>{{ $value->direccion }}</td>
+        <td>{{ $value->User->email }}</td>
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('docentes.show',$value->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>

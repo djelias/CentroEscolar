@@ -26,7 +26,7 @@
     <tr>
       <th with="80px">No</th>
       <th>Nombre</th>
-     
+      <th>Accion</th>
           </tr>
     <?php $no=1; ?>
     @foreach ($materias as $key => $value)

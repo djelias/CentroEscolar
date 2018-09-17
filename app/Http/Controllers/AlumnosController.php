@@ -42,8 +42,7 @@ class AlumnosController extends Controller
             'nombres'=>'required|alpha_spaces',
             'apellidos'=>'required|alpha_spaces',
             'no_nie'=>'required|numeric',
-            'f_nacimiento'=>'required|date',
-            'edad'=>'required|numeric'
+            'f_nacimiento'=>'required|date'
         ]);
         Alumnos::create($request->all());
         return redirect()->route('alumnos.index')->with('success','Alumno guardado con éxito');
@@ -86,8 +85,7 @@ class AlumnosController extends Controller
             'nombres'=>'required|alpha_spaces',
             'apellidos'=>'required|alpha_spaces',
             'no_nie'=>'required|numeric',
-            'f_nacimiento'=>'required|date',
-            'edad'=>'required|numeric'
+            'f_nacimiento'=>'required|date'
         ]);
         Alumnos::find($id)->update($request->all());
         return redirect()->route('alumnos.index')->with('success','Alumno actualizado con exito');

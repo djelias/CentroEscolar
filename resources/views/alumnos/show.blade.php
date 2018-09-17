@@ -37,8 +37,14 @@
     </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            
             <strong>Edad: </strong>
-            {{ $alumno->edad}}
+            <?php
+    $cumpleanos = new DateTime($alumno->f_nacimiento);
+    $hoy = new DateTime();
+    $annos = $hoy->diff($cumpleanos);
+    echo $annos->y;
+    ?>
         </div>
     </div>
 
