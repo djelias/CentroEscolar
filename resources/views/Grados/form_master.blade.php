@@ -1,29 +1,49 @@
-<div class="row">
+ <div class="row">
     <div class="col-sm-2">
-      {!! form::label('nombre','Nombre') !!}
+      {!! form::label('nombre','Grado') !!}
     </div>
+
     <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('nombre') ? 'has-error' : "" }}">
-       <i>{{ Form::text('nombre',NULL, ['class'=>'form-control', 'id'=>'nombre', 'placeholder'=>'Nombre del grado...']) }}</i> 
-        <div class="help-block" > 
-          <strong>{{ $errors->first('nombre', '**Ingrese datos válidos A-Z') }}</strong>
-      </div>
-      </div>
+    <div class="form-group {{ $errors->has('nombre') ? 'has-error' : "" }}">
+      
+            <select name="nombre" class="form-control">
+                <option value="" disabled selected>Seleccione uno</option>
+                <option>Kinder</option>
+                <option>Preparatoria</option>
+                <option>Primero</option>
+                <option>Segundo</option>
+                <option>Tercero</option>
+                <option>Cuarto</option>
+                <option>Quinto</option>
+                <option>Sexto</option>
+                <option>Séptimo</option>
+                <option>Octavo</option>
+                <option>Noveno</option>
+            </select>
+           
+            <div class="help-block" >
+               <strong>{{ $errors->first('nombre', 'Obligatorio') }}</strong> 
+           </div>
+        </div>
     </div>
   </div>
 
-  <div class="row">
+   <div class="row">
     <div class="col-sm-2">
-      {!! form::label('seccion','Seccion') !!}
+      {!! form::label('seccion','Sección') !!}
     </div>
-    <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('seccion') ? 'has-error' : "" }}">
-       <i>{{ Form::text('seccion',NULL, ['class'=>'form-control', 'id'=>'seccion', 'placeholder'=>'seccion del grado...']) }}</i> 
-        <div class="help-block" > 
-          <strong>{{ $errors->first('seccion', '**Ingrese datos válidos A-Z') }}</strong>
+    <div class="col-sm-4">
+         <div class="form-group {{ $errors->has('seccion') ? 'has-error' : "" }}">
+           <select name="seccion" id="seccion" class="form-control" >
+                <option value="" disabled selected>Seleccione uno</option>
+                <option>A</option>
+                <option>B</option>
+            </select>
+            <div class="help-block" >
+        <strong>{{ $errors->first('seccion', 'Obligatorio') }}</strong> 
       </div>
-      </div>
-    </div>
+        </div>
+   </div>
   </div>
 
   <div class="row">

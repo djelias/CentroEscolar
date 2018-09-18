@@ -29,7 +29,6 @@
     <tr>
       <th with="80px">No</th>
       <th style="text-align:center">Nombre</th>
-      <th style="text-align:center">Apellidos</th>
       <th style="text-align:center">DUI</th>
       <th style="text-align:center">Escalafón</th>
       <th style="text-align:center">Telefono</th>
@@ -42,7 +41,6 @@
     <tr>
         <td>{{$no++}}</td>
         <td>{{ $value->User->name }}</td>
-        <td>{{ $value->User->apellidos }}</td>
         <td>{{ $value->no_dui }}</td>
         <td>{{ $value->no_escalafon }}</td>
         <td>{{ $value->telefono }}</td>

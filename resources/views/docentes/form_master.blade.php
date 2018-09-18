@@ -1,12 +1,27 @@
-<div class="row">
+   <div class="row">
     <div class="col-sm-2">
+      {!! form::label('Nombre') !!}
+    </div>
+     <div class="col-sm-10">
+      <div class="form-group">
+      <select class="form-control">
+                <option value="" disabled selected>Seleccione uno</option>
+                @foreach($users as $user)
+                      <option value="{{$user->id}}">{{$user->id}}. {{$user->name}}</option>
+                 @endforeach
+            </select>  
+  </div>
+</div>
+ </div>
+<div class="row">
+    <div class="col-sm-5">
       {!! form::label('id_usuario','Usuario') !!}
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-5">
       <div class="form-group {{ $errors->has('id_usuario') ? 'has-error' : "" }}">
        <i>{{ Form::text('id_usuario',NULL, ['class'=>'form-control', 'id'=>'id_usuario', 'placeholder'=>'Correlativo del usuario...']) }}</i> 
         <div class="help-block" > 
-          <strong>{{ $errors->first('corre', '**Ingrese datos válidos') }}</strong>
+          <strong>{{ $errors->first('id_usuario', '**Ingrese datos válidos') }}</strong>
       </div>
       </div>
     </div>
@@ -68,3 +83,4 @@
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
       <a class="btn btn-danger btn-lg" href="{{ route('docentes.index') }}">Cancelar</a>
     </div>
+ 

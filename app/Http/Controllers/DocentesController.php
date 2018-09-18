@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Docentes;
+use App\User;
 use docentes1\http\Request\DocentesRequest;
 
 class DocentesController extends Controller
@@ -15,9 +16,10 @@ class DocentesController extends Controller
      */
     public function index(Request $request)
     {
+        $users = User::all();
         $nombre =$request->get('nombre');
-        $docentes = Docentes::orderBy('id','DESC')->nombre($nombre)->paginate(10);
-        return view('docentes.index',compact('docentes'));
+        $docentes = Docentes::orderBy('id','ASC')->nombre($nombre)->paginate(10);
+        return view('docentes.index',compact('docentes','users'));
     }
 
     /**
@@ -27,7 +29,8 @@ class DocentesController extends Controller
      */
     public function create()
     {
-        return view('docentes.create');
+        $users = User::all();
+        return view('docentes.create', compact('users'));
     }
 
     /**
@@ -69,8 +72,9 @@ class DocentesController extends Controller
      */
     public function edit($id)
     {
-         $docente = Docentes::find($id);
-        return view('docentes.edit',compact('docente'));
+        $users = User::all();
+        $docente = Docentes::find($id);
+        return view('docentes.edit',compact('docente','users'));
     }
 
     /**

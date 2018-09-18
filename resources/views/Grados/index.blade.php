@@ -24,11 +24,11 @@
         {!! Form::close()!!}
    <table class="table table-striped" style="text-align:center" >
     <tr>
-      <th with="80px">No</th>
-      <th>Nombre</th>
-      <th>Seccion</th>
-      <th>Capacidad</th>
-      <th>Accion</th>
+      <th with="80px" style="text-align:center">No</th>
+      <th style="text-align:center">Nombre</th>
+      <th style="text-align:center">Seccion</th>
+      <th style="text-align:center">Capacidad</th>
+      <th style="text-align:center">Accion</th>
     </tr>
     <?php $no=1; ?>
     @foreach ($grados as $key => $value)

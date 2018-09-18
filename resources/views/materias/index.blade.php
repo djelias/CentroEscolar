@@ -24,17 +24,15 @@
         {!! Form::close()!!}
    <table class="table table-striped" style="text-align:center" >
     <tr>
-      <th with="80px">No</th>
-      <th>Nombre</th>
-      <th>Accion</th>
+      <th with="80px" style="text-align: center">No</th>
+      <th  style="text-align: center">Nombre</th>
+      <th  style="text-align: center">Accion</th>
           </tr>
     <?php $no=1; ?>
     @foreach ($materias as $key => $value)
     <tr>
         <td>{{$no++}}</td>
         <td>{{ $value->nombre }}</td>
-        
-       
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('materias.show',$value->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
