@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Materias;
-use materia1\http\Request\MateriasRequest;
+use materias1\http\Request\MateriasRequest;
 
 class MateriasController extends Controller
 {
@@ -44,7 +44,7 @@ class MateriasController extends Controller
     public function show($id)
     {
         $materia = Materias::find($id);
-      return view('materias.show',compact('materias'));
+      return view('materias.show',compact('materia'));
     }
 
     /**
@@ -56,7 +56,7 @@ class MateriasController extends Controller
     public function edit($id)
     {
          $materia = Materias::find($id);
-        return view('materias.edit',compact('materias'));
+        return view('materias.edit',compact('materia'));
     }
 
     /**
