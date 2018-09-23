@@ -4,29 +4,15 @@
     </div>
      <div class="col-sm-10">
       <div class="form-group">
-      <select class="form-control">
-                <option value="" disabled selected>Seleccione uno</option>
+      <i><select name="id_usuario" class="form-control">
+               <option disabled selected>Seleccione el docente</option>
                 @foreach($users as $user)
                       <option value="{{$user->id}}">{{$user->id}}. {{$user->name}}</option>
                  @endforeach
-            </select>  
-  </div>
+            </select></i>
+ </div>
 </div>
  </div>
-<div class="row">
-    <div class="col-sm-5">
-      {!! form::label('id_usuario','Usuario') !!}
-    </div>
-    <div class="col-sm-5">
-      <div class="form-group {{ $errors->has('id_usuario') ? 'has-error' : "" }}">
-       <i>{{ Form::text('id_usuario',NULL, ['class'=>'form-control', 'id'=>'id_usuario', 'placeholder'=>'Correlativo del usuario...']) }}</i> 
-        <div class="help-block" > 
-          <strong>{{ $errors->first('id_usuario', '**Ingrese datos válidos') }}</strong>
-      </div>
-      </div>
-    </div>
-  </div>
-
     <div class="row">
     <div class="col-sm-5">
       {!! form::label('no_dui','Numero de DUI') !!}

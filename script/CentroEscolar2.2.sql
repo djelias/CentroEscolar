@@ -51,8 +51,8 @@ create table ALUMNOS
 create table ASIGNACION 
 (
    id                   int                            not null AUTO_INCREMENT,
-   id_docente           int                            null,
-   id_grado             int                            null,
+   id_docente           int                            not null,
+   id_grado             int                            not null,
    anio                 int                            not null,
    created_at           timestamp,
    updated_at           timestamp,
@@ -79,7 +79,7 @@ create table ASIGNACION_ALUMNO
 create table DOCENTES 
 (
    id                   int                            not null AUTO_INCREMENT,
-   id_usuario           int                            null,
+   id_usuario           int                            not null,
    no_escalafon         numeric                        not null UNIQUE,
    no_dui               char(10)                       not null UNIQUE,
    telefono             char(8)                        not null,
