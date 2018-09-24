@@ -3,13 +3,16 @@
       {!! form::label('Docente') !!}
     </div>
      <div class="col-sm-10">
-      <div class="form-group">
+      <div class="form-group {{ $errors->has('id_docente') ? 'has-error' : "" }}">
       <i><select name="id_docente" class="form-control">
                 <option disabled selected>Seleccione docente</option>
                 @foreach($docentes as $docente)
                       <option value="{{$docente->id}}">{{$docente->id}}. {{$docente->user->name}}</option>
                  @endforeach
-            </select></i>  
+            </select></i> 
+            <div class="help-block"> 
+                <strong>{{ $errors->first('id_docente', 'Seleccione uno') }}</strong>
+          </div> 
   </div>
 </div>
  </div>
@@ -19,13 +22,16 @@
       {!! form::label('Grado') !!}
     </div>
      <div class="col-sm-10">
-      <div class="form-group">
+      <div class="form-group {{ $errors->has('id_grado') ? 'has-error' : "" }}">
       <i><select name="id_grado" class="form-control">
                 <option disabled selected>Seleccione grado</option>
                 @foreach($grados as $grado)
                       <option value="{{$grado->id}}">{{$grado->id}}. {{$grado->nombre}} {{$grado->seccion}}</option>
                  @endforeach
             </select></i>  
+            <div class="help-block"> 
+                <strong>{{ $errors->first('id_grado', 'Seleccione uno') }}</strong>
+          </div> 
   </div>
 </div>
  </div>
@@ -35,22 +41,25 @@
       {!! form::label('Materia') !!}
     </div>
      <div class="col-sm-10">
-      <div class="form-group">
+      <div class="form-group {{ $errors->has('id_materia') ? 'has-error' : "" }}">
       <i><select name="id_materia" class="form-control">
                 <option disabled selected>Seleccione materia</option>
                 @foreach($materias as $materia)
                       <option value="{{$materia->id}}">{{$materia->id}}. {{$materia->nombre}}</option>
                  @endforeach
             </select></i>  
+            <div class="help-block"> 
+                <strong>{{ $errors->first('id_materia', 'Seleccione uno') }}</strong>
+          </div> 
   </div>
 </div>
  </div>
 
  <div class="row">
-    <div class="col-sm-5">
+    <div class="col-sm-2">
       {!! form::label('anio','Año') !!}
     </div>
-    <div class="col-sm-5">
+    <div class="col-sm-4">
       <div class="form-group {{ $errors->has('anio') ? 'has-error' : "" }}">
        <i>{{ Form::text('anio',NULL, ['class'=>'form-control', 'id'=>'anio', 'placeholder'=>'xxxx','maxlength' => 4]) }} </i> 
         <div class="help-block"> 
