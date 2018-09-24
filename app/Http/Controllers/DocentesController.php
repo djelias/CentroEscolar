@@ -27,6 +27,7 @@ class DocentesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         $users = User::all();
@@ -42,12 +43,14 @@ class DocentesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-          'id_usuario'=>'required|numeric',
+
+           'id_usuario' => 'required|numeric',
           'no_escalafon'=>'required|numeric|digits:7',
           'no_dui'=>'required|min:10|max:10',
           'direccion'=>'required',
           'telefono'=>'required|numeric|digits:8',
         ]);
+        
         Docentes::create($request->all());
         return redirect()->route('docentes.index')->with('success','Docente guardado con éxito');
     }
