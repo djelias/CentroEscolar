@@ -12,7 +12,9 @@
                     <li><a href="{{ route('alumnos.index') }}"><b> Estudiantes /</b></a></li>
                     <li><a href="{{ route('grados.index') }}"><b>Grados / </b></a></li>
                     <li><a href="{{ route('materias.index') }}"><b>Materias / </b></a></li>
-                    <li><a href="{{ route('asignacionGradosMaterias.index') }}"><b>Asignacion materias a grados</b></a></li>
+                    <li><a href="{{ route('notas.index') }}"><b>Notas / </b></a></li>
+                    <li><a href="{{ route('asignaciones.index') }}"><b>Asignacion materias, grados y docentes</b></a></li>
+                    <li><a href="{{ route('asignacionAlumnosNotas.index') }}"><b>Asignacion alumno y notas</b></a></li>
                     </ul>
                 </div>
             </div>

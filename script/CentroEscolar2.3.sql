@@ -3,9 +3,9 @@
 /* Created on:     11/09/2018 12:32:35 a.m.                     */
 /*==============================================================*/
 
-drop table if exists ASIGNACION_ALUMNO;
+drop table if exists ASIGNACION_ALUMNOS_NOTAS;
 
-drop table if exists ASIGNACION;
+drop table if exists ASIGNACIONES;
 
 drop table if exists ASIGNACION_GRADO_MATERIA;
 
@@ -49,13 +49,14 @@ create table ALUMNOS
 );
 
 /*==============================================================*/
-/* Table: ASIGNACION                                            */
+/* Table: ASIGNACIONES                                          */
 /*==============================================================*/
-create table ASIGNACION 
+create table ASIGNACIONES 
 (
    id                   int                            not null AUTO_INCREMENT,
-   id_docente           int                            not null,
-   id_grado             int                            not null,
+   id_docente           int                            null,
+   id_grado             int                            null,
+   id_materia           int                            null,
    anio                 int                            not null,
    created_at           timestamp,
    updated_at           timestamp,
@@ -63,9 +64,9 @@ create table ASIGNACION
 );
 
 /*==============================================================*/
-/* Table: ASIGNACION_ALUMNO                                     */
+/* Table: ASIGNACION_ALUMNOS_NOTAS                              */
 /*==============================================================*/
-create table ASIGNACION_ALUMNO 
+create table ASIGNACION_ALUMNOS_NOTAS 
 (
    id                   int                            not null AUTO_INCREMENT,
    id_asignacion        int                            null,
@@ -97,7 +98,7 @@ create table DOCENTES
 /*==============================================================*/
 create table EVALUACION 
 (
-   ID                   int                            not null AUTO_INCREMENT,
+   id                   int                            not null AUTO_INCREMENT,
    id_materia           int                            null,
    id_nota              int                            null,
    nota1                float                          not null,
@@ -136,13 +137,14 @@ create table MATERIAS
 );
 
 /*==============================================================*/
-/* Table: NOTA                                                  */
+/* Table: NOTAS                                                 */
 /*==============================================================*/
-create table NOTA 
+create table NOTAS 
 (
    id                   int                            not null AUTO_INCREMENT,
-   id_asig_al           int                            null,
-   puntuacion           float                          not null,
+   nombre               varchar(50)                    not null,
+   ponderacion          float                          not null,
+   nota                 float                          null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_NOTA primary key (id)
@@ -214,26 +216,11 @@ create table USERS
    constraint PK_USUARIO primary key (id)
 );
 
-/*==============================================================*/
-/* Table: ASIGNACION_GRADO_MATERIA                                     */
-/*==============================================================*/
-create table ASIGNACION_GRADOS_MATERIAS 
-(
-   id                   int                            not null AUTO_INCREMENT,
-   id_grado             int                            null,
-   id_materia           int                            null,
-   created_at           timestamp,
-   updated_at           timestamp,
-   constraint PK_ASIGNACION_GRADO_MATERIA primary key (id)
-);
-
 alter table DOCENTES add foreign key (id_usuario) references USERS (id);
 
 alter table EVALUACION add foreign key (id_materia) references MATERIAS (id);
 
-alter table EVALUACION add foreign key (id_nota) references NOTA (id);
-
-alter table NOTA add foreign key (id_asig_al) references ASIGNACION_ALUMNO (id);
+alter table EVALUACION add foreign key (id_nota) references NOTAS (id);
 
 alter table PERMISO_ROL add foreign key (id_permisos) references PERMISOS (id);
 
@@ -243,19 +230,20 @@ alter table ROL_USUARIO add foreign key (id_usuario) references USERS (id);
 
 alter table ROL_USUARIO add foreign key (id_rol) references ROLES (id);
 
-alter table ASIGNACION add foreign key (id_grado) references GRADOS (id);
+alter table ASIGNACIONES add foreign key (id_grado) references GRADOS (id);
 
-alter table ASIGNACION add foreign key (id_docente) references DOCENTES (id);
+alter table ASIGNACIONES add foreign key (id_docente) references DOCENTES (id);
 
-alter table ASIGNACION_ALUMNO add foreign key (id_nota) references NOTA (id);
+alter table ASIGNACIONES add foreign key (id_materia) references MATERIAS (id);
 
-alter table ASIGNACION_ALUMNO add foreign key (id_asignacion) references ASIGNACION (id);
+alter table ASIGNACION_ALUMNOS_NOTAS add foreign key (id_nota) references NOTAS (id);
 
-alter table ASIGNACION_ALUMNO add foreign key (id_alumno) references ALUMNOS (id);
+alter table ASIGNACION_ALUMNOS_NOTAS add foreign key (id_asignacion) references ASIGNACIONES (id);
 
-alter table ASIGNACION_GRADOS_MATERIAS add foreign key (id_grado) references GRADOS (id);
-
-alter table ASIGNACION_GRADOS_MATERIAS add foreign key (id_materia) references MATERIAS (id);
+alter table ASIGNACION_ALUMNOS_NOTAS add foreign key (id_alumno) references ALUMNOS (id);
 
 alter table GRADOS add constraint GRADO_UNICO unique (nombre, seccion);
 
+alter table ASIGNACIONES add constraint GRADO_MATERIA_UNICO unique (id_grado, id_materia);
+
+alter table ASIGNACION_ALUMNOS_NOTAS add constraint ALUMNO_GRADO_UNICO unique (id_asignacion, id_alumno);

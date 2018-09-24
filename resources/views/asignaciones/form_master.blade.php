@@ -1,3 +1,19 @@
+      <div class="row">
+    <div class="col-sm-2">
+      {!! form::label('Docente') !!}
+    </div>
+     <div class="col-sm-10">
+      <div class="form-group">
+      <i><select name="id_docente" class="form-control">
+                <option disabled selected>Seleccione docente</option>
+                @foreach($docentes as $docente)
+                      <option value="{{$docente->id}}">{{$docente->id}}. {{$docente->user->name}}</option>
+                 @endforeach
+            </select></i>  
+  </div>
+</div>
+ </div>
+
    <div class="row">
     <div class="col-sm-2">
       {!! form::label('Grado') !!}
@@ -13,6 +29,7 @@
   </div>
 </div>
  </div>
+
    <div class="row">
     <div class="col-sm-2">
       {!! form::label('Materia') !!}
@@ -27,10 +44,25 @@
             </select></i>  
   </div>
 </div>
- </div> 
+ </div>
+
+ <div class="row">
+    <div class="col-sm-5">
+      {!! form::label('anio','Año') !!}
+    </div>
+    <div class="col-sm-5">
+      <div class="form-group {{ $errors->has('anio') ? 'has-error' : "" }}">
+       <i>{{ Form::text('anio',NULL, ['class'=>'form-control', 'id'=>'anio', 'placeholder'=>'xxxx','maxlength' => 4]) }} </i> 
+        <div class="help-block"> 
+          <strong>{{ $errors->first('anio', '**Ingrese un año correctamente') }}</strong>
+      </div>
+    </div>
+  </div>
+      </div>
+
     <br>
        <div class="form-group text-center" >
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
-      <a class="btn btn-danger btn-lg" href="{{ route('asignacionGradosMaterias.index') }}">Cancelar</a>
+      <a class="btn btn-danger btn-lg" href="{{ route('asignaciones.index') }}">Cancelar</a>
     </div>
  

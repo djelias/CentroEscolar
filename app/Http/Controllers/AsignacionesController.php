@@ -3,12 +3,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\AsignacionGradosMaterias;
+use App\Asignaciones;
+use App\Docentes;
 use App\Grados;
 use App\Materias;
-use asignacionGradosMaterias1\http\Request\AsignacionGradosMateriasRequest;
+use asignaciones1\http\Request\AsignacionesRequest;
 
-class AsignacionGradosMateriasController extends Controller
+class AsignacionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +18,12 @@ class AsignacionGradosMateriasController extends Controller
      */
     public function index(Request $request)
     {
+        $docentes = Docentes::all();
         $grados = Grados::all();
         $materias = Materias::all();
         $nombre =$request->get('nombre');
-        $asignacionGradosMaterias = AsignacionGradosMaterias::orderBy('id','ASC')->nombre($nombre)->paginate(10);
-        return view('asignacionGradosMaterias.index',compact('asignacionGradosMaterias','grados','materias'));
+        $asignaciones = Asignaciones::orderBy('id','ASC')->nombre($nombre)->paginate(10);
+        return view('asignaciones.index',compact('asignaciones','docentes','grados','materias'));
     }
 
     /**
@@ -31,9 +33,10 @@ class AsignacionGradosMateriasController extends Controller
      */
     public function create()
     {
+        $docentes = Docentes::all();
         $grados = Grados::all();
         $materias = Materias::all();
-        return view('asignacionGradosMaterias.create', compact('grados','materias'));
+        return view('asignaciones.create', compact('docentes','grados','materias'));
     }
 
     /**
@@ -45,11 +48,13 @@ class AsignacionGradosMateriasController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+          'id_docente'=>'required|numeric',  
           'id_grado'=>'required|numeric',
           'id_materia'=>'required|numeric',
+          'anio'=>'required|numeric',
         ]);
-        AsignacionGradosMaterias::create($request->all());
-        return redirect()->route('asignacionGradosMaterias.index')->with('success','Asignacion guardada con éxito');
+        Asignaciones::create($request->all());
+        return redirect()->route('asignaciones.index')->with('success','Asignacion guardada con éxito');
     }
 
     /**
@@ -60,8 +65,8 @@ class AsignacionGradosMateriasController extends Controller
      */
     public function show($id)
     {
-        $asignacionGradoMateria = AsignacionGradosMaterias::find($id);
-      return view('asignacionGradosMaterias.show',compact('asignacionGradoMateria'));
+        $asignacion = Asignaciones::find($id);
+      return view('asignaciones.show',compact('asignacion'));
     }
 
     /**
@@ -72,10 +77,11 @@ class AsignacionGradosMateriasController extends Controller
      */
     public function edit($id)
     {
+        $docentes = Docentes::all();
         $grados = Grados::all();
         $materias = Materias::all();
-        $asignacionGradoMateria = AsignacionGradosMaterias::find($id);
-        return view('asignacionGradosMaterias.edit',compact('asignacionGradoMateria','grados','materias'));
+        $asignacion = Asignaciones::find($id);
+        return view('asignaciones.edit',compact('asignacion','docentes','grados','materias'));
     }
 
     /**
@@ -88,11 +94,13 @@ class AsignacionGradosMateriasController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
+          'id_docente'=>'required|numeric',  
           'id_grado'=>'required|numeric',
           'id_materia'=>'required|numeric',
+          'anio'=>'required|numeric',
         ]);
-        AsignacionGradosMaterias::find($id)->update($request->all());
-        return redirect()->route('asignacionGradosMaterias.index')->with('success','Asignacion actualizada con exito');
+        Asignaciones::find($id)->update($request->all());
+        return redirect()->route('asignaciones.index')->with('success','Asignacion actualizada con exito');
     }
 
     /**
@@ -103,8 +111,8 @@ class AsignacionGradosMateriasController extends Controller
      */
     public function destroy($id)
     {
-        AsignacionGradosMaterias::find($id)->delete();
-        return redirect()->route('asignacionGradosMaterias.index')->with('success','Asignacion eliminada con exito');
+        Asignaciones::find($id)->delete();
+        return redirect()->route('asignaciones.index')->with('success','Asignacion eliminada con exito');
     }
 }
  
