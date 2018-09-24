@@ -11,8 +11,9 @@
                     <li><a href="{{ route('docentes.index') }}"><b>Docentes /</b></a></li>
                     <li><a href="{{ route('alumnos.index') }}"><b> Estudiantes /</b></a></li>
                     <li><a href="{{ route('grados.index') }}"><b>Grados / </b></a></li>
-                    <li><a href="{{ route('materias.index') }}"><b>Materias</b></a></li>
-                     </ul>
+                    <li><a href="{{ route('materias.index') }}"><b>Materias / </b></a></li>
+                    <li><a href="{{ route('asignacionGradosMaterias.index') }}"><b>Asignacion materias a grados</b></a></li>
+                    </ul>
                 </div>
             </div>
         </nav>

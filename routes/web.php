@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::resource('alumnos','AlumnosController');
 	Route::resource('secretarias','SecretariasController');
 	Route::resource('materias','MateriasController');
+	Route::resource('asignacionGradosMaterias','AsignacionGradosMateriasController');
 		 Route::get('gestion', function()
 	{
     return view('gestion');

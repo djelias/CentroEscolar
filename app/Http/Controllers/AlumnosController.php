@@ -41,7 +41,7 @@ class AlumnosController extends Controller
         $this->validate($request,[
             'nombres'=>'required|alpha_spaces',
             'apellidos'=>'required|alpha_spaces',
-            'no_nie'=>'required|numeric',
+            'no_nie'=>'required|numeric|unique:alumnos',
             'f_nacimiento'=>'required|date'
         ]);
         Alumnos::create($request->all());

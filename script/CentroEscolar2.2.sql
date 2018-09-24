@@ -3,31 +3,34 @@
 /* Created on:     11/09/2018 12:32:35 a.m.                     */
 /*==============================================================*/
 
-drop table if exists ALUMNOS;
+drop table if exists ASIGNACION_ALUMNO;
 
 drop table if exists ASIGNACION;
 
-drop table if exists ASIGNACION_ALUMNO;
+drop table if exists ASIGNACION_GRADO_MATERIA;
 
 drop table if exists DOCENTES;
 
-drop table if exists EVALUACION;
-
-drop table if exists GRADOS;
-
-drop table if exists MATERIA;
-
-drop table if exists NOTA;
-
-drop table if exists PERMISOS;
+drop table if exists ROL_USUARIO;
 
 drop table if exists PERMISO_ROL;
 
+drop table if exists EVALUACION;
+
+drop table if exists ALUMNOS;
+
+drop table if exists GRADOS;
+
+drop table if exists PERMISOS;
+
 drop table if exists ROLES;
 
-drop table if exists ROL_USUARIO;
-
 drop table if exists USERS;
+
+drop table if exists MATERIAS;
+
+drop table if exists NOTA;
+
 
 /*==============================================================*/
 /* Table: ALUMNOS                                               */
@@ -211,15 +214,18 @@ create table USERS
    constraint PK_USUARIO primary key (id)
 );
 
-alter table ASIGNACION add foreign key (id_grado) references GRADOS (id);
-
-alter table ASIGNACION add foreign key (id_docente) references DOCENTES (id);
-
-alter table ASIGNACION_ALUMNO add foreign key (id_nota) references NOTA (id);
-
-alter table ASIGNACION_ALUMNO add foreign key (id_asignacion) references ASIGNACION (id);
-
-alter table ASIGNACION_ALUMNO add foreign key (id_alumno) references ALUMNOS (id);
+/*==============================================================*/
+/* Table: ASIGNACION_GRADO_MATERIA                                     */
+/*==============================================================*/
+create table ASIGNACION_GRADOS_MATERIAS 
+(
+   id                   int                            not null AUTO_INCREMENT,
+   id_grado             int                            null,
+   id_materia           int                            null,
+   created_at           timestamp,
+   updated_at           timestamp,
+   constraint PK_ASIGNACION_GRADO_MATERIA primary key (id)
+);
 
 alter table DOCENTES add foreign key (id_usuario) references USERS (id);
 
@@ -237,4 +243,19 @@ alter table ROL_USUARIO add foreign key (id_usuario) references USERS (id);
 
 alter table ROL_USUARIO add foreign key (id_rol) references ROLES (id);
 
+alter table ASIGNACION add foreign key (id_grado) references GRADOS (id);
+
+alter table ASIGNACION add foreign key (id_docente) references DOCENTES (id);
+
+alter table ASIGNACION_ALUMNO add foreign key (id_nota) references NOTA (id);
+
+alter table ASIGNACION_ALUMNO add foreign key (id_asignacion) references ASIGNACION (id);
+
+alter table ASIGNACION_ALUMNO add foreign key (id_alumno) references ALUMNOS (id);
+
+alter table ASIGNACION_GRADOS_MATERIAS add foreign key (id_grado) references GRADOS (id);
+
+alter table ASIGNACION_GRADOS_MATERIAS add foreign key (id_materia) references MATERIAS (id);
+
 alter table GRADOS add constraint GRADO_UNICO unique (nombre, seccion);
+
