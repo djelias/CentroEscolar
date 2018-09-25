@@ -13,6 +13,11 @@
           <p>{{ $message }}</p>
       </div>
   @endif
+   @if ($message = Session::get('danger'))
+      <div class="alert alert-danger">
+          <p>{{ $message }}</p>
+      </div>
+  @endif
       <div>
         <a href="{{route('alumnos.create')}}" class="btn btn-success btn-lg">
             <i class="glyphicon glyphicon-plus"> NUEVO</i>

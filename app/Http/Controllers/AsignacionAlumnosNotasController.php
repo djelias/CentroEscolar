@@ -107,8 +107,13 @@ class AsignacionAlumnosNotasController extends Controller
      */
     public function destroy($id)
     {
-        AsignacionAlumnosNotas::find($id)->delete();
+        try{
+             AsignacionAlumnosNotas::find($id)->delete();
         return redirect()->route('asignacionAlumnosNotas.index')->with('success','Asignacion eliminada con exito');
+    }catch (\Illuminate\Database\QueryException $e) {
+        return redirect()->route('asignacionAlumnosNotas.index')->with('danger','No se Puede eliminar este registro porque esta asociado con otra asignación');
+    }
+       
     }
 }
  

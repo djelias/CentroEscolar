@@ -111,8 +111,13 @@ class AsignacionesController extends Controller
      */
     public function destroy($id)
     {
-        Asignaciones::find($id)->delete();
+        try{
+            Asignaciones::find($id)->delete();
         return redirect()->route('asignaciones.index')->with('success','Asignacion eliminada con exito');
+        }
+            catch (\Illuminate\Database\QueryException $e) {
+        return redirect()->route('asignaciones.index')->with('danger','No se Puede eliminar este registro porque esta asociado con otra asignación');
     }
+}
 }
  

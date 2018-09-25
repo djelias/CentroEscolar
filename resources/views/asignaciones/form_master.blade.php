@@ -61,7 +61,14 @@
     </div>
     <div class="col-sm-4">
       <div class="form-group {{ $errors->has('anio') ? 'has-error' : "" }}">
-       <i>{{ Form::text('anio',NULL, ['class'=>'form-control', 'id'=>'anio', 'placeholder'=>'xxxx','maxlength' => 4]) }} </i> 
+       <i><select name="anio" class="form-control">
+               <option disabled selected>Seleccione el Año</option>
+                <?php 
+                     for ($i=2018; $i<=2030; $i++){
+                      echo '<option value="'.$i.'">'.$i.'</option>';
+        }
+  ?>
+            </select></i> 
         <div class="help-block"> 
           <strong>{{ $errors->first('anio', '**Ingrese un año correctamente') }}</strong>
       </div>

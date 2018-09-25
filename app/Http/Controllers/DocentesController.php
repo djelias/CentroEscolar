@@ -108,8 +108,13 @@ class DocentesController extends Controller
      */
     public function destroy($id)
     {
-        Docentes::find($id)->delete();
+        try{
+            Docentes::find($id)->delete();
         return redirect()->route('docentes.index')->with('success','Docente eliminado con exito');
+    } catch  (\Illuminate\Database\QueryException $e){
+        return redirect()->route('docentes.index')->with('danger','No se Puede eliminar este registro porque esta asociado con otra asignación');
+        
+    }
     }
 }
  

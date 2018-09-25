@@ -27,7 +27,7 @@
     </div>
 
     <div class="row">
-    <div class="col-sm-5">
+    <div class="col-sm-2">
       {!! form::label('no_nie','Numero de NIE') !!}
     </div>
     <div class="col-sm-5">
@@ -41,7 +41,7 @@
 </div>
 
   <div class="row">
-    <div class="col-sm-5">
+    <div class="col-sm-2">
       {!! form::label('f_nacimiento','Fecha de nacimiento') !!}
     </div>
     <div class="col-sm-5">
@@ -59,30 +59,31 @@
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
       <a class="btn btn-danger btn-lg" href="{{ route('alumnos.index') }}">Cancelar</a>
    </div>
-   
+  
+   <!--Script para Colocar Calendario en español en fecha de nacimiento--> 
 <script>
- $.datepicker.regional['es'] = {
- closeText: 'Cerrar',
- prevText: '< Ant',
- nextText: 'Sig >',
- currentText: 'Hoy',
- monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
- monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
- dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
- dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
- dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
- changeMonth: true,
- changeYear: true,
- yearRange: '-30:+0',
- weekHeader: 'Sm',
- dateFormat: 'yy-mm-dd',
- firstDay: 1,
- isRTL: false,
- showMonthAfterYear: false,
- yearSuffix: ''
- };
- $.datepicker.setDefaults($.datepicker.regional['es']);
-$(function () {
-$("#f_nacimiento").datepicker();
-});
+          $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '< Ant',
+            nextText: 'Sig >',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+            dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '-30:+0',
+            weekHeader: 'Sm',
+            dateFormat: 'yy-mm-dd',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+         };
+   $.datepicker.setDefaults($.datepicker.regional['es']);
+            $(function () {
+            $("#f_nacimiento").datepicker();
+        });
 </script>

@@ -99,8 +99,13 @@ class AlumnosController extends Controller
      */
     public function destroy($id)
     {
-        Alumnos::find($id)->delete();
-        return redirect()->route('alumnos.index')->with('success','Alumno eliminado con exito');
+        try{
+          Alumnos::find($id)->delete();
+        return redirect()->route('alumnos.index')->with('success','Alumno eliminado con exito');  
+    } catch (\Illuminate\Database\QueryException $e) {
+        return redirect()->route('alumnos.index')->with('danger','No se Puede eliminar este registro porque esta asociado con otra asignación');
+    }
+       
     }
 }
  

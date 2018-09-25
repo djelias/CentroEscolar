@@ -1,8 +1,8 @@
    <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       {!! form::label('Nombre') !!}
     </div>
-     <div class="col-sm-10">
+     <div class="col-sm-8">
       <div class="form-group {{ $errors->has('id_usuario') ? 'has-error' : "" }}">
       <i><select name="id_usuario" class="form-control">
                <option disabled selected>Seleccione el docente</option>
@@ -17,12 +17,12 @@
 </div>
  </div>
     <div class="row">
-    <div class="col-sm-5">
-      {!! form::label('no_dui','Numero de DUI') !!}
+    <div class="col-sm-3">
+      {!! form::label('no_dui','No. de DUI') !!}
     </div>
     <div class="col-sm-5">
       <div class="form-group {{ $errors->has('no_dui') ? 'has-error' : "" }}">
-       <i>{{ Form::text('no_dui',NULL, ['class'=>'form-control', 'id'=>'no_dui', 'placeholder'=>'xxxxxxxx-x','maxlength' => 10]) }} </i> 
+       <i>{{ Form::text('no_dui',NULL, ['class'=>'form-control','id'=>'no_dui','placeholder'=>'xxxxxxxx-x','maxlength' => 10]) }} </i> 
         <div class="help-block"> 
           <strong>{{ $errors->first('no_dui', 'Ingrese DUI correctamente') }}</strong>
       </div>
@@ -30,8 +30,8 @@
   </div>
       </div>
   <div class="row">
-    <div class="col-sm-5">
-      {!! form::label('no_escalafon','Numero de Escalafón') !!}
+    <div class="col-sm-3">
+      {!! form::label('no_escalafon','No. de Escalafón') !!}
     </div>
     <div class="col-sm-5">
       <div class="form-group {{ $errors->has('no_escalafon') ? 'has-error' : "" }}">
@@ -43,8 +43,8 @@
     </div>
    </div>
    <div class="row">
-    <div class="col-sm-5">
-      {!! form::label('telefono','Teléfono (Sin guiones)') !!}
+    <div class="col-sm-3">
+      {!! form::label('telefono','Teléfono') !!}
     </div>
     <div class="col-sm-5">
       <div class="form-group {{ $errors->has('telefono') ? 'has-error' : "" }}">
@@ -56,9 +56,10 @@
   </div>
       </div>
    <div class="row">
-    <div class="col-sm-5">
+    <div class="col-sm-3">
       {!! form::label('direccion','Direccion') !!}
     </div>
+    <div class="col-sm-8">
     <div class="form-group {{ $errors->has('direccion') ? 'has-error' : "" }}">
       <i>{{Form :: text ('direccion', NULL, ['class'=>'form-control', 'id'=>'direccion', 'placeholder'=>'Direccion'])}}</i>
         <div class="help-block"> 
@@ -72,4 +73,17 @@
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
       <a class="btn btn-danger btn-lg" href="{{ route('docentes.index') }}">Cancelar</a>
     </div>
- 
+
+    <!--Script para Colocar guion automatico en numero de DUI-->
+<script type="text/javascript">
+  $(document).ready(Principal);
+    function Principal(){
+        var flag1 = true;
+        $(document).on('keyup','[id=no_dui]',function(e){
+            if($(this).val().length == 8 && flag1) {
+                $(this).val($(this).val()+"-");
+                flag1 = false;
+            }
+        });
+    }
+</script> 

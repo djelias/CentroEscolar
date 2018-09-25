@@ -4,7 +4,7 @@
     </div>
     <div class="col-sm-10">
       <div class="form-group {{ $errors->has('nombre') ? 'has-error' : "" }}">
-       <i>{{ Form::text('nombre',NULL, ['class'=>'form-control', 'id'=>'nombre', 'placeholder'=>'Nombre de la nota...']) }}</i> 
+       <i>{{ Form::text('nombre',NULL, ['class'=>'form-control', 'id'=>'nombre', 'placeholder'=>'Nombre de Evaluación']) }}</i> 
         <div class="help-block" > 
           <strong>{{ $errors->first('nombre', '**Ingrese datos válidos A-Z') }}</strong>
       </div>
@@ -37,10 +37,10 @@
   </div>
 
     <div class="row">
-    <div class="col-sm-5">
+    <div class="col-sm-2">
       {!! form::label('nota','Nota') !!}
     </div>
-    <div class="col-sm-5">
+    <div class="col-sm-2">
       <div class="form-group {{ $errors->has('nota') ? 'has-error' : "" }}">
        <i>{{ Form::text('nota',NULL, ['class'=>'form-control', 'id'=>'nota', 'placeholder'=>'xx.xx','maxlength' => 4]) }} </i> 
         <div class="help-block"> 
