@@ -26,7 +26,6 @@ class AsignacionesRequest extends FormRequest
         return [
             'id_docente'=> 'required',
             'id_grado'=> 'required',
-            'id_materia'=> 'required',
             ];
     }
 }

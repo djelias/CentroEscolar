@@ -35,7 +35,6 @@
       <th with="80px">No</th>
       <th style="text-align:center">Docente</th>
       <th style="text-align:center">Grado</th>
-      <th style="text-align:center">Materia</th>
       <th style="text-align:center">Año</th>
       <th style="text-align:center">Acciones</th>
     </tr>
@@ -45,7 +44,6 @@
         <td>{{$no++}}</td>
         <td>{{$value->Docentes->User->name }}</td>
         <td>{{$value->Grados->nombre }} {{ $value->Grados->seccion }}</td>
-        <td>{{ $value->materias->nombre }}
         <td>{{ $value->anio }}<br></td>
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('asignaciones.show',$value->id)}}">

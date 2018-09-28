@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AsignacionAlumnosNotasRequest extends FormRequest
+class AsignacionMateriasGradossRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class AsignacionAlumnosNotasRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_asignacion'=> 'required',
-            'id_alumno'=> 'required',
+            'id_grado'=> 'required',
+            'id_materia'=> 'required',
             ];
     }
 }

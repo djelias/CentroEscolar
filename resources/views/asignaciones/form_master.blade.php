@@ -36,25 +36,6 @@
 </div>
  </div>
 
-   <div class="row">
-    <div class="col-sm-2">
-      {!! form::label('Materia') !!}
-    </div>
-     <div class="col-sm-10">
-      <div class="form-group {{ $errors->has('id_materia') ? 'has-error' : "" }}">
-      <i><select name="id_materia" class="form-control">
-                <option disabled selected>Seleccione materia</option>
-                @foreach($materias as $materia)
-                      <option value="{{$materia->id}}">{{$materia->id}}. {{$materia->nombre}}</option>
-                 @endforeach
-            </select></i>  
-            <div class="help-block"> 
-                <strong>{{ $errors->first('id_materia', 'Seleccione uno') }}</strong>
-          </div> 
-  </div>
-</div>
- </div>
-
  <div class="row">
     <div class="col-sm-2">
       {!! form::label('anio','Año') !!}

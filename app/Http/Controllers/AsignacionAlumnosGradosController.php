@@ -3,13 +3,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\AsignacionAlumnosNotas;
+use App\AsignacionAlumnosGrados;
 use App\Asignaciones;
 use App\Alumnos;
-use App\Notas;
-use asignacionAlumnosNotas1\http\Request\AsignacionesRequest;
+use App\Grados;
+use asignacionAlumnosGrados1\http\Request\AsignacionAlumnosGradosRequest;
 
-class AsignacionAlumnosNotasController extends Controller
+class AsignacionAlumnosGradosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +18,11 @@ class AsignacionAlumnosNotasController extends Controller
      */
     public function index(Request $request)
     {
-        $asignaciones = Asignaciones::all();
+        $grados = Grados::all();
         $alumnos = Alumnos::all();
-        $notas = Notas::all();
         $nombre =$request->get('nombre');
-        $asignacionAlumnosNotas = AsignacionAlumnosNotas::orderBy('id','ASC')->nombre($nombre)->paginate(10);
-        return view('asignacionAlumnosNotas.index',compact('asignacionAlumnosNotas','asignaciones','alumnos','notas'));
+        $asignacionAlumnosGrados = AsignacionAlumnosGrados::orderBy('id','ASC')->nombre($nombre)->paginate(10);
+        return view('asignacionAlumnosGrados.index',compact('asignacionAlumnosGrados','grados','alumnos'));
     }
 
     /**
@@ -33,10 +32,9 @@ class AsignacionAlumnosNotasController extends Controller
      */
     public function create()
     {
-        $asignaciones = Asignaciones::all();
+        $grados = Grados::all();
         $alumnos = Alumnos::all();
-        $notas = Notas::all();
-        return view('asignacionAlumnosNotas.create', compact('asignaciones','alumnos','notas'));
+        return view('asignacionAlumnosGrados.create', compact('grados','alumnos'));
     }
 
     /**
@@ -48,11 +46,11 @@ class AsignacionAlumnosNotasController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-          'id_asignacion'=>'required|numeric',  
+          'id_grado'=>'required|numeric',  
           'id_alumno'=>'required|numeric',
           ]);
-        AsignacionAlumnosNotas::create($request->all());
-        return redirect()->route('asignacionAlumnosNotas.index')->with('success','Asignacion guardada con éxito');
+        AsignacionAlumnosGrados::create($request->all());
+        return redirect()->route('asignacionAlumnosGrados.index')->with('success','Asignacion guardada con éxito');
     }
 
     /**
@@ -63,8 +61,8 @@ class AsignacionAlumnosNotasController extends Controller
      */
     public function show($id)
     {
-        $asignacionAlumnoNota = AsignacionAlumnosNotas::find($id);
-      return view('asignacionAlumnosNotas.show',compact('asignacionAlumnoNota'));
+        $asignacionAlumnoGrado = AsignacionAlumnosGrados::find($id);
+      return view('asignacionAlumnosGrados.show',compact('asignacionAlumnoGrado'));
     }
 
     /**
@@ -75,11 +73,10 @@ class AsignacionAlumnosNotasController extends Controller
      */
     public function edit($id)
     {
-        $asignaciones = Asignaciones::all();
+        $grados = Grados::all();
         $alumnos = Alumnos::all();
-        $notas = Notas::all();
-        $asignacionAlumnoNota = AsignacionAlumnosNotas::find($id);
-        return view('asignacionAlumnosNotas.edit',compact('asignacionAlumnoNota','asignaciones','alumnos','notas'));
+        $asignacionAlumnoGrado = AsignacionAlumnosGrados::find($id);
+        return view('asignacionAlumnosGrados.edit',compact('asignacionAlumnoGrado','grados','alumnos'));
     }
 
     /**
@@ -93,10 +90,10 @@ class AsignacionAlumnosNotasController extends Controller
     {
         $this->validate($request,[
           'id_asignacion'=>'required|numeric',  
-          'id_alumno'=>'required|numeric',
+          'id_grado'=>'required|numeric',
           ]);
-        AsignacionAlumnosNotas::find($id)->update($request->all());
-        return redirect()->route('asignacionAlumnosNotas.index')->with('success','Asignacion actualizada con exito');
+        AsignacionAlumnosGrados::find($id)->update($request->all());
+        return redirect()->route('asignacionAlumnosGrados.index')->with('success','Asignacion actualizada con exito');
     }
 
     /**
@@ -108,10 +105,10 @@ class AsignacionAlumnosNotasController extends Controller
     public function destroy($id)
     {
         try{
-             AsignacionAlumnosNotas::find($id)->delete();
-        return redirect()->route('asignacionAlumnosNotas.index')->with('success','Asignacion eliminada con exito');
+             AsignacionAlumnosGrados::find($id)->delete();
+        return redirect()->route('asignacionAlumnosGrados.index')->with('success','Asignacion eliminada con exito');
     }catch (\Illuminate\Database\QueryException $e) {
-        return redirect()->route('asignacionAlumnosNotas.index')->with('danger','No se Puede eliminar este registro porque esta asociado con otra asignación');
+        return redirect()->route('asignacionAlumnosGrados.index')->with('danger','No se Puede eliminar este registro porque esta asociado con otra asignación');
     }
        
     }

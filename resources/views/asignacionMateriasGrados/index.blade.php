@@ -19,10 +19,10 @@
       </div>
   @endif
       <div>
-        <a href="{{route('asignacionAlumnosNotas.create')}}" class="btn btn-success btn-lg">
+        <a href="{{route('asignacionMateriasGrados.create')}}" class="btn btn-success btn-lg">
             <i class="glyphicon glyphicon-plus"> NUEVO</i>
         </a>
-        {!! Form::open(['route'=>'asignacionAlumnosNotas.index', 'method'=>'GET', 'class'=>'navbar-form pull-right', 'role'=>'search'])!!}
+        {!! Form::open(['route'=>'asignacionMateriasGrados.index', 'method'=>'GET', 'class'=>'navbar-form pull-right', 'role'=>'search'])!!}
         <div class="input-group"> 
             {!! Form::text('nombre', null, ['class'=>'form-control', 'placeholder'=>'Buscar'])!!}
         </div>
@@ -33,26 +33,22 @@
   <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
-      <th style="text-align:center">Docente</th>
-      <th style="text-align:center">Grado</th>
-      <th style="text-align:center">Alumno</th>
       <th style="text-align:center">Materia</th>
+      <th style="text-align:center">Grado</th>
       <th style="text-align:center">Acciones</th>
     </tr>
     <?php $no=1; ?>
-    @foreach ($asignacionAlumnosNotas as $key => $value)
+    @foreach ($asignacionMateriasGrados as $key => $value)
     <tr>
         <td>{{$no++}}</td>
-        <td>{{$value->Asignaciones->Docentes->User->name }}</td>
-        <td>{{$value->Asignaciones->Grados->nombre }} {{ $value->Asignaciones->Grados->seccion }}</td>
-        <td>{{ $value->Alumnos->nombres }} {{ $value->Alumnos->apellidos }}<br></td>
-        <td>{{ $value->Asignaciones->materias->nombre }}
+        <td>{{$value->Materias->nombre }}<br></td>
+        <td>{{$value->Grados->nombre }} {{ $value->Grados->seccion }}</td>
         <td>
-          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('asignacionAlumnosNotas.show',$value->id)}}">
+          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('asignacionMateriasGrados.show',$value->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
-          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('asignacionAlumnosNotas.edit',$value->id)}}">
+          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('asignacionMateriasGrados.edit',$value->id)}}">
               <i class="glyphicon glyphicon-pencil"></i></a>
-            {!! Form::open(['method' => 'DELETE','route' => ['asignacionAlumnosNotas.destroy', $value->id],'style'=>'display:inline']) !!}
+            {!! Form::open(['method' => 'DELETE','route' => ['asignacionMateriasGrados.destroy', $value->id],'style'=>'display:inline']) !!}
               <button type="submit" data-toggle="tooltip" data-placement="top" title="Eliminar" style="display: inline;" class="btn btn-danger btn-lg" onclick="return confirm('¿Esta seguro de eliminar este Registro?')"><i class="glyphicon glyphicon-trash" ></i></button>
             {!! Form::close() !!}<br>
         
@@ -60,7 +56,7 @@
       </tr>
     @endforeach
   </table>
-  {!!$asignacionAlumnosNotas->render()!!}
+  {!!$asignacionMateriasGrados->render()!!}
  <div class="text-center">
     <a class="btn btn-primary" href="{{ url('/gestion') }}">Regresar</a>
   </div>

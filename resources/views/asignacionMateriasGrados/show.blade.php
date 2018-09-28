@@ -12,27 +12,20 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Docente : </strong>
-            {{ $asignacion->Docentes->User->name}}
+            <strong>Materia : </strong>
+            {{ $asignacionMateriaGrado->Materias->->nombre}}
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Grado : </strong>
-            {{ $asignacion->Grados->nombre}} {{ $asignacion->Grados->seccion}}
+            {{ $asignacionMateriaGrado->Grados->nombre}} {{ $asignacionMateriaNota->Grados->seccion}}
         </div>
     </div>
   
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Año : </strong>
-            {{ $asignacion->anio}}
-        </div>
-    </div>
-
             <br/>
-            <a class="btn btn-primary" href="{{ route('asignaciones.index') }}"> <i class="glyphicon glyphicon-arrow-left"> Regresar</i></a>
+            <a class="btn btn-primary" href="{{ route('asignacionMateriasGrados.index') }}"> <i class="glyphicon glyphicon-arrow-left"> Regresar</i></a>
     </div>
 
 @endsection

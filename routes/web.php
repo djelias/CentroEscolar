@@ -28,10 +28,10 @@ Route::group(['middleware' => 'auth'], function() {
    	Route::resource('docentes','DocentesController'); 
 	Route::resource('grados','GradosController');
 	Route::resource('alumnos','AlumnosController');
-	Route::resource('secretarias','SecretariasController');
 	Route::resource('materias','MateriasController');
-	Route::resource('notas','NotasController');
-	Route::resource('asignacionAlumnosNotas','AsignacionAlumnosNotasController');
+	Route::resource('examenes','ExamenesController');
+	Route::resource('asignacionAlumnosGrados','AsignacionAlumnosGradosController');
+	Route::resource('asignacionMateriasGrados','AsignacionMateriasGradosController');
 	Route::resource('asignaciones','AsignacionesController');
 		 Route::get('gestion', function()
 	{

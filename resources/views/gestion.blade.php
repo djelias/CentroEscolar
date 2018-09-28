@@ -26,7 +26,7 @@
           <li><a href="{{ route('alumnos.index') }}">Gestión de Estudiantes </a></li>
           <li><a href="{{ route('grados.index') }}">Gestión de Grados </a></li>
           <li><a href="{{ route('materias.index') }}">Gestión de Materias</a></li>
-          <li><a href="{{ route('notas.index') }}">Notas</a></li>
+          <li><a href="{{ route('examenes.index') }}">Examenes</a></li>
         </ul>
       </li>
     </ul>
@@ -36,8 +36,9 @@
           Asignaciones<b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="{{ route('asignaciones.index') }}">Materias, Grados y Docentes</a></li>
-         <li><a href="{{ route('asignacionAlumnosNotas.index') }}">Alumnos y Notas</a></li>
+          <li><a href="{{ route('asignaciones.index') }}">Grados y Docentes</a></li>
+         <li><a href="{{ route('asignacionAlumnosGrados.index') }}">Alumnos y grados</a></li>
+         <li><a href="{{ route('asignacionMateriasGrados.index') }}">Materias y grados</a></li>
         </ul>
       </li>
     </ul>

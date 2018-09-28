@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Asignaciones extends Model
 {
-    protected $fillable = ['id_docente','id_grado','id_materia','anio'];
+    protected $fillable = ['id_docente','id_grado','anio'];
     protected $dates = ['created_at','updated_at'];
 
     public function scopeNombre($query, $id_docente)
@@ -20,10 +20,6 @@ class Asignaciones extends Model
 
 	public function Grados(){
     return $this->belongsTo('App\Grados', 'id_grado');
-}
-
-public function Materias(){
-    return $this->belongsTo('App\Materias', 'id_materia');
 }
 
 public function Users(){

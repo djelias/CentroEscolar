@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AsignacionAlumnosNotas extends Model
+class AsignacionAlumnosGrados extends Model
 {
-    protected $fillable = ['id_asignacion','id_alumno','id_nota'];
+    protected $fillable = ['id_grado','id_alumno'];
     protected $dates = ['created_at','updated_at'];
 
     public function scopeNombre($query, $id_alumno)
@@ -14,16 +14,13 @@ class AsignacionAlumnosNotas extends Model
 		return $query->where('id_alumno', 'LIKE', "%$id_alumno%");
 	}
 
-	public function Asignaciones(){
-    return $this->belongsTo('App\Asignaciones', 'id_asignacion');
+	public function Grados(){
+    return $this->belongsTo('App\Grados', 'id_grado');
 }
 
 	public function Alumnos(){
     return $this->belongsTo('App\Alumnos', 'id_alumno');
 }
 
-    public function Notas(){
-    return $this->belongsTo('App\Notas', 'id_nota');
-}
-
+ 
 }

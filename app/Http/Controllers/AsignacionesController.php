@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Session;
 use App\Asignaciones;
 use App\Docentes;
 use App\Grados;
-use App\Materias;
 use asignaciones1\http\Request\AsignacionesRequest;
 
 class AsignacionesController extends Controller
@@ -20,10 +19,9 @@ class AsignacionesController extends Controller
     {
         $docentes = Docentes::all();
         $grados = Grados::all();
-        $materias = Materias::all();
         $nombre =$request->get('nombre');
         $asignaciones = Asignaciones::orderBy('id','ASC')->nombre($nombre)->paginate(10);
-        return view('asignaciones.index',compact('asignaciones','docentes','grados','materias'));
+        return view('asignaciones.index',compact('asignaciones','docentes','grados'));
     }
 
     /**
@@ -35,8 +33,7 @@ class AsignacionesController extends Controller
     {
         $docentes = Docentes::all();
         $grados = Grados::all();
-        $materias = Materias::all();
-        return view('asignaciones.create', compact('docentes','grados','materias'));
+        return view('asignaciones.create', compact('docentes','grados'));
     }
 
     /**
@@ -50,7 +47,6 @@ class AsignacionesController extends Controller
         $this->validate($request,[
           'id_docente'=>'required|numeric',  
           'id_grado'=>'required|numeric',
-          'id_materia'=>'required|numeric',
           'anio'=>'required|numeric',
         ]);
         Asignaciones::create($request->all());
@@ -79,9 +75,8 @@ class AsignacionesController extends Controller
     {
         $docentes = Docentes::all();
         $grados = Grados::all();
-        $materias = Materias::all();
         $asignacion = Asignaciones::find($id);
-        return view('asignaciones.edit',compact('asignacion','docentes','grados','materias'));
+        return view('asignaciones.edit',compact('asignacion','docentes','grados'));
     }
 
     /**
@@ -96,7 +91,6 @@ class AsignacionesController extends Controller
         $this->validate($request,[
           'id_docente'=>'required|numeric',  
           'id_grado'=>'required|numeric',
-          'id_materia'=>'required|numeric',
           'anio'=>'required|numeric',
         ]);
         Asignaciones::find($id)->update($request->all());

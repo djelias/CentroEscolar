@@ -13,33 +13,33 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Docente : </strong>
-            {{ $asignacionAlumnoNota->asignaciones->Docentes->User->name}}
+            {{ $asignacionAlumnoGrado->asignaciones->Docentes->User->name}}
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Grado : </strong>
-            {{ $asignacionAlumnoNota->asignaciones->Grados->nombre}} {{ $asignacionAlumnoNota->asignaciones->Grados->seccion}}
+            {{ $asignacionAlumnoGrado->asignaciones->Grados->nombre}} {{ $asignacionAlumnoNota->asignaciones->Grados->seccion}}
         </div>
     </div>
   
      <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Materia : </strong>
-            {{ $asignacionAlumnoNota->asignaciones->Materias->nombre}}
+            {{ $asignacionAlumnoGrado->asignaciones->Materias->nombre}}
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Alumno : </strong>
-            {{ $asignacionAlumnoNota->Alumnos->nombres}} {{ $asignacionAlumnoNota->Alumnos->apellidos}}
+            {{ $asignacionAlumnoGrado->Alumnos->nombres}} {{ $asignacionAlumnoGrado->Alumnos->apellidos}}
         </div>
     </div>
 
             <br/>
-            <a class="btn btn-primary" href="{{ route('asignacionAlumnosNotas.index') }}"> <i class="glyphicon glyphicon-arrow-left"> Regresar</i></a>
+            <a class="btn btn-primary" href="{{ route('asignacionAlumnosGrados.index') }}"> <i class="glyphicon glyphicon-arrow-left"> Regresar</i></a>
     </div>
 
 @endsection
