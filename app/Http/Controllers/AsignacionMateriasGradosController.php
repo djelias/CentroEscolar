@@ -21,7 +21,7 @@ class AsignacionMateriasGradosController extends Controller
         $grados = Grados::all();
         $materias = Materias::all();
         $nombre =$request->get('nombre');
-        $asignacionMateriasGrados = AsignacionMateriasGrados::orderBy('id','ASC')->nombre($nombre)->paginate(10);
+        $asignacionMateriasGrados = AsignacionMateriasGrados::orderBy('id','DESC')->nombre($nombre)->paginate(10);
         return view('asignacionMateriasGrados.index',compact('asignacionMateriasGrados','grados','materias'));
     }
 

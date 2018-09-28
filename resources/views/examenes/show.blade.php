@@ -3,7 +3,7 @@
 <div class="row" >
     <div class="col-lg-12 margin-tb">
         <div class="pull-left ">
-            <h2 > EVALUACIONES</h2>
+            <h3 > EVALUACIONES</h3>
             <br>
         </div>
     </div>
@@ -48,7 +48,14 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Trimestre : </strong>
-            {{ $examenes->trimestre}}
+            {{ $examenes->trimestre}} Periodo
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>PROMEDIO : </strong>
+            {{ $examenes->promedio}}
         </div>
     </div>
 

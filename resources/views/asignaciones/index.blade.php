@@ -3,7 +3,7 @@
   <div class="row">
     <div class ="col-sm-12">
       <div class="full.right">
-      <h2>GESTION DE ASIGNACION</h2>
+      <h2>ASIGNACION DE DOCENTES A GRADOS</h2>
       <br>
       </div>
     </div>

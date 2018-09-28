@@ -132,13 +132,20 @@
     </div>
     <div class="col-sm-4">
       <div class="form-group text">
-       <i>{{ Form::text('promedio',NULL, ['class'=>'form-control', 'id'=>'promedio','readonly'=>'readonly', 'placeholder'=>'Promedio'])}}</i> 
+       <i>{{ Form::text('promedio',NULL, ['class'=>'form-control', 'id'=>'promedio','readonly'=>'readonly', 'placeholder'=>'Promedio', 'data-placement'=>'top', 'title'=>'Este campo no se puede editar'])}}</i> 
+       
   </div>
 </div>
 </div>
+<div class="row">
+  <div class="col-sm-10">
+          <i>{!! form::label('promedio','Presione el botón PROMEDIO para obtenerlo automáticamente.') !!}</i>
+    </div>
+</div>
+  
     <br>
     <br>
-       <div class="form-group text-center" >
+       <div class="form-group text-center{{ $errors->has('promedio') ? 'has-error' : "" }}">
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
       <a class=" btn btn-danger btn-lg" href="{{ route('examenes.index') }}">Cancelar</a>
     </div>
@@ -153,6 +160,6 @@
           var vr5 = document.getElementById('actividad2').value;
           var p = (parseFloat(vr1)+parseFloat(vr2)+parseFloat(vr3)+parseFloat(vr4)+parseFloat(vr5))/5;
           document.getElementById('promedio').value = ("%.2", p);
-         }
+        }
 </script>
 </html>

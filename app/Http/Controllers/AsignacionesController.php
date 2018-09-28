@@ -20,7 +20,7 @@ class AsignacionesController extends Controller
         $docentes = Docentes::all();
         $grados = Grados::all();
         $nombre =$request->get('nombre');
-        $asignaciones = Asignaciones::orderBy('id','ASC')->nombre($nombre)->paginate(10);
+        $asignaciones = Asignaciones::orderBy('id','DESC')->nombre($nombre)->paginate(10);
         return view('asignaciones.index',compact('asignaciones','docentes','grados'));
     }
 

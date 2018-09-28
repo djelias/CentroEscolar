@@ -3,34 +3,18 @@
 <div class="row"  >
     <div class="col-lg-12 margin-tb">
         <div class="pull-left ">
-            <h2 > DATOS DE LA ASIGNACION</h2>
+            <h3 > DATOS DE LA ASIGNACION</h3>
             <br>
         </div>
     </div>
 </div>
 <div class="row">
-
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Docente : </strong>
-            {{ $asignacionAlumnoGrado->asignaciones->Docentes->User->name}}
-        </div>
-    </div>
-
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Grado : </strong>
-            {{ $asignacionAlumnoGrado->asignaciones->Grados->nombre}} {{ $asignacionAlumnoNota->asignaciones->Grados->seccion}}
+            {{ $asignacionAlumnoGrado->Grados->nombre}} {{ $asignacionAlumnoGrado->Grados->seccion}}
         </div>
     </div>
-  
-     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Materia : </strong>
-            {{ $asignacionAlumnoGrado->asignaciones->Materias->nombre}}
-        </div>
-    </div>
-
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Alumno : </strong>

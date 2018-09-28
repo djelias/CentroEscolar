@@ -20,7 +20,7 @@ class ExamenesController extends Controller
         $materias = Materias::all();
         $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
         $nombre =$request->get('nombre');
-        $examenes = Examenes::orderBy('id','ASC')->nombre($nombre)->paginate(10);
+        $examenes = Examenes::orderBy('id','DESC')->nombre($nombre)->paginate(10);
         return view('examenes.index',compact('examenes','materias','asignacionAlumnosGrados'));
     }
 

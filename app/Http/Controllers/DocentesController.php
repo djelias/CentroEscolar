@@ -18,7 +18,7 @@ class DocentesController extends Controller
     {
         $users = User::all();
         $nombre =$request->get('nombre');
-        $docentes = Docentes::orderBy('id','ASC')->nombre($nombre)->paginate(10);
+        $docentes = Docentes::orderBy('id','DESC')->nombre($nombre)->paginate(10);
         return view('docentes.index',compact('docentes','users'));
     }
 

@@ -3,7 +3,7 @@
 <div class="row" >
     <div class="col-lg-12 margin-tb">
         <div class="pull-left ">
-            <h2 > Datos del Alumno</h2>
+            <h3 > DATOS DEL ALUMNO</h3>
             <br>
         </div>
     </div>

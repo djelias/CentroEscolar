@@ -21,7 +21,7 @@ class AsignacionAlumnosGradosController extends Controller
         $grados = Grados::all();
         $alumnos = Alumnos::all();
         $nombre =$request->get('nombre');
-        $asignacionAlumnosGrados = AsignacionAlumnosGrados::orderBy('id','ASC')->nombre($nombre)->paginate(10);
+        $asignacionAlumnosGrados = AsignacionAlumnosGrados::orderBy('id','DESC')->nombre($nombre)->paginate(10);
         return view('asignacionAlumnosGrados.index',compact('asignacionAlumnosGrados','grados','alumnos'));
     }
 
