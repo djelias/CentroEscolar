@@ -33,7 +33,6 @@
   <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
-      <th style="text-align:center">Docente</th>
       <th style="text-align:center">Grado</th>
       <th style="text-align:center">Alumno</th>
       <th style="text-align:center">Acciones</th>

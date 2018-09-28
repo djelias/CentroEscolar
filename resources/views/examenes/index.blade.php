@@ -3,7 +3,7 @@
   <div class="row">
     <div class ="col-sm-12">
       <div class="full.right">
-      <h2>GESTION DE EXAMENES</h2>
+      <h2>GESTION DE EVALUACIONES</h2>
       <br>
       </div>
     </div>
@@ -35,26 +35,23 @@
       <th style="text-align:center">Examen 3</th>
       <th style="text-align:center">Actividad 1</th>
       <th style="text-align:center">Actividad 2</th>
-      <th style="text-align:center">Trimestre</th>
+      <th style="text-align:center">Periodo</th>
       <th style="text-align:center">Promedio</th>
       <th style="text-align:center">Accion</th>
     </tr>
     <?php $no=1; ?>
     @foreach ($examenes as $key => $value)
     <tr>
-        <td>{{$no++}}</td>
-        <td>{{ $value->AsignacionAlumnosGrados->Alumnos->nombres }}<br>{{ $value->AsignacionAlumnosGrados->Alumnos->apellidos }}</td>
-        <td>{{ $value->Materias->nombre }}</td>
-        <td>{{ $value->examen1 }}</td>
-        <td>{{ $value->examen2 }}</td>
-        <td>{{ $value->examen3 }}</td>
-        <td>{{ $value->actividad1 }}</td>
-        <td>{{ $value->actividad2 }}</td>
-        <td>{{ $value->trimestre }}</td>
-        <td><?php
-    $prom = ($value->examen1 * 0.25) + ($value->examen2 * 0.25) + ($value->examen3 * 0.25) + ($value->actividad1 * 0.15) + ($value->actividad2 * 0.10);
-    echo $prom;
-    ?></td>
+        <td style="text-align:center">{{$no++}}</td>
+        <td style="text-align:center">{{ $value->AsignacionAlumnosGrados->Alumnos->nombres }}<br>{{ $value->AsignacionAlumnosGrados->Alumnos->apellidos }}</td>
+        <td style="text-align:center">{{ $value->Materias->nombre }}</td>
+        <td style="text-align:center">{{ $value->examen1 }}</td>
+        <td style="text-align:center">{{ $value->examen2 }}</td>
+        <td style="text-align:center">{{ $value->examen3 }}</td>
+        <td style="text-align:center">{{ $value->actividad1 }}</td>
+        <td style="text-align:center">{{ $value->actividad2 }}</td>
+        <td style="text-align:center">{{ $value->trimestre }}</td>
+        <td style="text-align:center">{{ $value->promedio }}</td>
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('examenes.show',$value->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>

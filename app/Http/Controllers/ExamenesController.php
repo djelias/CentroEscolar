@@ -54,7 +54,7 @@ class ExamenesController extends Controller
           'actividad1'=>'required|numeric',
           'actividad2'=>'required|numeric',
           'trimestre'=>'required|numeric',
-          'promedio',
+          'promedio'=>'required|numeric',
         ]);
         
         Examenes::create($request->all());
@@ -107,7 +107,7 @@ class ExamenesController extends Controller
           'actividad1'=>'required|numeric',
           'actividad2'=>'required|numeric',
           'trimestre'=>'required|numeric',
-          'promedio',
+          'promedio'=>'required|numeric',
         ]);
         Examenes::find($id)->update($request->all());
         return redirect()->route('examenes.index')->with('success','Examenes actualizado con exito');

@@ -50,7 +50,7 @@
     <div class="col-sm-2">
       {!! form::label('capacidad','Capacidad') !!}
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-4">
       <div class="form-group {{ $errors->has('capacidad') ? 'has-error' : "" }}">
         <i>{{ Form::text('capacidad',NULL, ['class'=>'form-control', 'id'=>'capacidad', 'placeholder'=>'Capacidad del grado...']) }}</i>
         <div class="help-block" >

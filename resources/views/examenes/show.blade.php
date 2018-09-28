@@ -3,7 +3,7 @@
 <div class="row" >
     <div class="col-lg-12 margin-tb">
         <div class="pull-left ">
-            <h2 > Datos de los examenes</h2>
+            <h2 > EVALUACIONES</h2>
             <br>
         </div>
     </div>

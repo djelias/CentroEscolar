@@ -90,11 +90,21 @@
 <br>
         <div>
             <nav class=" navbar navbar-fixed-bottom" style="background-color: #D6EAF8 ; padding-top: 10px;">
-        <p> &emsp;<span class="glyphicon glyphicon-copyright-mark"></span> Centro Escolar Católico Santo Tomas, 2018</p>
+            <div >&emsp;<span class="glyphicon glyphicon-copyright-mark"></span> Centro Escolar Católico Santo Tomas, <span id= "fecha"></span></div>
+        </div>
         </nav>
         </div>     
 </div>
 </div>
     
 </body>
+<script>
+        var f=new Date();
+        var fecha = f.getDate() + '-' + (f.getMonth() + 1) + '-' +f.getFullYear();
+        var hora = f.getHours() + ':' + f.getMinutes();
+        var fechaYhora = fecha + ' , '+hora;
+        document.getElementById('fecha').innerHTML = fechaYhora;
+
+</script>
 </html>
+ 
