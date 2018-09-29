@@ -74,7 +74,7 @@ class AsignacionMateriasGradosController extends Controller
     public function edit($id)
     {
         $grados = Grados::all();
-        $materia = Materias::all();
+        $materias = Materias::all();
         $asignacionMateriaGrado = AsignacionMateriasGrados::find($id);
         return view('asignacionMateriasGrados.edit',compact('asignacionMateriaGrado','grados','materias'));
     }
