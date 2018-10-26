@@ -48,13 +48,13 @@ class ExamenesController extends Controller
         $this->validate($request,[
           'id_asignacion_al_gr' => 'required|numeric',
           'id_materia' => 'required|numeric',
-          'examen1' => 'required|numeric',
-          'examen2' => 'required|numeric',
-          'examen3' => 'required|numeric',
-          'actividad1'=>'required|numeric',
-          'actividad2'=>'required|numeric',
-          'trimestre'=>'required|numeric',
-          'promedio'=>'required|numeric',
+          'examen1' => 'required|numeric|min:1|max:10',
+          'examen2' => 'required|numeric|min:1|max:10',
+          'examen3' => 'required|numeric|min:1|max:10',
+          'actividad1'=>'required|numeric|min:1|max:10',
+          'actividad2'=>'required|numeric|min:1|max:10',
+          'trimestre'=>'required|numeric|min:1|max:10',
+          'promedio'=>'required|numeric|min:1|max:10',
         ]);
         
         Examenes::create($request->all());

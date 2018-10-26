@@ -49,8 +49,14 @@ class AsignacionAlumnosGradosController extends Controller
           'id_grado'=>'required|numeric',  
           'id_alumno'=>'required|numeric',
           ]);
-        AsignacionAlumnosGrados::create($request->all());
+        try {
+            AsignacionAlumnosGrados::create($request->all());
         return redirect()->route('asignacionAlumnosGrados.index')->with('success','Asignacion guardada con éxito');
+        } catch (\Illuminate\Database\QueryException $e) {
+        return redirect()->route('asignaciones.index')->with('danger','No se Puede agregar alumno duplicado ');
+            
+        }
+        
     }
 
     /**

@@ -34,8 +34,13 @@ class GradosController extends Controller
           'seccion'=>'required|alpha_spaces',
           'capacidad'=>'required|numeric',
         ]);
-        Grados::create($request->all());
+        try{
+            Grados::create($request->all());
         return redirect()->route('grados.index')->with('success','Grado guardado con éxito');
+        }
+        catch (\Illuminate\Database\QueryException $e) {
+        return redirect()->route('asignaciones.index')->with('danger','No se Puede Crear Grado duplicado ');
+    }
     }
 
      /**
@@ -88,7 +93,13 @@ class GradosController extends Controller
      */
     public function destroy($id)
     {
-        Grados::find($id)->delete();
+        try {
+              Grados::find($id)->delete();
         return redirect()->route('grados.index')->with('success','Grado eliminado con exito');
+        } catch (\Illuminate\Database\QueryException $e) {
+        return redirect()->route('asignaciones.index')->with('danger','No se Puede eliminar este registro porque esta asociado con otra asignación');
+            
+        }
+      
     }
 }

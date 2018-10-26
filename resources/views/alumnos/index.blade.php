@@ -33,8 +33,7 @@
   <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
-      <th style="text-align:center">Nombres</th>
-      <th style="text-align:center">Apellidos</th>
+      <th style="text-align:center">Nombre</th>
       <th style="text-align:center">NIE</th>
       <th style="text-align:center">F Nacimiento</th>
       <th style="text-align:center">Edad</th>
@@ -44,8 +43,7 @@
     @foreach ($alumnos as $key => $value)
     <tr>
         <td>{{$no++}}</td>
-        <td>{{ $value->nombres }}</td>
-        <td>{{ $value->apellidos }}</td>
+        <td>{{ $value->nombre }}</td>
         <td>{{ $value->no_nie }}</td>
         <td>{{ $value->f_nacimiento }}</td>
         <td><?php

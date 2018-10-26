@@ -49,9 +49,15 @@ class AsignacionesController extends Controller
           'id_grado'=>'required|numeric',
           'anio'=>'required|numeric',
         ]);
-        Asignaciones::create($request->all());
+        try {
+            Asignaciones::create($request->all());
         return redirect()->route('asignaciones.index')->with('success','Asignacion guardada con éxito');
+        }
+        
+        catch (\Illuminate\Database\QueryException $e) {
+        return redirect()->route('asignaciones.index')->with('danger','No se Puede Realizar esta asignación ');
     }
+ }
 
     /**
      * Display the specified resource.
