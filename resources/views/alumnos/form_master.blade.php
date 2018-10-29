@@ -73,7 +73,7 @@
     </div>
     <div class="col-sm-10">
     <div class="form-group">
-        <i>{{ Form::checkbox('repite_grado', '1') }}</i>
+        <i>{{ Form::select('repite_grado', [''=>'Selecione','1'=>'Si', '0'=>'No'], null, ['class'=>'form-control']) }}</i>
       </div>
     </div>
     </div>
@@ -81,14 +81,11 @@
 
     <div class="row">
     <div class="col-sm-2">
-    <div class="form-group">
-
       {!! form::label('estudio_parvularia','Estudio parvularia') !!}
     </div>
     <div class="col-sm-10">
-        <i>{{ Form::checkbox('estudio_parvularia', '1') }}</i>
+        <i>{{ Form::select('estudio_parvularia', [''=>'Selecione','1'=>'Si', '0'=>'No'], null, ['class'=>'form-control']) }}</i>
       </div>
-    </div>
     </div>
 
   <div class="row">
@@ -233,23 +230,17 @@
       {!! form::label('carta_compromiso','Carta compromiso') !!}
     </div>
     <div class="col-sm-10">
-    <div class="form-group">
-
-        <i>{{ Form::checkbox('carta_compromiso', '1') }}</i>
+        <i>{{ Form::select('carta_compromiso', [''=>'Selecione','1'=>'Si', '0'=>'No'], null, ['class'=>'form-control']) }}</i>
       </div>
-    </div>
     </div>
 
 <div class="row">
     <div class="col-sm-2">
-    <div class="form-group">
-
       {!! form::label('conducta','Carta conducta') !!}
     </div>
     <div class="col-sm-10">
-        <i>{{ Form::checkbox('conducta', '1') }}</i>
+        <i>{{ Form::select('conducta', [''=>'Selecione','1'=>'Si', '0'=>'No'], null, ['class'=>'form-control']) }}</i>
       </div>
-    </div>
     </div>
 
 <div class="row">
@@ -257,11 +248,8 @@
       {!! form::label('rendimiento','Carta rendimiento') !!}
     </div>
     <div class="col-sm-10">
-    <div class="form-group">
-
-        <i>{{ Form::checkbox('rendimiento', '1') }}</i>
+        <i>{{ Form::select('rendimiento', [''=>'Selecione','1'=>'Si', '0'=>'No'], null, ['class'=>'form-control']) }}</i>
       </div>
-    </div>
     </div>
 
 <div class="row">
@@ -269,11 +257,8 @@
       {!! form::label('nuevo_ingreso','Nuevo ingreso') !!}
     </div>
     <div class="col-sm-10">
-    <div class="form-group">
-
-        <i>{{ Form::checkbox('nuevo_ingreso', '1') }}</i>
+        <i>{{ Form::select('nuevo_ingreso', [''=>'Selecione','1'=>'Si', '0'=>'No'], null, ['class'=>'form-control']) }}</i>
       </div>
-    </div>
     </div>
 
 <div class="row">
@@ -331,16 +316,14 @@
       {!! form::label('estado','Estado') !!}
     </div>
     <div class="col-sm-10">
-    <div class="form-group">
-
-        <i>{{ Form::checkbox('estado', '1', true) }}</i>
+        <i>{{ Form::select('estado', [''=>'Selecione','1'=>'Si', '0'=>'No'], null, ['class'=>'form-control']) }}</i>
       </div>
-    </div>
     </div>
 
    <br>
        <div class="form-group text-center" >
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
+      <a class="btn btn-primary btn-lg" href="{{ route('asignacionAlumnosGrados.create') }}">Matricular</a>
       <a class="btn btn-danger btn-lg" href="{{ route('alumnos.index') }}">Cancelar</a>
    </div>
 

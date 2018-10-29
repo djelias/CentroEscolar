@@ -43,27 +43,27 @@ create table ALUMNOS
    edad                 int                            null,
    direccion            varchar(150)                   not null,
    telefono             char(8)                        not null,
-   repite_grado         boolean                        null,
-   estudio_parvularia   boolean                        null,
+   repite_grado         boolean                        not null,
+   estudio_parvularia   boolean                        not null,
    enfermedades         varchar(150)                   null,
    nombre_madre         varchar(150)                   not null,
-   dui_madre            char(10)                       not null UNIQUE,
+   dui_madre            char(10)                       not null,
    ocupacion_madre      varchar(150)                   not null,
    telefono_madre       char(8)                        not null,
    nombre_padre         varchar(150)                   not null,
-   dui_padre            char(10)                       not null UNIQUE,
+   dui_padre            char(10)                       not null,
    ocupacion_padre      varchar(150)                   not null,
    telefono_padre       char(8)                        not null,
    vive_con             varchar(150)                   not null,
-   carta_compromiso     boolean                        null,
-   conducta             boolean                        null,
-   rendimiento          boolean                        null,
+   carta_compromiso     boolean                        not null,
+   conducta             boolean                        not null,
+   rendimiento          boolean                        not null,
    nuevo_ingreso        boolean                        null,
    escuela_proviene     varchar(150)                   null,
    municipio            varchar(150)                   null,
    observaciones        varchar(150)                   null,
    quien_inscribe       varchar(150)                   not null,
-   estado               boolean                        null,
+   estado               boolean                        not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_ALUMNO primary key (id)
@@ -235,7 +235,23 @@ create table EXAMENES
    promedio             float                          null,
    created_at           timestamp,
    updated_at           timestamp,
-   constraint PK_PRUEBAS primary key (id)
+   constraint PK_EXAMENES primary key (id)
+);
+
+
+/*==============================================================*/
+/* Table:   EVENTOS                                             */
+/*==============================================================*/
+create table EVENTOS 
+(
+   id                   int                            not null AUTO_INCREMENT,
+   nombre               varchar(30)                    not null,
+   fecha                datetime                       not null,
+   descripcion          varchar(150)                   not null,
+   lugar                varchar(30)                    not null,
+   created_at           timestamp,
+   updated_at           timestamp,
+   constraint PK_EVENTOS primary key (id)
 );
 
 alter table DOCENTES add foreign key (id_usuario) references USERS (id);
