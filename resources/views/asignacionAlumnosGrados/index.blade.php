@@ -42,7 +42,7 @@
     <tr>
         <td>{{$no++}}</td>
         <td>{{$value->Grados->nombre }} {{ $value->Grados->seccion }}</td>
-        <td>{{$value->Alumnos->nombres }} {{ $value->Alumnos->apellidos }}<br></td>
+        <td>{{$value->Alumnos->nombre }} {{ $value->Alumnos->apellidos }}<br></td>
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('asignacionAlumnosGrados.show',$value->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>

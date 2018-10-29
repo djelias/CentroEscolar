@@ -4,14 +4,14 @@
     </div>
      <div class="col-sm-10">
       <div class="form-group">
-      <i><select name="id_alumno" class="form-control">
-                <option disabled selected>Seleccione Alumno</option>
+      <i><datalist name="id_alumno" id="id_alumno">
                 @foreach($alumnos as $alumno)
-                      <option value="{{$alumno->id}}">{{$alumno->id}}. {{$alumno->nombres}} {{$alumno->apellidos}}</option>
+                      <option value="{{$alumno->id}}">{{$alumno->nombre}}</option>
                  @endforeach
-            </select></i>  
+            </datalist></i> 
+       <i>{{ Form::text('id_alumno',NULL, ['class'=>'form-control', 'id'=>'id_alumno', 'list'=>'id_alumno', 'placeholder'=>'Nombre completo del alumno...']) }}</i> 
   </div>
-</div>
+  </div>
  </div>
 
   <div class="row">
@@ -35,4 +35,5 @@
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
       <a class="btn btn-danger btn-lg" href="{{ route('asignacionAlumnosGrados.index') }}">Cancelar</a>
     </div>
+  </div>
  
