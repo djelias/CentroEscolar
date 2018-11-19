@@ -59,7 +59,7 @@
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password','La contraseña debe ser de mas de 5 caracteres') }}</strong>
+                                        <strong>{{ $errors->first('password','La contraseña debe coincidir y ser de mas de 5 carácteres') }}</strong>
                                     </span>
                                 @endif
                             </div>

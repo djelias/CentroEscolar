@@ -7,7 +7,9 @@
       <i><select name="id_usuario" class="form-control">
                <option disabled selected>Seleccione el docente</option>
                 @foreach($users as $user)
-                      <option value="{{$user->id}}">{{$user->id}}. {{$user->name}}</option>
+                  @if ($user->usuario=='Docente')
+                      <option value="{{$user->id}}">{{$user->name}}</option>
+                  @endif
                  @endforeach
             </select></i>
             <div class="help-block"> 

@@ -74,7 +74,6 @@ class RegisterController extends Controller
             'usuario'=> $data['usuario'],
             'password' => bcrypt($data['password']),
         ]);
-        return redirect($this->redirectTo)->with('success', 'Usuario Creado con Éxito');
 
     }
 }

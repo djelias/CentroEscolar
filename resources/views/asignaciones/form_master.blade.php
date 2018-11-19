@@ -7,7 +7,7 @@
       <i><select name="id_docente" class="form-control">
                 <option disabled selected>Seleccione docente</option>
                 @foreach($docentes as $docente)
-                      <option value="{{$docente->id}}">{{$docente->id}}. {{$docente->user->name}}</option>
+                      <option value="{{$docente->id}}">{{$docente->user->name}}</option>
                  @endforeach
             </select></i> 
             <div class="help-block"> 
@@ -45,10 +45,12 @@
        <i><select name="anio" class="form-control">
                <option disabled selected>Seleccione el Año</option>
                 <?php 
-                     for ($i=2018; $i<=2030; $i++){
-                      echo '<option value="'.$i.'">'.$i.'</option>';
-        }
-  ?>
+                    $anio= date("Y");
+                    $siguiente = ($anio++);
+                      echo '<option value="'.$siguiente.'">'.$siguiente.'</option>';
+                      echo '<option value="'.$anio.'">'.$anio.'</option>';
+        
+                ?>
             </select></i> 
         <div class="help-block"> 
           <strong>{{ $errors->first('anio', '**Ingrese un año correctamente') }}</strong>
