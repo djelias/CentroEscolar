@@ -207,7 +207,7 @@ create table ROL_USUARIO
 create table USERS 
 (
    id                   int                            not null AUTO_INCREMENT,
-   usuario              char(255)                      not null UNIQUE,
+   usuario              char(255)                      not null ,
    name                 varchar(150)                   not null,
    password             varchar(191)                   not null,
    email                varchar(30)                    not null,

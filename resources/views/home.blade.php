@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Ingreso</div>
+                <div class="panel-heading">INGRESO</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -13,11 +13,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Ingreso Correctamente!
+                    @if (Auth::user()->usuario=='Administrador')
+                    Ingreso Correctamente como usuario Administrador!
+                    @else
+                    Ingreso Correctamente como usuario Docente!
+                    @endif
                 </div>
                 <div class="text-center">
-                    <a class="btn btn-primary" href="{{ url('/gestion') }}">Pagina Principal</a>
+                        <a class="btn btn-primary" href="{{ url('/gestion') }}">Pagina Principal</a>
                 </div>
                 <br>
             </div>

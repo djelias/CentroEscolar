@@ -22,21 +22,26 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 	Auth::routes();
-	Auth::routes();
+	Route::group(['middleware' => 'auth'], function() {
+    Route::get('gestion', function()
+	{
+   return view('gestion');
+	});
+ });	
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'admin'], function() {
    	Route::resource('docentes','DocentesController'); 
 	Route::resource('grados','GradosController');
+	Route::resource('asignaciones','AsignacionesController');
+	Route::resource('usuarios','UserController');
+	
+});
+Route::group(['middleware' => 'auth'], function() {
 	Route::resource('alumnos','AlumnosController');
 	Route::resource('materias','MateriasController');
 	Route::resource('examenes','ExamenesController');
 	Route::resource('asignacionAlumnosGrados','AsignacionAlumnosGradosController');
 	Route::resource('asignacionMateriasGrados','AsignacionMateriasGradosController');
-	Route::resource('asignaciones','AsignacionesController');
-		 Route::get('gestion', function()
-	{
-    return view('gestion');
-	});
 });
 
 

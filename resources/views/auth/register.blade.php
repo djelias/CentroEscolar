@@ -29,13 +29,11 @@
                             <label for="usuario" class="col-md-4 control-label">Usuario</label>
 
                             <div class="col-md-6">
-                                <input id="usuario" type="text" class="form-control" name="usuario" value="{{ old('usuario') }}" required autofocus>
-
-                                @if ($errors->has('usuario'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('usuario','El usuario debe ser de mas de 5 caracteres') }}</strong>
-                                    </span>
-                                @endif
+                                  <select name="usuario" class="form-control">
+                                    <option value="" disabled selected>Seleccione uno</option>
+                                     <option>Docente</option>
+                                     <option>Administrador</option>
+                                    </select>
                             </div>
                         </div>
 
@@ -77,10 +75,9 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Registrar
+                                <button  type="submit" class="btn btn-primary"> Registrar
                                 </button>
-                                <a class="btn btn-danger" href="{{ url('/SGECECST') }}">Cancelar</a>
+                                <a class="btn btn-danger" href="{{ route('usuarios.index')  }}">Cancelar</a>
                             </div>
                         </div>
                     </form>

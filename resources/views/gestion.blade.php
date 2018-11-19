@@ -2,6 +2,7 @@
 
 @section('content')
     <h3><small><i>Seleccione según Gestion</i></small></h3>
+    @if (Auth::user()->usuario=='Administrador')
     <nav class="navbar navbar-default" role="navigation">
   <!-- El logotipo y el icono que despliega el menú se agrupan
        para mostrarlos mejor en los dispositivos móviles -->
@@ -44,9 +45,54 @@
     <ul class="nav navbar-nav">
       <li><a href="{{ route('examenes.index') }}">Evaluaciones</a></li>
     </ul>
+    <ul class="nav navbar-nav">
+      <li><a href="{{ route('usuarios.index') }}">Usuarios del Sistema</a></li>
+    </ul>
    </div>
  </nav>
-        
+ @else
+ <nav class="navbar navbar-default" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{ url('/gestion') }}">MENU</a>
+  </div>
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Gestiones<b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ route('alumnos.index') }}">Gestión de Estudiantes </a></li>
+          <li><a href="{{ route('materias.index') }}">Gestión de Materias</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Asignaciones<b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+         <li><a href="{{ route('asignacionAlumnosGrados.index') }}">Alumnos y grados</a></li>
+         <li><a href="{{ route('asignacionMateriasGrados.index') }}">Materias y grados</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li><a href="{{ route('examenes.index') }}">Evaluaciones</a></li>
+    </ul>
+   </div>
+ </nav>
+ @endif
         <br>
             <div class="content">
                     <h3>BIENVENIDO / A <small> al Sistema de Gestión Escolar del Centro Escolar Católico Santo Tomás</small></h3>
