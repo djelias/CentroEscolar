@@ -73,7 +73,7 @@
                         <a href="{{ url('/gestion') }}">Gestión</a>
                     @else
                         <a href="{{ url('/login') }}">Ingresar</a>
-                        <a href="{{ url('/register') }}">Registro</a>
+                      <!--   <a href="{{ url('/register') }}">Registro</a> -->
                     @endif
                 </div>
             @endif

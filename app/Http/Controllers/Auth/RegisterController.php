@@ -32,6 +32,8 @@ class RegisterController extends Controller
      */
     protected $redirectTo = ('/usuarios');
 
+    
+
     /**
      * Create a new controller instance.
      *
@@ -39,7 +41,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -72,6 +74,7 @@ class RegisterController extends Controller
             'usuario'=> $data['usuario'],
             'password' => bcrypt($data['password']),
         ]);
+        return redirect($this->redirectTo)->with('success', 'Usuario Creado con Éxito');
 
     }
 }
