@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::resource('examenes','ExamenesController');
 	Route::resource('asignacionAlumnosGrados','AsignacionAlumnosGradosController');
 	Route::resource('asignacionMateriasGrados','AsignacionMateriasGradosController');
+	Route::resource('reportes','ReportesController');
 });
 
 

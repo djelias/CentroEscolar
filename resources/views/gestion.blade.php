@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3><small><i>Seleccione según Gestion</i></small></h3>
+    <h3><small><i>Seleccione segun gestion</i></small></h3>
     @if (Auth::user()->usuario=='Administrador')
     <nav class="navbar navbar-default" role="navigation">
   <!-- El logotipo y el icono que despliega el menú se agrupan
@@ -47,6 +47,9 @@
     </ul>
     <ul class="nav navbar-nav">
       <li><a href="{{ route('usuarios.index') }}">Usuarios del Sistema</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li><a href="{{ route('reportes.index') }}">Reportes</a></li>
     </ul>
    </div>
  </nav>

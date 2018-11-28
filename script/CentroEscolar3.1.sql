@@ -254,6 +254,22 @@ create table EVENTOS
    constraint PK_EVENTOS primary key (id)
 );
 
+
+/*==============================================================*/
+/* Table:   ASISTENCIAS                                         */
+/*==============================================================*/
+create table ASISTENCIAS 
+(
+   id                   int                            not null AUTO_INCREMENT,
+   id_asignaciones      int                            null,
+   id_asig_alum_gr      int                            null,
+   asistencia           varchar(50)                    not null,
+   fecha                date                           not null,
+   created_at           timestamp,
+   updated_at           timestamp,
+   constraint PK_ASISTENCIAS primary key (id)
+);
+
 alter table DOCENTES add foreign key (id_usuario) references USERS (id);
 
 alter table EXAMENES add foreign key (id_asignacion_al_gr) references ASIGNACION_ALUMNOS_GRADOS (id);
@@ -277,6 +293,10 @@ alter table ASIGNACION_ALUMNOS_GRADOS add foreign key (id_alumno) references ALU
 alter table ASIGNACION_MATERIAS_GRADOS add foreign key (id_grado) references GRADOS (id);
 
 alter table ASIGNACION_MATERIAS_GRADOS add foreign key (id_materia) references MATERIAS (id);
+
+alter table ASISTENCIAS add foreign key (id_asignaciones) references ASIGNACIONES (id);
+
+alter table ASISTENCIAS add foreign key (id_asig_alum_gr) references ASIGNACION_ALUMNOS_GRADOS (id);
 
 alter table GRADOS add constraint GRADO_UNICO unique (nombre, seccion);
 
