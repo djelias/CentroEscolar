@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
+<html lang="{{ app()->getLocale() }}"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,8 +23,7 @@
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 
-</head>
-<body>
+</head><body>
     <div id="app" style="overflow-y: auto; overflow-x: hidden;"  >
         <nav class="navbar navbar-default "role="navigation" style="background-color: #A9D0F5;">
             <div class="container">
@@ -97,8 +95,9 @@
 </div>
 </div>
     
-</body>
-<script>
+</body></html>
+ 
+ <script>
         var f=new Date();
         var fecha = f.getDate() + '-' + (f.getMonth() + 1) + '-' +f.getFullYear();
         var hora = f.getHours() + ':' + f.getMinutes();
@@ -106,5 +105,3 @@
         document.getElementById('fecha').innerHTML = fechaYhora;
 
 </script>
-</html>
- 

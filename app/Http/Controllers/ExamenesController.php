@@ -7,6 +7,7 @@ use App\Examenes;
 use App\Materias;
 use App\AsignacionAlumnosGrados;
 use examenes1\http\Request\ExamenesRequest;
+use PDF;
 
 class ExamenesController extends Controller
 {
@@ -69,10 +70,19 @@ class ExamenesController extends Controller
      */
     public function show($id)
     {
+        /**
         $materias = Materias::all();
         $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
         $examenes = Examenes::find($id);
       return view('examenes.show',compact('examenes','materias','asignacionAlumnosGrados'));
+      */
+      $materias = Materias::all();
+        $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
+      $examenes = Examenes::find($id);
+      $view = view ('examenes.show',compact('examenes','materias','asignacionAlumnosGrados'));
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      return $pdf->stream('examenes.pdf');
     }
 
     /**

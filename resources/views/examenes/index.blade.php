@@ -43,7 +43,7 @@
     @foreach ($examenes as $key => $value)
     <tr>
         <td style="text-align:center">{{$no++}}</td>
-        <td style="text-align:center">{{ $value->AsignacionAlumnosGrados->Alumnos->nombres }}<br>{{ $value->AsignacionAlumnosGrados->Alumnos->apellidos }}</td>
+        <td style="text-align:center">{{ $value->AsignacionAlumnosGrados->Alumnos->nombre }}</td>
         <td style="text-align:center">{{ $value->Materias->nombre }}</td>
         <td style="text-align:center">{{ $value->examen1 }}</td>
         <td style="text-align:center">{{ $value->examen2 }}</td>
@@ -53,7 +53,7 @@
         <td style="text-align:center">{{ $value->trimestre }}</td>
         <td style="text-align:center">{{ $value->promedio }}</td>
         <td>
-          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('examenes.show',$value->id)}}">
+          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('examenes.show', $parameters = $value->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
           <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('examenes.edit',$value->id)}}">
               <i class="glyphicon glyphicon-pencil"></i></a>
