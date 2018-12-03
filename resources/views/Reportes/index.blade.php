@@ -14,20 +14,17 @@
       </div>
   @endif
       <br>
-  <table class="table table-striped" style="text-align:center" >
+  <table style="width:100%">
     <tr>
-      <th with="80px"></th>
-      <th style="text-align:center">Reportes por grado</th>
-      <th style="text-align:center"><a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('reportes.grados')}}">
-              <i class="glyphicon glyphicon-list-alt"></i></a></th>
+      <td style="text-align:center">Reportes por grados</td>
+      <td><a class="btn btn-primary" href="{{ url('/gestion') }}">Reportes</a></td>
     </tr>
     <tr>
-        <th style="text-align:center">Reportes por grado</th>
-        <th style="text-align:center"><a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('reportes.alumnos')}}">
-              <i class="glyphicon glyphicon-list-alt"></i></a></th>
+      <td style="text-align:center">Reportes por alumnos</td>
+      
+      <td><a class="btn btn-primary" href="{{ url('/gestion') }}">Reportes</a></td>
     </tr>
   </table>
-  {!!$examenes->render()!!}
  <div class="text-center">
     <a class="btn btn-primary" href="{{ url('/gestion') }}">Regresar</a>
   </div>

@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Eventoss;
+use App\Eventos;
 use eventos1\http\Request\EventosRequest;
 
 class EventosController extends Controller
@@ -43,6 +43,7 @@ class EventosController extends Controller
 
           'nombre' => 'required',
           'fecha'=>'required',
+          'hora'=>'required',
           'descripcion'=>'required',
           'lugar'=>'required',
         ]);
@@ -87,6 +88,7 @@ class EventosController extends Controller
         $this->validate($request,[
           'nombre' => 'required',
           'fecha'=>'required',
+          'hora'=>'required',
           'descripcion'=>'required',
           'lugar'=>'required',
         ]);

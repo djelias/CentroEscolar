@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Eventos extends Model
 {
-    protected $fillable = ['nombre','fecha','descripcion','lugar'];
+    protected $fillable = ['nombre','fecha','hora' ,'descripcion','lugar'];
     protected $dates = ['created_at','updated_at'];
 
     public function scopeNombre($query, $nombre)

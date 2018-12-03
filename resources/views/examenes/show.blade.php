@@ -14,35 +14,35 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Examen 1 : </strong>
+            <strong>Examen : </strong>
             {{ $examenes->examen1}}
         </div>
     </div>
 <br>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Examen 2 : </strong>
+            <strong>Laboratorio : </strong>
             {{ $examenes->examen2}}
         </div>
     </div>
 <br>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Examen 3 : </strong>
+            <strong>Actividad Cotidiana : </strong>
             {{ $examenes->examen3}}
         </div>
     </div>
 <br>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Actividad 1 : </strong>
+            <strong>Actividad Integradora 1 : </strong>
             {{ $examenes->actividad1}}
         </div>
     </div>
 <br>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Actividad 2 : </strong>
+            <strong>Actividad Integradora 2 : </strong>
             {{ $examenes->actividad2}}
         </div>
     </div>

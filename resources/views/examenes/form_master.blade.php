@@ -7,7 +7,7 @@
       <i><select name="id_asignacion_al_gr" class="form-control">
                <option disabled selected>Seleccione el alumno</option>
                 @foreach($asignacionAlumnosGrados as $asignacionAlumnoGrado)
-                      <option value="{{$asignacionAlumnoGrado->id}}">{{$asignacionAlumnoGrado->Alumnos->nombres}} {{$asignacionAlumnoGrado->Alumnos->apellidos}}</option>
+                      <option value="{{$asignacionAlumnoGrado->id}}">{{$asignacionAlumnoGrado->Alumnos->nombre}}</option>
                  @endforeach
             </select></i>
             <div class="help-block"> 
@@ -52,7 +52,7 @@
 
 <div class="row">
    <div class="col-sm-3">
-      {!! form::label('examen2','Examen 2') !!}
+      {!! form::label('examen2','Laboratorio') !!}
     </div>
     <div class="col-sm-2">
       <div class="form-group {{ $errors->has('examen2') ? 'has-error' : "" }}">
@@ -66,7 +66,7 @@
 
 <div class="row">
    <div class="col-sm-3">
-      {!! form::label('examen3','Examen 3') !!}
+      {!! form::label('examen3','Actividad cotidiana') !!}
     </div>
     <div class="col-sm-2">
       <div class="form-group {{ $errors->has('examen3') ? 'has-error' : "" }}">
@@ -158,7 +158,7 @@
           var vr3 = document.getElementById('examen3').value;
           var vr4 = document.getElementById('actividad1').value;
           var vr5 = document.getElementById('actividad2').value;
-          var p = (parseFloat(vr1)+parseFloat(vr2)+parseFloat(vr3)+parseFloat(vr4)+parseFloat(vr5))/5;
+          var p = ((((parseFloat(vr1)+parseFloat(vr2))/2)*0.30)+(parseFloat(vr3)*0.35)+((parseFloat(vr4)+parseFloat(vr5))/2)*0.35);
           document.getElementById('promedio').value = ("%.2", p);
         }
 </script>

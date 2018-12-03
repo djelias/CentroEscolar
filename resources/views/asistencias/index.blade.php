@@ -3,7 +3,7 @@
   <div class="row">
     <div class ="col-sm-12">
       <div class="full.right">
-      <h2>GESTION DE EVENTOS</h2>
+      <h2>ASISTENCIAS</h2>
       <br>
       </div>
     </div>
@@ -13,16 +13,13 @@
           <p>{{ $message }}</p>
       </div>
   @endif
-   @if ($message = Session::get('danger'))
+  @if ($message = Session::get('danger'))
       <div class="alert alert-danger">
           <p>{{ $message }}</p>
       </div>
   @endif
       <div>
-        <a href="{{route('eventos.create')}}" class="btn btn-success btn-lg">
-            <i class="glyphicon glyphicon-plus"> NUEVO</i>
-        </a>
-        {!! Form::open(['route'=>'eventos.index', 'method'=>'GET', 'class'=>'navbar-form pull-right', 'role'=>'search'])!!}
+        {!! Form::open(['route'=>'asistencias.index', 'method'=>'GET', 'class'=>'navbar-form pull-right', 'role'=>'search'])!!}
         <div class="input-group"> 
             {!! Form::text('nombre', null, ['class'=>'form-control', 'placeholder'=>'Buscar'])!!}
         </div>
@@ -33,43 +30,31 @@
   <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
-      <th style="text-align:center">Nombre</th>
-      <th style="text-align:center">Fecha</th>
-      <th style="text-align:center">Hora</th>
-      <th style="text-align:center">Descripcion</th>
-      <th style="text-align:center">Lugar</th>
-      <th style="text-align:center">Accion</th>
+      <th style="text-align:center">Docente</th>
+      <th style="text-align:center">Grado</th>
+      <th style="text-align:center">Acciones</th>
     </tr>
     <?php $no=1; ?>
-    @foreach ($eventos as $key => $value)
+    @foreach ($asistencias as $key => $value)
     <tr>
         <td>{{$no++}}</td>
-        <td>{{ $value->nombre }}</td>
-        <td><?php
-    $date = date_create($value->fecha);
-echo date_format($date, 'd-m-Y');
-    ?>
-        </td>
-        <td>{{ $value->hora }}</td>
-        <td>{{ $value->descripcion }}</td>
-        <td>{{ $value->lugar }}</td>
+        <td>{{$value->Docentes->User->name }}</td>
+        <td>{{$value->Grados->nombre }} {{ $value->Grados->seccion }}</td>
         <td>
-          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('eventos.show',$value->id)}}">
+          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Asistencia" href="{{route('asistencias.create')}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
-          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('eventos.edit',$value->id)}}">
+          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('asignaciones.edit',$value->id)}}">
               <i class="glyphicon glyphicon-pencil"></i></a>
-            {!! Form::open(['method' => 'DELETE','route' => ['eventos.destroy', $value->id],'style'=>'display:inline']) !!}
+            {!! Form::open(['method' => 'DELETE','route' => ['asignaciones.destroy', $value->id],'style'=>'display:inline']) !!}
               <button type="submit" data-toggle="tooltip" data-placement="top" title="Eliminar" style="display: inline;" class="btn btn-danger btn-lg" onclick="return confirm('¿Esta seguro de eliminar este Registro?')"><i class="glyphicon glyphicon-trash" ></i></button>
-            {!! Form::close() !!}
+            {!! Form::close() !!}<br>
+        
         </td>
       </tr>
     @endforeach
   </table>
-  {!!$eventos->render()!!}
+  {!!$asistencias->render()!!}
  <div class="text-center">
     <a class="btn btn-primary" href="{{ url('/gestion') }}">Regresar</a>
   </div>
 @endsection
-
-
-  

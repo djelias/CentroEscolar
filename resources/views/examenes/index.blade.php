@@ -30,11 +30,11 @@
       <th with="80px">No</th>
       <th style="text-align:center">Alumno</th>
       <th style="text-align:center">Materia</th>
-      <th style="text-align:center">Examen 1</th>
-      <th style="text-align:center">Examen 2</th>
-      <th style="text-align:center">Examen 3</th>
-      <th style="text-align:center">Actividad 1</th>
-      <th style="text-align:center">Actividad 2</th>
+      <th style="text-align:center">Examen</th>
+      <th style="text-align:center">Laboratorio</th>
+      <th style="text-align:center">Actividad Cotidiana</th>
+      <th style="text-align:center">Actividad Integradora 1</th>
+      <th style="text-align:center">Actividad Integradora 2</th>
       <th style="text-align:center">Periodo</th>
       <th style="text-align:center">Promedio</th>
       <th style="text-align:center">Accion</th>

@@ -32,7 +32,7 @@
     </div>
     <div class="col-sm-5">
       <div class="input-group {{ $errors->has('f_nacimiento') ? 'has-error' : "" }}">
-       <i>{{ Form::text('f_nacimiento',NULL, ['class'=>'form-control', 'id'=>'f_nacimiento','type'=>'text', 'placeholder'=>'Fecha(yyyy-mm-dd)']) }} </i>
+       <i>{{ Form::date('f_nacimiento',NULL, ['class'=>'form-control', 'id'=>'f_nacimiento','type'=>'text', 'placeholder'=>'Fecha(yyyy-mm-dd)']) }} </i>
                <div class="help-block"> 
           <strong>{{ $errors->first('f_nacimiento', '**Ingrese la Fecha correctamente') }}</strong>
       </div>
@@ -316,14 +316,13 @@
       {!! form::label('estado','Estado') !!}
     </div>
     <div class="col-sm-10">
-        <i>{{ Form::select('estado', [''=>'Selecione','1'=>'Si', '0'=>'No'], null, ['class'=>'form-control']) }}</i>
+        <i>{{ Form::select('estado', ['1'=>'Activo', '0'=>'Inactivo'], null, ['class'=>'form-control']) }}</i>
       </div>
     </div>
 
    <br>
        <div class="form-group text-center" >
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
-      <a class="btn btn-primary btn-lg" href="{{ route('asignacionAlumnosGrados.create') }}">Matricular</a>
       <a class="btn btn-danger btn-lg" href="{{ route('alumnos.index') }}">Cancelar</a>
    </div>
 
@@ -353,6 +352,6 @@
          };
    $.datepicker.setDefaults($.datepicker.regional['es']);
             $(function () {
-            $("#f_nacimiento").datepicker();
+            $("#miento").datepicker();
         });
 </script>

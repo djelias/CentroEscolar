@@ -31,6 +31,8 @@ drop table if exists MATERIAS;
 
 drop table if exists EXAMENES;
 
+drop table if exists ASISTENCIAS;
+
 /*==============================================================*/
 /* Table: ALUMNOS                                               */
 /*==============================================================*/
@@ -246,7 +248,8 @@ create table EVENTOS
 (
    id                   int                            not null AUTO_INCREMENT,
    nombre               varchar(30)                    not null,
-   fecha                datetime                       not null,
+   fecha                date                           not null,
+   hora                 time                           not null,
    descripcion          varchar(150)                   not null,
    lugar                varchar(30)                    not null,
    created_at           timestamp,
@@ -263,7 +266,7 @@ create table ASISTENCIAS
    id                   int                            not null AUTO_INCREMENT,
    id_asignaciones      int                            null,
    id_asig_alum_gr      int                            null,
-   asistencia           varchar(50)                    not null,
+   estado               varchar(50)                    not null,
    fecha                date                           not null,
    created_at           timestamp,
    updated_at           timestamp,

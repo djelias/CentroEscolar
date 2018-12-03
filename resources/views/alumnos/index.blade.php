@@ -46,7 +46,10 @@
         <td>{{$no++}}</td>
         <td>{{ $value->nombre }}</td>
         <td>{{ $value->no_nie }}</td>
-        <td>{{ $value->f_nacimiento }}</td>
+        <td><?php
+    $date = date_create($value->f_nacimiento);
+echo date_format($date, 'd-m-Y');
+    ?></td>
         <td><?php
     $cumpleanos = new DateTime($value->f_nacimiento);
     $hoy = new DateTime();

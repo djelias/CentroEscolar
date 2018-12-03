@@ -94,7 +94,8 @@ class ReportesController extends Controller
     }
 
         public function grados()    {
-
+        
+        return view('reportes.grados');
     }
 
         public function alumnos()    {

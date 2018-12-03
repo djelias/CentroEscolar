@@ -17,9 +17,23 @@
     </div>
     <div class="col-sm-5">
       <div class="form-group {{ $errors->has('fecha') ? 'has-error' : "" }}">
-       <i>{{ Form::text('fecha',NULL, ['class'=>'form-control', 'id'=>'fecha', 'placeholder'=>'Fecha del evento']) }} </i> 
+       <i>{{ Form::date('fecha',NULL, ['class'=>'form-control', 'id'=>'fecha', 'placeholder'=>'Fecha del evento']) }} </i> 
         <div class="help-block"> 
           <strong>{{ $errors->first('fecha', 'Ingrese Escalafón correctamente') }}</strong>
+      </div>
+    </div>
+    </div>
+   </div>
+
+     <div class="row">
+    <div class="col-sm-3">
+      {!! form::label('hora','Hora') !!}
+    </div>
+    <div class="col-sm-5">
+      <div class="form-group {{ $errors->has('hora') ? 'has-error' : "" }}">
+       <i>{{ Form::time('hora',NULL, ['class'=>'form-control', 'id'=>'hora', 'placeholder'=>'Hora del evento']) }} </i> 
+        <div class="help-block"> 
+          <strong>{{ $errors->first('hora', 'Ingrese Escalafón correctamente') }}</strong>
       </div>
     </div>
     </div>

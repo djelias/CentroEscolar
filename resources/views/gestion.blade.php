@@ -27,6 +27,8 @@
           <li><a href="{{ route('alumnos.index') }}">Gestión de Estudiantes </a></li>
           <li><a href="{{ route('grados.index') }}">Gestión de Grados </a></li>
           <li><a href="{{ route('materias.index') }}">Gestión de Materias</a></li>
+          <li><a href="{{ route('eventos.index') }}">Gestión de Eventos</a></li>
+          <li><a href="{{ route('asistencias.index') }}">Gestión de Asistencias</a></li>
         </ul>
       </li>
     </ul>
@@ -76,6 +78,7 @@
         <ul class="dropdown-menu">
           <li><a href="{{ route('alumnos.index') }}">Gestión de Estudiantes </a></li>
           <li><a href="{{ route('materias.index') }}">Gestión de Materias</a></li>
+          <li><a href="{{ route('asistencias.index') }}">Gestión de Asistencias</a></li>
         </ul>
       </li>
     </ul>
