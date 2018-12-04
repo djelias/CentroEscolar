@@ -29,7 +29,6 @@
     <tr>
       <th with="80px">No</th>
       <th style="text-align:center">Alumno</th>
-      <th style="text-align:center">Materia</th>
       <th style="text-align:center">Examen</th>
       <th style="text-align:center">Laboratorio</th>
       <th style="text-align:center">Actividad Cotidiana</th>
@@ -44,7 +43,6 @@
     <tr>
         <td style="text-align:center">{{$no++}}</td>
         <td style="text-align:center">{{ $value->AsignacionAlumnosGrados->Alumnos->nombre }}</td>
-        <td style="text-align:center">{{ $value->Materias->nombre }}</td>
         <td style="text-align:center">{{ $value->examen1 }}</td>
         <td style="text-align:center">{{ $value->examen2 }}</td>
         <td style="text-align:center">{{ $value->examen3 }}</td>

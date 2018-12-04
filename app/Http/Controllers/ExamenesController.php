@@ -44,8 +44,21 @@ class ExamenesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request)    {
+
+       foreach ($request->get('examen1') as $key => $value) {
+            $examenes = new Examenes;
+            $examenes->id_asignacion_al_gr = (integer) $request->get('id_asignacion_al_gr')[$key];
+            $examenes->examen1 = (float) $value;            
+            $examenes->examen2 = (float) $request->get('examen2')[$key];            
+            $examenes->examen3 = (float) $request->get('examen3')[$key];            
+            $examenes->actividad1 = (float) $request->get('actividad1')[$key];            
+            $examenes->actividad2 = (float) $request->get('actividad2')[$key];            
+            $examenes->trimestre = (integer) $request->get('trimestre');
+            $examenes->promedio = (float) $request->get('promedio')[$key];           
+            $examenes->save();
+}
+/**
         $this->validate($request,[
           'id_asignacion_al_gr' => 'required|numeric',
           'id_materia' => 'required|numeric',
@@ -58,7 +71,7 @@ class ExamenesController extends Controller
           'promedio'=>'required|numeric|min:1|max:10',
         ]);
         
-        Examenes::create($request->all());
+        Examenes::create($request->all());*/
         return redirect()->route('examenes.index')->with('success','Examenes guardado con éxito');
     }
 

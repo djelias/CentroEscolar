@@ -24,14 +24,14 @@ class ExamenesRequest extends FormRequest
     public function rules()
     {
         return [
-          'id_asignacion_al_gr' => 'required|numeric',
-          'id_materia' => 'required|numeric',
-          'examen1' => 'required|numeric',
-          'examen2' => 'required|numeric',
-          'examen3' => 'required|numeric',
-          'ponderacion1'=>'required|numeric',
-          'ponderacion2'=>'required|numeric',
-          'ponderacion3'=>'required|numeric',
+          'id_asignacion_al_gr',
+          'examen1',
+          'examen2',
+          'examen3',
+          'actividad1',
+          'actividad2',
+          'trimestre',
+          'promedio',
         ];
     }
 }

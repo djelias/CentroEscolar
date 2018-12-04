@@ -42,9 +42,8 @@ class AsistenciasController extends Controller
      */
     public function create()    {
        $asignaciones = Asignaciones::all();
-       $asistencias = Asistencias::all();
        $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
-      return view('asistencias.create',compact('asignaciones','asistencias','asignacionAlumnosGrados'));
+      return view('asistencias.create',compact('asignaciones','asignacionAlumnosGrados'));
     }
 
     /**
@@ -55,17 +54,17 @@ class AsistenciasController extends Controller
      */
     public function store(Request $request)
     {
-       $this->validate($request,[
-
-           'id_asig_alum_gr',
-          'estado',
-          'fecha',
-        ]);
         
-        Asistencias::create($request->all());
-        return redirect()->route('asistencias.index')->with('success','Asistencia guardado con éxito');
-    }
+        foreach ($request->get('estado') as $key => $value) {
+            $asistencias = new Asistencias;
+            $asistencias->id_asig_alum_gr = $request->get('id_asig_alum_gr')[$key];
+            $asistencias->estado = $value;
+            $asistencias->fecha = $request->get('fecha');            
+            $asistencias->save();
 
+}
+        return redirect()->route('asistencias.index');
+    }
     /**
      * Display the specified resource.
      *

@@ -1,38 +1,32 @@
-     <div class="row">
-    <div class="col-sm-1">
-      {!! form::label('fecha','Fecha') !!}
+     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 form-group">
+        <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" name="fecha" class="form-control" placeholder="Fecha ...">
+        </div>
     </div>
-    <div class="col-sm-5">
-      <div class="form-group {{ $errors->has('fecha') ? 'has-error' : "" }}">
-       <i>{{ Form::date('fecha',NULL, ['class'=>'form-control', 'id'=>'fecha', 'placeholder'=>'Fecha del evento']) }} </i> 
-    </div>
-    </div>
-   </div>
 
    <table class="table table-striped" style="text-align:center" >
-    <tr>
-      <th with="80px">No</th>
-      <th style="text-align:center">Nombre</th>
-      <th style="text-align:center">Asistencia</th>
-    </tr>
-    <?php $no=1; ?>
-     @foreach($asignacionAlumnosGrados as $asignacionAlumnoGr)
-    <tr>
-        <td>{{$no++}}</td>
-        <td>{{ $asignacionAlumnoGr->Alumnos->nombre}}
-        <?php 
-        $id_asig_alum_gr = $asignacionAlumnoGr->id;
-         ?>
-        </td>
-        <td>
-            <select name="estado" class="form-control">
-                <option selected value="Asistio">Asistio</option>
-                <option value="Tarde">Tarde</option>
-                <option value="Inasistencia">Inasistencia</option>
-            </select>
-          </td>
-      </tr>
-    @endforeach
+     <thead>
+                <th>Alumno</th>
+                <th>Asistencia</th>
+                </thead>
+                @foreach($asignacionAlumnosGrados as $reg)
+                    <tr><input type="hidden" name="id_asig_alum_gr[]" value="{{$reg->id}}">
+                        <td>{{$reg->Alumnos->nombre}}</td>
+                        <td>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 form-group">
+                                <div class="form-group">
+                                    <select name="estado[]" class="form-control">
+                                        <option value="A">Asistió</option>
+                                        <option value="T">Tarde</option>
+                                        <option value="F">Falta</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                @endforeach
   </table>
 
     <br>

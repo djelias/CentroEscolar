@@ -266,7 +266,7 @@ create table ASISTENCIAS
    id                   int                            not null AUTO_INCREMENT,
    id_asignaciones      int                            null,
    id_asig_alum_gr      int                            null,
-   estado               varchar(50)                    not null,
+   estado               varchar(50)                    default 'Asistio',
    fecha                date                           not null,
    created_at           timestamp,
    updated_at           timestamp,

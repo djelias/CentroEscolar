@@ -22,12 +22,4 @@ public function AsignacionAlumnosGrados(){
     return $this->belongsTo('App\AsignacionAlumnosGrados', 'id_asig_alum_gr');
 }
 
-	public function Grados(){
-    return $this->belongsTo('App\Grados', 'id_grado');
-}
-
-public function Users(){
-    return $this->belongsTo('App\Users', 'id_user');
-}
-
 }

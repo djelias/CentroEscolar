@@ -1,154 +1,43 @@
-   <div class="row">
-    <div class="col-sm-3">
-      {!! form::label('Alumno') !!}
-    </div>
-     <div class="col-sm-8">
-      <div class="form-group {{ $errors->has('id_asignacion_al_gr') ? 'has-error' : "" }}">
-      <i><select name="id_asignacion_al_gr" class="form-control">
-               <option disabled selected>Seleccione el alumno</option>
-                @foreach($asignacionAlumnosGrados as $asignacionAlumnoGrado)
-                      <option value="{{$asignacionAlumnoGrado->id}}">{{$asignacionAlumnoGrado->Alumnos->nombre}}</option>
-                 @endforeach
-            </select></i>
-            <div class="help-block"> 
-                <strong>{{ $errors->first('id_asignacion_al_gr', 'Seleccione uno') }}</strong>
-          </div>
- </div>
-</div>
- </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 form-group">
+                                <div class="form-group">
+                                    <select name="trimestre[]" class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
 
-   <div class="row">
-    <div class="col-sm-3">
-      {!! form::label('Materia') !!}
-    </div>
-     <div class="col-sm-8">
-      <div class="form-group {{ $errors->has('id_materia') ? 'has-error' : "" }}">
-      <i><select name="id_materia" class="form-control">
-               <option disabled selected>Seleccione el materia</option>
-                @foreach($materias as $materia)
-                      <option value="{{$materia->id}}">{{$materia->id}}. {{$materia->nombre}}</option>
-                 @endforeach
-            </select></i>
-            <div class="help-block"> 
-                <strong>{{ $errors->first('id_materia', 'Seleccione uno') }}</strong>
-          </div>
- </div>
-</div>
- </div>
+ <table class="table table-striped" style="text-align:center" >
+     <thead>
+                <th>Alumno</th>
+                <th>Examen</th>
+                <th>Laboratorio</th>
+                <th>Actividad cotidiana</th>
+                <th>Actividad integradora 1</th>
+                <th>Actividad integradora 2</th>
+                <th>Promedio</th>
+                </thead>
+                @foreach($asignacionAlumnosGrados as $reg)
+                <?php echo "$reg"; ?>
+                <input type="hidden" name="id_asignacion_al_gr[]" value="{{$reg->id}}">
+                    <tr>
+                        <td>{{$reg->Alumnos->nombre}}</td>
+                        <td><input type="number" name="examen1[]" class="form-control" placeholder="Nota"></td>
+                        <td><input type="number" name="examen2[]" class="form-control" placeholder="Nota"></td>
+                        <td><input type="number" name="examen3[]" class="form-control" placeholder="Nota"></td>
+                        <td><input type="number" name="actividad1[]" class="form-control" placeholder="Nota"></td>
+                        <td><input type="number" name="actividad2[]" class="form-control" placeholder="Nota"></td>
 
-<div class="row">
-   <div class="col-sm-3">
-      {!! form::label('examen1','Examen 1') !!}
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group {{ $errors->has('examen1') ? 'has-error' : "" }}">
-       <i>{{ Form::text('examen1',NULL, ['class'=>'form-control', 'id'=>'examen1', 'placeholder'=>'Nota','maxlength' => 4]) }} </i> 
-        <div class="help-block"> 
-           <strong>{{ $errors->first('examen2', 'Ingrese correctamente') }}</strong>
-      </div>
-    </div>
-  </div>
-</div>
+                        <td><input type="number" name="promedio[]" class="form-control" placeholder="Nota"></td>
+                    </tr>
 
-<div class="row">
-   <div class="col-sm-3">
-      {!! form::label('examen2','Laboratorio') !!}
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group {{ $errors->has('examen2') ? 'has-error' : "" }}">
-       <i>{{ Form::text('examen2',NULL, ['class'=>'form-control', 'id'=>'examen2', 'placeholder'=>'Nota','maxlength' => 4]) }} </i> 
-        <div class="help-block"> 
-          <strong>{{ $errors->first('examen2', 'Ingrese correctamente') }}</strong>
-      </div>
-    </div>
-  </div>
-</div>
+                @endforeach
+  </table>
 
-<div class="row">
-   <div class="col-sm-3">
-      {!! form::label('examen3','Actividad cotidiana') !!}
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group {{ $errors->has('examen3') ? 'has-error' : "" }}">
-       <i>{{ Form::text('examen3',NULL, ['class'=>'form-control', 'id'=>'examen3', 'placeholder'=>'Nota','maxlength' => 4]) }} </i> 
-        <div class="help-block"> 
-          <strong>{{ $errors->first('examen3', 'Ingrese correctamente') }}</strong>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-   <div class="col-sm-3">
-      {!! form::label('actividad1','Actividad integradora 1') !!}
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group {{ $errors->has('actividad1') ? 'has-error' : "" }}">
-       <i>{{ Form::text('actividad1',NULL, ['class'=>'form-control', 'id'=>'actividad1', 'placeholder'=>'Nota','maxlength' => 4]) }} </i> 
-        <div class="help-block"> 
-          <strong>{{ $errors->first('actividad1', 'Ingrese correctamente') }}</strong>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-   <div class="col-sm-3">
-      {!! form::label('actividad2','Actividad integradora 2') !!}
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group {{ $errors->has('actividad2') ? 'has-error' : "" }}">
-       <i>{{ Form::text('actividad2',NULL, ['class'=>'form-control', 'id'=>'actividad2', 'placeholder'=>'Nota','maxlength' => 4]) }} </i> 
-        <div class="help-block"> 
-          <strong>{{ $errors->first('actividad2', 'Ingrese correctamente') }}</strong>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-   <div class="col-sm-3">
-      {!! form::label('trimestre','Periodo') !!}
-    </div>
-    <div class="col-sm-4">
-      <div class="form-group {{ $errors->has('trimestre') ? 'has-error' : "" }}">
-       <i><select name="trimestre" id="seccion" class="form-control" >
-                <option value="" disabled selected>Seleccione</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-            </select></i>
-        <div class="help-block"> 
-          <strong>{{ $errors->first('trimestre', 'Ingrese correctamente') }}</strong>
-      </div>
-    </div>
-  </div>
-</div>
-
- <div class="row">
   <br>
-   <div class="col-sm-3">
-       <input type="button" data-placement="top" title="Promedio" class="btn btn-info btn-lg " value="Promedio" onclick="Calcular();"> 
-    </div>
-    <div class="col-sm-4">
-      <div class="form-group text">
-       <i>{{ Form::text('promedio',NULL, ['class'=>'form-control', 'id'=>'promedio','readonly'=>'readonly', 'placeholder'=>'Promedio', 'data-placement'=>'top', 'title'=>'Este campo no se puede editar'])}}</i> 
-       
-  </div>
-</div>
-</div>
-<div class="row">
-  <div class="col-sm-10">
-          <i>{!! form::label('promedio','Presione el botón PROMEDIO para obtenerlo automáticamente.') !!}</i>
-    </div>
-</div>
-  
-    <br>
-    <br>
-       <div class="form-group text-center{{ $errors->has('promedio') ? 'has-error' : "" }}">
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
       <a class=" btn btn-danger btn-lg" href="{{ route('examenes.index') }}">Cancelar</a>
-    </div>
 
 <!--Script para calcular promedio a partir de las entradas de texto -->
 <script>
