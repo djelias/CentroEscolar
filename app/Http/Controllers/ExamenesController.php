@@ -49,6 +49,7 @@ class ExamenesController extends Controller
        foreach ($request->get('examen1') as $key => $value) {
             $examenes = new Examenes;
             $examenes->id_asignacion_al_gr = (integer) $request->get('id_asignacion_al_gr')[$key];
+            $examenes->id_materia = (integer) $request->get('id_materia')[$key];
             $examenes->examen1 = (float) $value;            
             $examenes->examen2 = (float) $request->get('examen2')[$key];            
             $examenes->examen3 = (float) $request->get('examen3')[$key];            
