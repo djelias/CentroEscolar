@@ -92,7 +92,7 @@ class ExamenesController extends Controller
       return view('examenes.show',compact('examenes','materias','asignacionAlumnosGrados'));
       */
       $materias = Materias::all();
-        $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
+      $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
       $examenes = Examenes::find($id);
       $view = view ('examenes.show',compact('examenes','materias','asignacionAlumnosGrados'));
       $pdf = \App::make('dompdf.wrapper');

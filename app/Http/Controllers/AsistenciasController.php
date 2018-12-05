@@ -83,9 +83,11 @@ class AsistenciasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($idgrado)
-    {
-
+    public function edit($id)    {
+        $asignaciones = Asignaciones::all();
+       $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
+        $asistencia = Asistencias::find($id);
+        return view('asistencias.edit',compact('asistencia','asignaciones','asignacionAlumnosGrados'));
     }
 
     /**
@@ -97,7 +99,16 @@ class AsistenciasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        foreach ($request->get('estado') as $key => $value) {
+            $asistencias = new Asistencias;
+            $asistencias->id_asig_alum_gr = $request->get('id_asig_alum_gr')[$key];
+            $asistencias->estado = $value;
+            $asistencias->fecha = $request->get('fecha');            
+            $asistencias->save();
+        }
+        Asistencias::find($id)->update($request->all());
+        return redirect()->route('asistencias.index');
     }
 
     /**

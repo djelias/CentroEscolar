@@ -14,7 +14,7 @@
                     <tr><input type="hidden" name="id_asig_alum_gr[]" value="{{$reg->id}}">
                         <td>{{$reg->Alumnos->nombre}}</td>
                         <td>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
                                 <div class="form-group">
                                     <select name="estado[]" class="form-control">
                                         <option value="A">Asistió</option>

@@ -43,7 +43,7 @@
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Asistencia" href="{{route('asistencias.create')}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
-          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('asignaciones.edit',$value->id)}}">
+          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('asistencias.edit',$value->id)}}">
               <i class="glyphicon glyphicon-pencil"></i></a>
             {!! Form::open(['method' => 'DELETE','route' => ['asignaciones.destroy', $value->id],'style'=>'display:inline']) !!}
               <button type="submit" data-toggle="tooltip" data-placement="top" title="Eliminar" style="display: inline;" class="btn btn-danger btn-lg" onclick="return confirm('¿Esta seguro de eliminar este Registro?')"><i class="glyphicon glyphicon-trash" ></i></button>
