@@ -14,18 +14,32 @@
       </div>
   @endif
       <br>
-  <table style="width:100%">
+ <table class="table table-striped" style="text-align:center" >
     <tr>
-      <td style="text-align:center">Reportes por grados</td>
-      <td><a class="btn btn-primary" href="{{ url('/gestion') }}">Reportes</a></td>
-    </tr>
+      <th with="80px" style="text-align: center">No</th>
+      <th  style="text-align: center">Nombre</th>
+      <th  style="text-align: center">Accion</th>
+          </tr>
+    <?php $no=1; ?>
+    @foreach ($asignaciones as $key => $value)
     <tr>
-      <td style="text-align:center">Reportes por alumnos</td>
-      
-      <td><a class="btn btn-primary" href="{{ url('/gestion') }}">Reportes</a></td>
-    </tr>
+        <td>{{$no++}}</td>
+        <td>{{ $value->Docentes->User->nombre }}</td>
+        <td>{{ $value->Grados->nombre }}</td>
+        <td>
+          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('materias.show',$value->id)}}">
+              <i class="glyphicon glyphicon-list-alt"></i></a>
+          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('materias.edit',$value->id)}}">
+              <i class="glyphicon glyphicon-pencil"></i></a>
+            {!! Form::open(['method' => 'DELETE','route' => ['materias.destroy', $value->id],'style'=>'display:inline']) !!}
+              <button type="submit" data-toggle="tooltip" data-placement="top" title="Eliminar" style="display: inline;" class="btn btn-danger btn-lg" onclick="return confirm('¿Esta seguro de eliminar este Registro?')"><i class="glyphicon glyphicon-trash" ></i></button>
+            {!! Form::close() !!}
+        </td>
+      </tr>
+    @endforeach
   </table>
- <div class="text-center">
+  {!!$asignaciones->render()!!}
+  <div class="text-center">
     <a class="btn btn-primary" href="{{ url('/gestion') }}">Regresar</a>
   </div>
 @endsection

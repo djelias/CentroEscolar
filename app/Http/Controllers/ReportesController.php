@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Examenes;
 use App\Materias;
-use App\Asignacioness;
+use App\Asignaciones;
 use App\AsignacionAlumnosGrados;
 use App\AsignacionMateriasGrados;
 use PDF;
@@ -19,10 +19,12 @@ class ReportesController extends Controller
      */
     public function index(Request $request) {
         $materias = Materias::all();
+        $asignaciones = Asignaciones::all();
         $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
+        $asignacionMateriasGrados = AsignacionMateriasGrados::all();
         $nombre =$request->get('nombre');
         $examenes = Examenes::orderBy('id','DESC')->nombre($nombre)->paginate(10);
-        return view('reportes.index',compact('examenes','materias','asignacionAlumnosGrados'));
+        return view('reportes.index',compact('examenes','materias','asignaciones','asignacionAlumnosGrados','asignacionMateriasGrados'));
     }
 
     /**
@@ -93,12 +95,12 @@ class ReportesController extends Controller
 
     }
 
-        public function grados()    {
+        public function grads()    {
         
         return view('reportes.grados');
     }
 
-        public function alumnos()    {
+        public function alums()    {
 
     }
 }

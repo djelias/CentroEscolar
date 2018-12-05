@@ -33,6 +33,8 @@ drop table if exists EXAMENES;
 
 drop table if exists ASISTENCIAS;
 
+drop table if exists REPORTES;
+
 /*==============================================================*/
 /* Table: ALUMNOS                                               */
 /*==============================================================*/
@@ -122,6 +124,7 @@ create table DOCENTES
    no_dui               char(10)                       not null,
    telefono             char(8)                        not null,
    direccion            varchar(150)                   not null,
+   estado               boolean                        not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_DOCENTE primary key (id)
@@ -136,6 +139,7 @@ create table GRADOS
    nombre               varchar(20)                    not null,
    seccion              char(8)                        not null,
    capacidad            int                           not null,
+   estado               boolean                        not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_GRADO primary key (id)
@@ -148,6 +152,7 @@ create table MATERIAS
 (
    id                   int                            not null AUTO_INCREMENT,
    nombre               varchar(150)                   not null UNIQUE,
+   estado               boolean                        not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_MATERIA primary key (id)
@@ -252,6 +257,7 @@ create table EVENTOS
    hora                 time                           not null,
    descripcion          varchar(150)                   not null,
    lugar                varchar(30)                    not null,
+   estado               boolean                        not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_EVENTOS primary key (id)
@@ -271,6 +277,23 @@ create table ASISTENCIAS
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_ASISTENCIAS primary key (id)
+);
+
+
+/*==============================================================*/
+/* Table:   REPORTES                                            */
+/*==============================================================*/
+create table REPORTES 
+(
+   id                   int                            not null AUTO_INCREMENT,
+   id_asignaciones      int                            null,
+   id_asignacionAlumnosGrados      int                            null,
+   id_asignacionMateriasGrados     int                            null,
+   fecha                date                           null,
+   estado               boolean                        null,
+   created_at           timestamp,
+   updated_at           timestamp,
+   constraint PK_REPORTES primary key (id)
 );
 
 alter table DOCENTES add foreign key (id_usuario) references USERS (id);
@@ -300,6 +323,12 @@ alter table ASIGNACION_MATERIAS_GRADOS add foreign key (id_materia) references M
 alter table ASISTENCIAS add foreign key (id_asignaciones) references ASIGNACIONES (id);
 
 alter table ASISTENCIAS add foreign key (id_asig_alum_gr) references ASIGNACION_ALUMNOS_GRADOS (id);
+
+alter table REPORTES add foreign key (id_asignaciones) references ASIGNACIONES (id);
+
+alter table REPORTES add foreign key (id_asignacionAlumnosGrados) references ASIGNACION_ALUMNOS_GRADOS (id);
+
+alter table REPORTES add foreign key (id_asignacionMateriasGrados) references ASIGNACION_MATERIAS_GRADOS (id);
 
 alter table GRADOS add constraint GRADO_UNICO unique (nombre, seccion);
 
