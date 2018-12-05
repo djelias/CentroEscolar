@@ -9,6 +9,7 @@
            <option value="2">2</option>
            <option value="3">3</option>
          </select>
+
  </div>
  </div>
  
@@ -17,7 +18,7 @@
       {!! form::label('SELECCIONE LA MATERIA') !!}
     </div>
     <div class="form-group">
-       <select name="id_materia[]" id="materia" class="form-control" style="width:200px;">
+       <select name="id_materia[]" id="materia" class="form-control" style="width:200px;" >
            @foreach($materias as $materia)
                       <option value="{{$materia->id}}">{{$materia->nombre}}</option>
                  @endforeach
@@ -25,7 +26,7 @@
  </div>
  </div>
  <br>
-
+<div style="align-content: center;">
 <table class="table table-condensed" style="text-align:center">
         <thead>
           <th style="width:85px; text-align: center;">No</th>
@@ -37,16 +38,15 @@
           <th style="text-align:center">Actividad 1</th>
           <th style="text-align:center">Actividad 2</th>
           <th></th>
-          <th style="text-align:center">Promedio</th>
           <th style="text-align:center"></th>
         </thead>
  <tbody>
   <?php $no=1; ?>
             @foreach($asignacionAlumnosGrados as $asignacionAlumnoGrado)
+            
 <tr>
 <td>{{$no++}}</td>
 <td style="width:200px;">{{ $asignacionAlumnoGrado->Alumnos->nombre }}</td>
-
 <td style="width:85px;">
 <div class="form-group">
   {!!  Form::hidden('id_asignacion_al_gr[]', $asignacionAlumnoGrado->id, ['class'=>'form-control'])!!}
@@ -54,58 +54,63 @@
 </td>
 <td style="width:85px;">
 <div class="form-group">
- {!! Form::text('examen1[]', null, ['class'=>'form-control', 'placeholder'=>'00.00']) !!}
+  <input type="text" name="examen1[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
 <td style="width:85px;">
 <div class="form-group">
- {!! Form::text('examen2[]', null, ['class'=>'form-control', 'placeholder'=>'00.00']) !!}
+  <input type="text" name="examen2[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
 <td style="width:85px;">
 <div class="form-group">
- {!! Form::text('examen3[]', null, ['class'=>'form-control', 'placeholder'=>'00.00']) !!}
+  <input type="text" name="examen3[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
 <td style="width:85px;">
 <div class="form-group">
- {!! Form::text('actividad1[]', null, ['class'=>'form-control', 'placeholder'=>'00.00']) !!}
+
+  <input type="text" name="actividad1[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
 <td style="width:85px;">
 <div class="form-group">
- {!! Form::text('actividad2[]', null, ['class'=>'form-control', 'placeholder'=>'00.00']) !!}
+ 
+  <input type="text" name="actividad2[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
-<td style="width:85px;">
+ <!-- <td style="width:85px;">
 <div class="col-sm-3">
        <input type="button" data-placement="top" title="Promedio" class="btn btn-info btn-sm " value="Promedio" onclick="Calcular();"> 
     </div>
 </td>
 <td style="width:85px;">
 <div class="form-group">
- {{ Form::text('promedio',NULL, ['class'=>'form-control', 'id'=>'promedio','readonly'=>'readonly', 'data-placement'=>'top', 'title'=>'Este campo no se puede editar'])}}
+{{ Form::text('promedio',NULL, ['class'=>'form-control', 'id'=>'promedio','readonly'=>'readonly', 'placeholder'=>'Promedio', 'data-placement'=>'top', 'title'=>'Este campo no se puede editar'])}}
 </div>
-</td>
-
-
+</td>-->
                   </tr>
+
+     
              @endforeach
 
         </tbody>
 	</table>
+  </div>
 <div style="text-align: center;">
   {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
+
+  <a class=" btn btn-danger btn-lg" href="{{ route('examenes.index') }}">Cancelar</a>
 </div>
 
 <script>
       function Calcular() {
           var vr1[] = document.getElementById('examen1[]').value;
-          var vr2[] = document.getElementById('examen2[]').value;
+          var vr2[]= document.getElementById('examen2[]').value;
           var vr3[] = document.getElementById('examen3[]').value;
           var vr4[] = document.getElementById('actividad1[]').value;
           var vr5[] = document.getElementById('actividad2[]').value;
-          var p = ((((parseFloat(vr1[])+parseFloat(vr2[]))/2)*0.30)+(parseFloat(vr3[])*0.35)+((parseFloat(vr4[])+parseFloat(vr5[]))/2)*0.35);
-          document.getElementById('promedio').value = ("%.2", p);
+          var p[] = ((((parseFloat(vr1[])+parseFloat(vr2[]))/2)*0.30)+(parseFloat(vr3[])*0.35)+((parseFloat(vr4[])+parseFloat(vr5[]))/2)*0.35);
+          document.getElementById('promedio[]').value = ("%.2", p[]);
         }
 </script>

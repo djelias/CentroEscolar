@@ -29,11 +29,12 @@
     <tr>
       <th with="80px">No</th>
       <th style="text-align:center">Alumno</th>
-      <th style="text-align:center">Examen</th>
-      <th style="text-align:center">Laboratorio</th>
-      <th style="text-align:center">Actividad Cotidiana</th>
-      <th style="text-align:center">Actividad Integradora 1</th>
-      <th style="text-align:center">Actividad Integradora 2</th>
+      <th style="text-align:center">Materia</th>
+      <th style="text-align:center">Examen 1</th>
+      <th style="text-align:center">Examen 2</th>
+      <th style="text-align:center">Examen 3</th>
+      <th style="text-align:center">Actividad 1</th>
+      <th style="text-align:center">Actividad 2</th>
       <th style="text-align:center">Periodo</th>
       <th style="text-align:center">Promedio</th>
       <th style="text-align:center">Accion</th>
@@ -43,6 +44,7 @@
     <tr>
         <td style="text-align:center">{{$no++}}</td>
         <td style="text-align:center">{{ $value->AsignacionAlumnosGrados->Alumnos->nombre }}</td>
+        <td style="text-align:center">{{ $value->Materias->nombre }}</td>
         <td style="text-align:center">{{ $value->examen1 }}</td>
         <td style="text-align:center">{{ $value->examen2 }}</td>
         <td style="text-align:center">{{ $value->examen3 }}</td>
@@ -55,9 +57,9 @@
               <i class="glyphicon glyphicon-list-alt"></i></a>
           <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('examenes.edit',$value->id)}}">
               <i class="glyphicon glyphicon-pencil"></i></a>
-            {!! Form::open(['method' => 'DELETE','route' => ['examenes.destroy', $value->id],'style'=>'display:inline']) !!}
+            <!--{!! Form::open(['method' => 'DELETE','route' => ['examenes.destroy', $value->id],'style'=>'display:inline']) !!}
               <button type="submit" data-toggle="tooltip" data-placement="top" title="Eliminar" style="display: inline;" class="btn btn-danger btn-lg" onclick="return confirm('¿Esta seguro de eliminar este Registro?')"><i class="glyphicon glyphicon-trash" ></i></button>
-            {!! Form::close() !!}
+            {!! Form::close() !!}-->
         </td>
       </tr>
     @endforeach
