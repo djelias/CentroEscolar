@@ -123,17 +123,20 @@ class ExamenesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-          'id_asignacion_al_gr' => 'required|numeric',
-          'id_materia' => 'required|numeric',
-          'examen1' => 'required|numeric',
-          'examen2' => 'required|numeric',
-          'examen3' => 'required|numeric',
-          'actividad1'=>'required|numeric',
-          'actividad2'=>'required|numeric',
-          'trimestre'=>'required|numeric',
-          'promedio'=>'required|numeric',
-        ]);
+        foreach ($request->get('examen1') as $key => $value) {
+            $examenes = new Examenes;
+            $examenes->id_asignacion_al_gr = (integer) $request->get('id_asignacion_al_gr')[$key];
+            $examenes->id_materia = (integer) $request->get('id_materia');
+            $examenes->examen1 = (float) $value;            
+            $examenes->examen2 = (float) $request->get('examen2')[$key];            
+            $examenes->examen3 = (float) $request->get('examen3')[$key];            
+            $examenes->actividad1 = (float) $request->get('actividad1')[$key];            
+            $examenes->actividad2 = (float) $request->get('actividad2')[$key];            
+            $examenes->trimestre = (integer) $request->get('trimestre');
+           // $examenes->promedio = (float) $request->get('promedio')[$key];  
+            $examenes->promedio = (((($examenes->examen1+$examenes->examen2+$examenes->examen3)/3)*0.30)+(($examenes->actividad1)*0.35)+(($examenes->actividad2)*0.35)) ;      
+            $examenes->save();
+}
         Examenes::find($id)->update($request->all());
         return redirect()->route('examenes.index')->with('success','Examenes actualizado con exito');
     }
