@@ -1,6 +1,7 @@
-     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 form-group">
+
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 form-group">
         <div class="form-group">
-            <label for="fecha">Fecha</label>
+            <label for="fecha"></label>
             <input type="date" name="fecha" class="form-control" placeholder="Fecha ...">
         </div>
     </div>
@@ -10,9 +11,10 @@
                 <th>Alumno</th>
                 <th>Asistencia</th>
                 </thead>
-                @foreach($asignacionAlumnosGrados as $reg)
-                    <tr><input type="hidden" name="id_asig_alum_gr[]" value="{{$reg->id}}">
-                        <td>{{$reg->Alumnos->nombre}}</td>
+                @foreach($asignacion as $registro)
+                @if($registro->Grados->id == $identificador->id)
+                    <tr><input type="hidden" name="id_asig_alum_gr[]" value="{{$registro->id}}">
+                        <td>{{$registro->Alumnos->nombre}}</td>
                         <td>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
                                 <div class="form-group">
@@ -25,7 +27,7 @@
                             </div>
                         </td>
                     </tr>
-
+                    @endif
                 @endforeach
   </table>
 

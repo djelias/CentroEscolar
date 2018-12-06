@@ -29,10 +29,8 @@ class AsistenciasController extends Controller
 
       //$asistencias = Asignaciones::with('docentes', 'grados')->orderBy('id', 'ASC')->paginate(250);
 
-    $asignaciones = Asignaciones::all();
-    $nombre = $request->get('nombre');
-    $asistencias = Asignaciones::orderBy('id', 'DESC')->nombre($nombre)->paginate(10);
-      return view('asistencias.index',compact('asistencias','asignaciones'));
+    $asignaciones = Asignaciones::with('docentes','grados')->orderBy('id', 'ASC')->paginate(10);
+      return view('asistencias.index')->with('asignaciones',$asignaciones)->with('asignaciones', $asignaciones);
     }
 
     /**
@@ -84,10 +82,12 @@ class AsistenciasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)    {
-        $asignaciones = Asignaciones::all();
-       $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
-        $asistencia = Asistencias::find($id);
-        return view('asistencias.edit',compact('asistencia','asignaciones','asignacionAlumnosGrados'));
+        $identificador = Grados::find($id);
+        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
+        //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
+        $asignacion = AsignacionAlumnosGrados::all();
+        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
+        return view('asistencias.edit')->with('identificador',$identificador)->with('asignacion',$asignacion)->with('alumnos',$alumnos);
     }
 
     /**
