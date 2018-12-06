@@ -28,7 +28,6 @@
           <li><a href="{{ route('grados.index') }}">Gestión de Grados </a></li>
           <li><a href="{{ route('materias.index') }}">Gestión de Materias</a></li>
           <li><a href="{{ route('eventos.index') }}">Gestión de Eventos</a></li>
-          <li><a href="{{ route('asistencias.index') }}">Gestión de Asistencias</a></li>
         </ul>
       </li>
     </ul>
@@ -45,13 +44,10 @@
       </li>
     </ul>
     <ul class="nav navbar-nav">
-      <li><a href="{{ route('examenes.index') }}">Evaluaciones</a></li>
-    </ul>
-    <ul class="nav navbar-nav">
       <li><a href="{{ route('usuarios.index') }}">Usuarios del Sistema</a></li>
     </ul>
     <ul class="nav navbar-nav">
-      <li><a href="{{ route('reportes.index') }}">Reportes</a></li>
+      <li><a href="{{ url('/gestion') }}">Reportes</a></li>
     </ul>
    </div>
  </nav>

@@ -124,7 +124,7 @@ create table DOCENTES
    no_dui               char(10)                       not null,
    telefono             char(8)                        not null,
    direccion            varchar(150)                   not null,
-   estado               boolean                        not null,
+   estado               boolean                        null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_DOCENTE primary key (id)

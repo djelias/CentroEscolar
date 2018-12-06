@@ -71,7 +71,12 @@ class AsistenciasController extends Controller
      */
     public function show($id)
     {
-        //
+        $identificador = Grados::find($id);
+        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
+        //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
+        $asistencias = Asistencias::all();
+        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
+        return view('asistencias.edit')->with('identificador',$identificador)->with('asistencias',$asistencias)->with('alumnos',$alumnos);
 
     }
 

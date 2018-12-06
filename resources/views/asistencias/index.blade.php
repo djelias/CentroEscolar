@@ -45,6 +45,8 @@
         <td>{{$value->Docentes->User->name }}</td>
         <td>{{$value->Grados->nombre }} {{$value->Grados->seccion }}</td>
         <td>
+          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('asistencias.show',$value->Grados->id)}}">
+              <i class="glyphicon glyphicon-list-alt"></i></a>
           <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Crear" href="{{route('asistencias.edit',$value->Grados->id)}}">
               <i class="glyphicon glyphicon-pencil"></i></a>
             {!! Form::open(['method' => 'DELETE','route' => ['asignaciones.destroy', $value->id],'style'=>'display:inline']) !!}
