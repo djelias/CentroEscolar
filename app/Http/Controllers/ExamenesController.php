@@ -20,9 +20,10 @@ class ExamenesController extends Controller
     {
        $materias = Materias::all();
         $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
-        $nombre =$request->get('nombre');
+         $nombre =$request->get('nombre');
         $examenes = Examenes::orderBy('id','DESC')->nombre($nombre)->paginate(10);
         return view('examenes.index',compact('examenes','materias','asignacionAlumnosGrados'));
+
     }
 
     /**
@@ -57,24 +58,13 @@ class ExamenesController extends Controller
             $examenes->actividad2 = (float) $request->get('actividad2')[$key];            
             $examenes->trimestre = (integer) $request->get('trimestre');
            // $examenes->promedio = (float) $request->get('promedio')[$key];  
-            $examenes->promedio = (((($examenes->examen1+$examenes->examen2+$examenes->examen3)/3)*0.30)+(($examenes->actividad1)*0.35)+(($examenes->actividad2)*0.35)) ;      
+            $examenes->promedio = round((((($examenes->examen1+$examenes->examen2+$examenes->examen3)/3)*0.30)+(($examenes->actividad1)*0.35)+(($examenes->actividad2)*0.35)),2);      
             $examenes->save();
 }
-/**
-        $this->validate($request,[
-          'id_asignacion_al_gr' => 'required|numeric',
-          'id_materia' => 'required|numeric',
-          'examen1' => 'required|numeric|min:1|max:10',
-          'examen2' => 'required|numeric|min:1|max:10',
-          'examen3' => 'required|numeric|min:1|max:10',
-          'actividad1'=>'required|numeric|min:1|max:10',
-          'actividad2'=>'required|numeric|min:1|max:10',
-          'trimestre'=>'required|numeric|min:1|max:10',
-          'promedio'=>'required|numeric|min:1|max:10',
-        ]);
-        
-        Examenes::create($request->all());*/
-        return redirect()->route('examenes.index')->with('success','Examenes guardado con éxito');
+
+
+
+        return redirect()->route('examenes.index')->with('success','Calificaciones  ingresadas con éxito');
     }
 
     /**

@@ -51,43 +51,34 @@
   {!!  Form::hidden('id_asignacion_al_gr[]', $asignacionAlumnoGrado->id, ['class'=>'form-control'])!!}
 </div>
 </td>
-<td style="width:85px;">
+<td style="width:100px;">
 <div class="form-group">
   <input type="text" name="examen1[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
-<td style="width:85px;">
+<td style="width:100px;">
 <div class="form-group">
   <input type="text" name="examen2[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
-<td style="width:85px;">
+<td style="width:100px;">
 <div class="form-group">
   <input type="text" name="examen3[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
-<td style="width:85px;">
+<td style="width:100px;">
 <div class="form-group">
 
   <input type="text" name="actividad1[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
-<td style="width:85px;">
+<td style="width:100px;">
 <div class="form-group">
  
   <input type="text" name="actividad2[]" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
- <!-- <td style="width:85px;">
-<div class="col-sm-3">
-       <input type="button" data-placement="top" title="Promedio" class="btn btn-info btn-sm " value="Promedio" onclick="Calcular();"> 
-    </div>
-</td>
-<td style="width:85px;">
-<div class="form-group">
-{{ Form::text('promedio',NULL, ['class'=>'form-control', 'id'=>'promedio','readonly'=>'readonly', 'placeholder'=>'Promedio', 'data-placement'=>'top', 'title'=>'Este campo no se puede editar'])}}
-</div>
-</td>-->
+
                   </tr>
 
      

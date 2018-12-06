@@ -25,6 +25,8 @@
         {!! Form::close()!!}
       </div>
       <br>
+  
+        
   <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
@@ -40,6 +42,8 @@
       <th style="text-align:center">Accion</th>
     </tr>
     <?php $no=1; ?>
+    
+
     @foreach ($examenes as $key => $value)
     <tr>
         <td style="text-align:center">{{$no++}}</td>
@@ -62,10 +66,14 @@
             {!! Form::close() !!}-->
         </td>
       </tr>
+      <label>{{$value->filtro}}</label>
     @endforeach
+ 
   </table>
   {!!$examenes->render()!!}
  <div class="text-center">
     <a class="btn btn-primary" href="{{ url('/gestion') }}">Regresar</a>
   </div>
+
+
 @endsection
