@@ -10,9 +10,9 @@ class Examenes extends Model
     
     protected $dates = ['created_at','updated_at'];
 
-    public function scopeNombre($query, $examen1)
+    public function scopeNombre($query, $trimestre)
 	{
-		return $query->where('examen1', 'LIKE', "%$examen1%");
+		return $query->where('trimestre', 'LIKE', "%$trimestre%");
 	}
 
 	public function materias(){

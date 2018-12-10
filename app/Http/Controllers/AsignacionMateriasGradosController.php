@@ -48,6 +48,7 @@ class AsignacionMateriasGradosController extends Controller
         $this->validate($request,[
           'id_grado'=>'required|numeric',  
           'id_materia'=>'required|numeric',
+          'anio'=>'required|numeric',
           ]);
         AsignacionMateriasGrados::create($request->all());
         return redirect()->route('asignacionMateriasGrados.index')->with('success','Asignacion guardada con éxito');
@@ -91,6 +92,7 @@ class AsignacionMateriasGradosController extends Controller
         $this->validate($request,[
           'id_materia'=>'required|numeric',  
           'id_grado'=>'required|numeric',
+          'anio'=>'required|numeric',
           ]);
         AsignacionMateriasGrados::find($id)->update($request->all());
         return redirect()->route('asignacionMateriasGrados.index')->with('success','Asignacion actualizada con exito');

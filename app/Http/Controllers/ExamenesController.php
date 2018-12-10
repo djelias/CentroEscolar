@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Examenes;
+use App\Alumnos;
+use App\Grados;
+use App\Asignaciones;
 use App\Materias;
 use App\AsignacionAlumnosGrados;
+use App\AsignacionMateriasGrados;
 use examenes1\http\Request\ExamenesRequest;
 use PDF;
 
@@ -18,11 +22,14 @@ class ExamenesController extends Controller
      */
     public function index(Request $request)
     {
-       $materias = Materias::all();
+      /** $materias = Materias::all();
         $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
          $nombre =$request->get('nombre');
         $examenes = Examenes::orderBy('id','DESC')->nombre($nombre)->paginate(10);
-        return view('examenes.index',compact('examenes','materias','asignacionAlumnosGrados'));
+        return view('examenes.index',compact('examenes','materias','asignacionAlumnosGrados'));*/
+
+        $asignaciones = Asignaciones::with('docentes','grados')->orderBy('id', 'ASC')->paginate(10);
+      return view('examenes.index')->with('asignaciones',$asignaciones)->with('asignaciones', $asignaciones);
 
     }
 
@@ -98,10 +105,15 @@ class ExamenesController extends Controller
      */
     public function edit($id)
     {
-        $materias = Materias::all();
+        /**$materias = Materias::all();
         $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
         $examenes = Examenes::find($id);
-        return view('examenes.edit',compact('examenes','materias','asignacionAlumnosGrados'));
+        return view('examenes.edit',compact('examenes','materias','asignacionAlumnosGrados'));*/
+        $materias = Materias::all();
+        $identificador = Grados::find($id);
+        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
+        $asignacion = AsignacionAlumnosGrados::all();
+        return view('examenes.edit')->with('identificador',$identificador)->with('asignacion',$asignacion)->with('alumnos',$alumnos)->with('materias',$materias);
     }
 
     /**
@@ -114,7 +126,7 @@ class ExamenesController extends Controller
     public function update(Request $request, $id)
     {
         foreach ($request->get('examen1') as $key => $value) {
-            $examenes = new Examenes;
+            $examenes = Examenes::find($request->get('id')[$key]);
             $examenes->id_asignacion_al_gr = (integer) $request->get('id_asignacion_al_gr')[$key];
             $examenes->id_materia = (integer) $request->get('id_materia');
             $examenes->examen1 = (float) $value;            
@@ -125,9 +137,9 @@ class ExamenesController extends Controller
             $examenes->trimestre = (integer) $request->get('trimestre');
            // $examenes->promedio = (float) $request->get('promedio')[$key];  
             $examenes->promedio = (((($examenes->examen1+$examenes->examen2+$examenes->examen3)/3)*0.30)+(($examenes->actividad1)*0.35)+(($examenes->actividad2)*0.35)) ;      
-            $examenes->save();
+            $examenes->update();
 }
-        Examenes::find($id)->update($request->all());
+        //Examenes::find($id)->update($request->all());
         return redirect()->route('examenes.index')->with('success','Examenes actualizado con exito');
     }
 
@@ -142,5 +154,46 @@ class ExamenesController extends Controller
         Examenes::find($id)->delete();
         return redirect()->route('examenes.index')->with('success','Examenes eliminado con exito');
     }
+
+    public function modificar($id)    {
+        $identificador = Grados::find($id);
+        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
+        //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
+        $examenes = Examenes::all();
+        $materias = Materias::all();
+        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
+        return view('examenes.modificar')->with('identificador',$identificador)->with('examenes',$examenes)->with('alumnos',$alumnos)->with('materias',$materias);
+    }
+
+        public function detalle($id)
+    {
+        $identificador = Grados::find($id);
+        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
+        //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
+        $examenes = Examenes::all();
+        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
+        return view('examenes.detalle')->with('identificador',$identificador)->with('examenes',$examenes)->with('alumnos',$alumnos);
+
+    }
+/**
+    public function materias($id)    {
+        $identificador = Grados::find($id);
+        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
+        //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
+        $asignacionMateriasGrados = AsignacionMateriasGrados::all();
+        $materias = Materias::all();
+        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
+        return view('examenes.materias')->with('identificador',$identificador)->with('asignacionMateriasGrados',$asignacionMateriasGrados)->with('alumnos',$alumnos)->with('materias',$materias);
+    }
+
+    public function crear($grado, $materia)
+    {
+        $grado = Grados::find($grado);
+        $materia = Materias::find($materia);
+        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
+        $asignacion = AsignacionAlumnosGrados::all();
+        return view('examenes.crear')->with('grado',$grado)->with('materia',$materia)->with('asignacion',$asignacion)->with('alumnos',$alumnos);
+    }
+ */
 }
  

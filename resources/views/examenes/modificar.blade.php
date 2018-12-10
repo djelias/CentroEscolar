@@ -1,4 +1,12 @@
-<div class="row">
+@extends('layouts.app')
+@section('content')
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+    	<h3 style="text-align:center"> EDICION DE LAS EVALUACIONES </h3>
+    	<br>
+      {{ Form::model($identificador,['route'=>['examenes.update',$identificador->id],'method'=>'PATCH']) }}
+      
+         <div class="row">
   <div class="col-sm-2">
       {!! form::label('SELECCIONE EL PERIODO') !!}
     </div>
@@ -41,15 +49,15 @@
         </thead>
  <tbody>
   <?php $no=1; ?>
-            @foreach($asignacion as $asignacionAlumnoGrado)
-                @if($asignacionAlumnoGrado->Grados->id == $identificador->id)
+            @foreach($examenes as $examen)
+                @if($examen->AsignacionAlumnosGrados->Grados->id == $identificador->id)
 
 <tr>
 <td>{{$no++}}</td>
-<td style="width:200px;">{{ $asignacionAlumnoGrado->Alumnos->nombre }}</td>
+<td style="width:200px;">{{ $examen->AsignacionAlumnosGrados->Alumnos->nombre }}</td>
 <td style="width:85px;">
 <div class="form-group">
-  {!!  Form::hidden('id_asignacion_al_gr[]', $asignacionAlumnoGrado->id, ['class'=>'form-control'])!!}
+  {!!  Form::hidden('id_asignacion_al_gr[]', $examen->AsignacionAlumnosGrados->id, ['class'=>'form-control'])!!}
 </div>
 </td>
 <td style="width:100px;">
@@ -85,7 +93,7 @@
              @endforeach
 
         </tbody>
-	</table>
+  </table>
   </div>
 <div style="text-align: center;">
   {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}
@@ -104,4 +112,8 @@
           var p[] = ((((parseFloat(vr1[])+parseFloat(vr2[]))/2)*0.30)+(parseFloat(vr3[])*0.35)+((parseFloat(vr4[])+parseFloat(vr5[]))/2)*0.35);
         }
 </script>
-</html>
+
+      {{ Form::close() }}
+    </div>
+  </div>
+@endsection

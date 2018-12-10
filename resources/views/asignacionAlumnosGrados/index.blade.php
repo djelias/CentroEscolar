@@ -37,8 +37,10 @@
       <th style="text-align:center">Alumno</th>
       <th style="text-align:center">Acciones</th>
     </tr>
+     <?php $fechaActual = date("Y"); ?>
     <?php $no=1; ?>
     @foreach ($asignacionAlumnosGrados as $key => $value)
+    @if($value->anio == $fechaActual)
     <tr>
         <td>{{$no++}}</td>
         <td>{{$value->Grados->nombre }} {{ $value->Grados->seccion }}</td>
@@ -54,6 +56,7 @@
         
         </td>
       </tr>
+      @endif
     @endforeach
   </table>
   {!!$asignacionAlumnosGrados->render()!!}

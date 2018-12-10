@@ -38,8 +38,10 @@
       <th style="text-align:center">Año</th>
       <th style="text-align:center">Acciones</th>
     </tr>
+     <?php $fechaActual = date("Y"); ?>
     <?php $no=1; ?>
     @foreach ($asignaciones as $key => $value)
+    @if($value->anio == $fechaActual)
     <tr>
         <td>{{$no++}}</td>
         <td>{{$value->Docentes->User->name }}</td>
@@ -56,6 +58,7 @@
         
         </td>
       </tr>
+      @endif
     @endforeach
   </table>
   {!!$asignaciones->render()!!}

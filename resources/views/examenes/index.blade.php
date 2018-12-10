@@ -3,7 +3,7 @@
   <div class="row">
     <div class ="col-sm-12">
       <div class="full.right">
-      <h2>GESTION DE EVALUACIONES</h2>
+      <h2>EVALUACIONES</h2>
       <br>
       </div>
     </div>
@@ -30,47 +30,35 @@
   <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
-      <th style="text-align:center">Alumno</th>
-      <th style="text-align:center">Materia</th>
-      <th style="text-align:center">Examen 1</th>
-      <th style="text-align:center">Examen 2</th>
-      <th style="text-align:center">Examen 3</th>
-      <th style="text-align:center">Actividad 1</th>
-      <th style="text-align:center">Actividad 2</th>
-      <th style="text-align:center">Periodo</th>
-      <th style="text-align:center">Promedio</th>
-      <th style="text-align:center">Accion</th>
+      <th style="text-align:center">Docente</th>
+      <th style="text-align:center">Grado</th>
+      <th style="text-align:center">Acciones</th>
     </tr>
+     <?php $fechaActual = date("Y"); ?>
     <?php $no=1; ?>
-    
-
-    @foreach ($examenes as $key => $value)
+    @foreach ($asignaciones as $value)
+    @if($value->Docentes->User->name == Auth::user()->name)
+    @if($value->anio == $fechaActual)
     <tr>
-        <td style="text-align:center">{{$no++}}</td>
-        <td style="text-align:center">{{ $value->AsignacionAlumnosGrados->Alumnos->nombre }}</td>
-        <td style="text-align:center">{{ $value->Materias->nombre }}</td>
-        <td style="text-align:center">{{ $value->examen1 }}</td>
-        <td style="text-align:center">{{ $value->examen2 }}</td>
-        <td style="text-align:center">{{ $value->examen3 }}</td>
-        <td style="text-align:center">{{ $value->actividad1 }}</td>
-        <td style="text-align:center">{{ $value->actividad2 }}</td>
-        <td style="text-align:center">{{ $value->trimestre }}</td>
-        <td style="text-align:center">{{ $value->promedio }}</td>
+        <td>{{$no++}}</td>
+        <td>{{$value->Docentes->User->name }}</td>
+        <td>{{$value->Grados->nombre }} {{$value->Grados->seccion }}</td>
         <td>
-          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Detalles" href="{{route('examenes.show', $parameters = $value->id)}}">
+          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Ver" href="{{route('examenes.detalle',$value->Grados->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
-          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('examenes.edit',$value->id)}}">
+          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Crear" href="{{route('examenes.edit',$value->Grados->id)}}">
+              <i class="glyphicon glyphicon-list-alt"></i></a>
+          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Modificar" href="{{route('examenes.modificar',$value->Grados->id)}}">
               <i class="glyphicon glyphicon-pencil"></i></a>
-            <!--{!! Form::open(['method' => 'DELETE','route' => ['examenes.destroy', $value->id],'style'=>'display:inline']) !!}
-              <button type="submit" data-toggle="tooltip" data-placement="top" title="Eliminar" style="display: inline;" class="btn btn-danger btn-lg" onclick="return confirm('¿Esta seguro de eliminar este Registro?')"><i class="glyphicon glyphicon-trash" ></i></button>
-            {!! Form::close() !!}-->
+        
         </td>
       </tr>
-      <label>{{$value->filtro}}</label>
-    @endforeach
+      @endif
+      @endif
+      @endforeach
  
   </table>
-  {!!$examenes->render()!!}
+  {!!$asignaciones->render()!!}
  <div class="text-center">
     <a class="btn btn-primary" href="{{ url('/gestion') }}">Regresar</a>
   </div>

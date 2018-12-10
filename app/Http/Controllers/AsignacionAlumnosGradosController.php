@@ -48,6 +48,7 @@ class AsignacionAlumnosGradosController extends Controller
         $this->validate($request,[
           'id_grado'=>'required|numeric',  
           'id_alumno'=>'required|numeric',
+          'anio'=>'required|numeric',
           ]);
         try {
             AsignacionAlumnosGrados::create($request->all());
@@ -97,6 +98,7 @@ class AsignacionAlumnosGradosController extends Controller
         $this->validate($request,[
           'id_asignacion'=>'required|numeric',  
           'id_grado'=>'required|numeric',
+          'anio'=>'required|numeric',
           ]);
         AsignacionAlumnosGrados::find($id)->update($request->all());
         return redirect()->route('asignacionAlumnosGrados.index')->with('success','Asignacion actualizada con exito');

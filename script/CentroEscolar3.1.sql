@@ -95,6 +95,7 @@ create table ASIGNACION_ALUMNOS_GRADOS
    id                   int                            not null AUTO_INCREMENT,
    id_alumno            int                            null,
    id_grado             int                            null,
+   anio                 int                            null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_ASIGNACION_ALUMNOS_GRADOS primary key (id)
@@ -108,6 +109,7 @@ create table ASIGNACION_MATERIAS_GRADOS
    id                   int                            not null AUTO_INCREMENT,
    id_materia           int                            null,
    id_grado             int                            null,
+   anio                 int                            null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_ASIGNACION_MATERIAS_GRADOS primary key (id)
@@ -139,7 +141,6 @@ create table GRADOS
    nombre               varchar(20)                    not null,
    seccion              char(8)                        not null,
    capacidad            int                           not null,
-   estado               boolean                        not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_GRADO primary key (id)
@@ -152,7 +153,6 @@ create table MATERIAS
 (
    id                   int                            not null AUTO_INCREMENT,
    nombre               varchar(150)                   not null UNIQUE,
-   estado               boolean                        not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_MATERIA primary key (id)
@@ -257,7 +257,6 @@ create table EVENTOS
    hora                 time                           not null,
    descripcion          varchar(150)                   not null,
    lugar                varchar(30)                    not null,
-   estado               boolean                        not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_EVENTOS primary key (id)

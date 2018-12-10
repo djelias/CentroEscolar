@@ -39,7 +39,7 @@ class GradosController extends Controller
         return redirect()->route('grados.index')->with('success','Grado guardado con éxito');
         }
         catch (\Illuminate\Database\QueryException $e) {
-        return redirect()->route('asignaciones.index')->with('danger','No se Puede Crear Grado duplicado ');
+        return redirect()->route('grados.index')->with('danger','No se Puede Crear Grado duplicado ');
     }
     }
 
@@ -97,7 +97,7 @@ class GradosController extends Controller
               Grados::find($id)->delete();
         return redirect()->route('grados.index')->with('success','Grado eliminado con exito');
         } catch (\Illuminate\Database\QueryException $e) {
-        return redirect()->route('asignaciones.index')->with('danger','No se Puede eliminar este registro porque esta asociado con otra asignación');
+        return redirect()->route('grados.index')->with('danger','No se Puede eliminar este registro porque esta asociado con otra asignación');
             
         }
       

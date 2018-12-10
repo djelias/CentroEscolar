@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
   <div class="row">
-    	<h3> ACTUALIZACION DE CALIFICACIONES</h3>
+    	<h3> INGRESO DE CALIFICACIONES</h3>
     	<br>
-      {{ Form::model($examenes,['route'=>['examenes.update',$examenes->id],'method'=>'PATCH']) }}
+      {{ Form::model($identificador,['route'=>['examenes.store'],'method'=>'POST']) }}
       @include('examenes.form_master')
       {{ Form::close() }}
   </div>

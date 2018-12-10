@@ -69,6 +69,15 @@
     </div>
     </div>
     </div>
+
+    <div class="row">
+    <div class="col-sm-2">
+      {!! form::label('estado','Estado') !!}
+    </div>
+    <div class="col-sm-10">
+        <i>{{ Form::select('estado', ['1'=>'Activo', '0'=>'Inactivo'], null, ['class'=>'form-control']) }}</i>
+      </div>
+    </div>
  
     <br>
        <div class="form-group text-center" >

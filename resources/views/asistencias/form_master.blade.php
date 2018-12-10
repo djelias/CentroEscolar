@@ -1,5 +1,5 @@
 
-    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 form-group">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 form-group">
         <div class="form-group">
             <label for="fecha"></label>
             <input type="date" name="fecha" class="form-control" placeholder="Fecha ...">
@@ -16,7 +16,7 @@
                     <tr><input type="hidden" name="id_asig_alum_gr[]" value="{{$registro->id}}">
                         <td>{{$registro->Alumnos->nombre}}</td>
                         <td>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 form-group">
                                 <div class="form-group">
                                     <select name="estado[]" class="form-control">
                                         <option value="A">Asistió</option>

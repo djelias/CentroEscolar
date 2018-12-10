@@ -30,6 +30,29 @@
 </div>
  </div>
 
+ <div class="row">
+    <div class="col-sm-2">
+      {!! form::label('anio','Año') !!}
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group {{ $errors->has('anio') ? 'has-error' : "" }}">
+       <i><select name="anio" class="form-control">
+               <option disabled selected>Seleccione el Año</option>
+                <?php 
+                    $anio= date("Y");
+                    $siguiente = ($anio++);
+                      echo '<option value="'.$siguiente.'">'.$siguiente.'</option>';
+                      echo '<option value="'.$anio.'">'.$anio.'</option>';
+        
+                ?>
+            </select></i> 
+        <div class="help-block"> 
+          <strong>{{ $errors->first('anio', '**Ingrese un año correctamente') }}</strong>
+      </div>
+    </div>
+  </div>
+      </div>
+
     <br>
        <div class="form-group text-center" >
       {{ Form::button(isset($model)? 'Update' : 'Guardar' , ['class'=>'btn btn-success btn-lg','type'=>'submit']) }}

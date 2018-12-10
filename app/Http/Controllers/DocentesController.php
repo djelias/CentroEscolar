@@ -49,6 +49,7 @@ class DocentesController extends Controller
           'no_dui'=>'required|min:10|max:10',
           'direccion'=>'required',
           'telefono'=>'required|numeric|digits:8',
+            'estado'
         ]);
         
         Docentes::create($request->all());
@@ -95,6 +96,7 @@ class DocentesController extends Controller
           'no_dui'=>'required|min:10|max:10',
           'direccion'=>'required',
           'telefono'=>'required|numeric|digits:8',
+            'estado'
         ]);
         Docentes::find($id)->update($request->all());
         return redirect()->route('docentes.index')->with('success','Docente actualizado con exito');

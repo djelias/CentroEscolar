@@ -10,6 +10,7 @@ use App\Docentes;
 use App\Grados;
 use App\Asistencias;
 use Asistencias1\http\Request\AsistenciasRequest;
+use DB;
 
 
 
@@ -76,7 +77,7 @@ class AsistenciasController extends Controller
         //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
         $asistencias = Asistencias::all();
         //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
-        return view('asistencias.edit')->with('identificador',$identificador)->with('asistencias',$asistencias)->with('alumnos',$alumnos);
+        return view('asistencias.show')->with('identificador',$identificador)->with('asistencias',$asistencias)->with('alumnos',$alumnos);
 
     }
 
@@ -104,16 +105,23 @@ class AsistenciasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        /**
         foreach ($request->get('estado') as $key => $value) {
-            $asistencias = new Asistencias;
+            $asistencias = Asistencias::find($request->get('id')[$key]);
+            //$asistencias = new Asistencias;
             $asistencias->id_asig_alum_gr = $request->get('id_asig_alum_gr')[$key];
             $asistencias->estado = $value;
             $asistencias->fecha = $request->get('fecha');            
-            $asistencias->save();
+            $asistencias->update();
         }
+        //Asistencias::find($id)->update($request->all());
+        return redirect()->route('asistencias.index');*/
+
+        $this->validate($request,[
+          'estado',
+        ]);
         Asistencias::find($id)->update($request->all());
-        return redirect()->route('asistencias.index');
+        return redirect()->route('asistencias.index')->with('success','Asistencia actualizada con exito');
     }
 
     /**
@@ -127,6 +135,29 @@ class AsistenciasController extends Controller
         //
     }
 
+    public function modificar($id)    {
+        /**
+        $identificador = Grados::find($id);
+        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
+        //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
+        $asistencias = Asistencias::all();
+        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
+        return view('asistencias.modificar')->with('identificador',$identificador)->with('asistencias',$asistencias)->with('alumnos',$alumnos);
+        */
 
+        $asistencias = Asistencias::find($id);
+        return view('asistencias.modificar',compact('asistencias'));
+    }
+
+        public function detalle($id)
+    {
+        $identificador = Grados::find($id);
+        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
+        //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
+        $asistencias = Asistencias::all();
+        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
+        return view('asistencias.detalle')->with('identificador',$identificador)->with('asistencias',$asistencias)->with('alumnos',$alumnos);
+
+    }
  
 }
