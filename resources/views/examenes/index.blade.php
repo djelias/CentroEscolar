@@ -14,9 +14,6 @@
       </div>
   @endif
       <div>
-        <a href="{{route('examenes.create')}}" class="btn btn-success btn-lg">
-            <i class="glyphicon glyphicon-plus"> NUEVO</i>
-        </a>
         {!! Form::open(['route'=>'examenes.index', 'method'=>'GET', 'class'=>'navbar-form pull-right', 'role'=>'search'])!!}
         <div class="input-group"> 
             {!! Form::text('nombre', null, ['class'=>'form-control', 'placeholder'=>'Buscar'])!!}
@@ -46,8 +43,8 @@
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Ver" href="{{route('examenes.detalle',$value->Grados->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
-          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Crear" href="{{route('examenes.edit',$value->Grados->id)}}">
-              <i class="glyphicon glyphicon-list-alt"></i></a>
+          <a class=" btn btn-success btn-lg" data-toggle="tooltip" data-placement="top" title="Crear" href="{{route('examenes.edit',$value->Grados->id)}}">
+              <i class="glyphicon glyphicon-plus"></i></a>
           <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Modificar" href="{{route('examenes.modificar',$value->Grados->id)}}">
               <i class="glyphicon glyphicon-pencil"></i></a>
         

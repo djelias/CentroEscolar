@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
 use App\Examenes;
 use App\Alumnos;
 use App\Grados;
@@ -24,9 +25,10 @@ class ExamenesController extends Controller
     {
       /** $materias = Materias::all();
         $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
-         $nombre =$request->get('nombre');
+         
         $examenes = Examenes::orderBy('id','DESC')->nombre($nombre)->paginate(10);
         return view('examenes.index',compact('examenes','materias','asignacionAlumnosGrados'));*/
+
 
         $asignaciones = Asignaciones::with('docentes','grados')->orderBy('id', 'ASC')->paginate(10);
       return view('examenes.index')->with('asignaciones',$asignaciones)->with('asignaciones', $asignaciones);
@@ -165,7 +167,7 @@ class ExamenesController extends Controller
         return view('examenes.modificar')->with('identificador',$identificador)->with('examenes',$examenes)->with('alumnos',$alumnos)->with('materias',$materias);
     }
 
-        public function detalle($id)
+        public function detalle(Request $request, $id)
     {
         $identificador = Grados::find($id);
         $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');

@@ -48,7 +48,8 @@
         <td>
           <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Ver" href="{{route('asistencias.detalle',$value->Grados->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
-          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Crear" href="{{route('asistencias.edit',$value->Grados->id)}}">
+          <a class="btn btn-success btn-lg" data-toggle="tooltip" data-placement="top" title="Crear" href="{{route('asistencias.edit',$value->Grados->id)}}">
+            <i class="glyphicon glyphicon-plus"></i></a>
         
         </td>
       </tr>

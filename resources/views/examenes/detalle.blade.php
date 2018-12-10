@@ -1,24 +1,19 @@
 @extends('layouts.app')
 @section('content')
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div>
         <h3 style="text-align:center"> CONTROL DE LAS NOTAS </h3>
         <br>
+    </div>
+    <div>
       {{ Form::model($identificador,['route'=>['examenes.detalle',$identificador->id],'method'=>'POST']) }}
-
-      <div class="input-group"> 
-            {!! Form::text('nombre', null, ['class'=>'form-control', 'placeholder'=>'Buscar'])!!}
-        </div>
-         <button type="submit" class="glyphicon glyphicon-search btn-sm" data-toggle="tooltip" data-placement="top" title="Buscar"></button>
-        {!! Form::close()!!}
-
-   <table class="table table-striped" style="text-align:center" >
+      <table class="table table-striped" style="text-align:center" >
      <thead>
-                <th>Alumno</th>
-                <th>Materia</th>
-                <th colspan="5">Notas</th>
-                <th>Trimestre</th>
-                <th>Promedio</th>
+                <th style="text-align: center;">Alumno</th>
+                <th style="text-align: center;">Materia</th>
+                <th colspan="5" style="text-align: center;">Notas</th>
+                <th style="text-align: center;">Trimestre</th>
+                <th style="text-align: center;">Promedio</th>
                 </thead>
                 <?php 
                 $fechaActual = date("Y"); ?>
@@ -58,5 +53,4 @@
 
       {{ Form::close() }}
     </div>
-  </div>
 @endsection
