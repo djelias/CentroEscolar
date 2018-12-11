@@ -14,6 +14,7 @@
                 <th colspan="5" style="text-align: center;">Notas</th>
                 <th style="text-align: center;">Trimestre</th>
                 <th style="text-align: center;">Promedio</th>
+                <th style="text-align: center;">Modificar</th>
                 </thead>
                 <?php 
                 $fechaActual = date("Y"); ?>
@@ -40,6 +41,8 @@
                           <td>{{$registro->actividad2 }}</td>
                           <td>{{$registro->trimestre }}</td>
                           <td>{{$registro->promedio }}</td>
+                          <td><a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Modificar" href="{{route('examenes.modificar',$registro->id)}}">
+              <i class="glyphicon glyphicon-pencil"></i></a></td>
                     </tr>
                     @endif
                     @endif

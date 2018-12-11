@@ -4,39 +4,26 @@
     <div class="col-md-6 col-md-offset-3">
     	<h3 style="text-align:center"> EDICION DE LAS EVALUACIONES </h3>
     	<br>
-      {{ Form::model($identificador,['route'=>['examenes.update',$identificador->id],'method'=>'PATCH']) }}
+      {{ Form::model($examenes,['route'=>['examenes.update',$examenes->id],'method'=>'PATCH']) }}
       
-         <div class="row">
-  <div class="col-sm-2">
-      {!! form::label('SELECCIONE EL PERIODO') !!}
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+          <strong>Trimestre : </strong>
+            {{ $examenes->trimestre}}
+        </div>
     </div>
-   <div class="form-group">
-       <select name="trimestre" class="form-control" style="width:200px;">
-           <option value="1">1</option>
-           <option value="2">2</option>
-           <option value="3">3</option>
-         </select>
 
- </div>
- </div>
- 
- <div class="row">
-   <div class="col-sm-2">
-      {!! form::label('SELECCIONE LA MATERIA') !!}
+     <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+          <strong>Materia : </strong>
+            {{ $examenes->Materias->nombre}}
+        </div>
     </div>
-    <div class="form-group">
-       <select name="id_materia" id="materia" class="form-control" style="width:200px;" >
-           @foreach($materias as $materia)
-                      <option value="{{$materia->id}}">{{$materia->nombre}}</option>
-                 @endforeach
-         </select>
- </div>
- </div>
+ 
  <br>
 <div style="align-content: center;">
 <table class="table table-condensed" style="text-align:center">
         <thead>
-          <th style="width:85px; text-align: center;">No</th>
           <th style="text-align:center">Alumno</th>
           <th></th>
           <th style="text-align:center">Examen</th>
@@ -48,49 +35,42 @@
           <th style="text-align:center"></th>
         </thead>
  <tbody>
-  <?php $no=1; ?>
-            @foreach($examenes as $examen)
-                @if($examen->AsignacionAlumnosGrados->Grados->id == $identificador->id)
-
 <tr>
-<td>{{$no++}}</td>
-<td style="width:200px;">{{ $examen->AsignacionAlumnosGrados->Alumnos->nombre }}</td>
+<td style="width:200px;">{{ $examenes->AsignacionAlumnosGrados->Alumnos->nombre }}</td>
 <td style="width:85px;">
 <div class="form-group">
-  {!!  Form::hidden('id_asignacion_al_gr[]', $examen->AsignacionAlumnosGrados->id, ['class'=>'form-control'])!!}
+  {!!  Form::hidden('id_asignacion_al_gr', $examenes->AsignacionAlumnosGrados->id, ['class'=>'form-control'])!!}
 </div>
 </td>
 <td style="width:100px;">
 <div class="form-group">
-  <input type="text" name="examen1[]" placeholder="00.00" class="form-control" required="required">
+  <input type="text" name="examen1" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
 <td style="width:100px;">
 <div class="form-group">
-  <input type="text" name="examen2[]" placeholder="00.00" class="form-control" required="required">
+  <input type="text" name="examen2" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
 <td style="width:100px;">
 <div class="form-group">
-  <input type="text" name="examen3[]" placeholder="00.00" class="form-control" required="required">
+  <input type="text" name="examen3" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
 <td style="width:100px;">
 <div class="form-group">
 
-  <input type="text" name="actividad1[]" placeholder="00.00" class="form-control" required="required">
+  <input type="text" name="actividad1" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
 <td style="width:100px;">
 <div class="form-group">
  
-  <input type="text" name="actividad2[]" placeholder="00.00" class="form-control" required="required">
+  <input type="text" name="actividad2" placeholder="00.00" class="form-control" required="required">
 </div>
 </td>
                   </tr>
 
-            @endif     
-             @endforeach
 
         </tbody>
   </table>

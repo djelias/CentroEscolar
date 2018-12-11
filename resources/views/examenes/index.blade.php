@@ -45,8 +45,6 @@
               <i class="glyphicon glyphicon-list-alt"></i></a>
           <a class=" btn btn-success btn-lg" data-toggle="tooltip" data-placement="top" title="Crear" href="{{route('examenes.edit',$value->Grados->id)}}">
               <i class="glyphicon glyphicon-plus"></i></a>
-          <a class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Modificar" href="{{route('examenes.modificar',$value->Grados->id)}}">
-              <i class="glyphicon glyphicon-pencil"></i></a>
         
         </td>
       </tr>

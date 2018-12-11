@@ -92,6 +92,9 @@
     <ul class="nav navbar-nav">
       <li><a href="{{ route('examenes.index') }}">Evaluaciones</a></li>
     </ul>
+    <ul class="nav navbar-nav">
+      <li><a href="{{ route('eventos.index') }}">Eventos</a></li>
+    </ul>
    </div>
  </nav>
  @endif

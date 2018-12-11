@@ -71,10 +71,10 @@
     </div>
 
     <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       {!! form::label('estado','Estado') !!}
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-5">
         <i>{{ Form::select('estado', ['1'=>'Activo', '0'=>'Inactivo'], null, ['class'=>'form-control']) }}</i>
       </div>
     </div>

@@ -35,6 +35,8 @@ drop table if exists ASISTENCIAS;
 
 drop table if exists REPORTES;
 
+drop table if exists PROMEDIO_FINAL;
+
 /*==============================================================*/
 /* Table: ALUMNOS                                               */
 /*==============================================================*/
@@ -290,6 +292,24 @@ create table REPORTES
    id_asignacionMateriasGrados     int                            null,
    fecha                date                           null,
    estado               boolean                        null,
+   created_at           timestamp,
+   updated_at           timestamp,
+   constraint PK_REPORTES primary key (id)
+);
+
+
+/*==============================================================*/
+/* Table:   PROMEDIO_FINAL                                            */
+/*==============================================================*/
+create table PROMEDIO_FINAL 
+(
+   id                   int                            not null AUTO_INCREMENT,
+   id_asignaciones      int                            null,
+   id_asignacionAlumnosGrados      int                            null,
+   id_asignacionMateriasGrados     int                            null,
+   id_examenes          int                            null,
+   promedio             float                          null,
+   anio                 int                            null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_REPORTES primary key (id)

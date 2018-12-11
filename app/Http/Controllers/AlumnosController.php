@@ -149,6 +149,13 @@ class AlumnosController extends Controller
        
     }
 
+    public function daraltas()
+    {
+        $nombre =$request->get('nombre');
+        $alumnos = Alumnos::orderBy('id','DESC')->nombre($nombre)->paginate(20);
+        return view('alumnos.daraltas',compact('alumnos'));
+    }
+
     public function alta($id)
      {
         $alumnos=Alumnos::find($id);

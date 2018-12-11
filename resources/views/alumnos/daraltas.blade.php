@@ -1,39 +1,12 @@
-@extends ('layouts.app')
+@extends('layouts.app')
 @section('content')
   <div class="row">
-    <div class ="col-sm-12">
-      <div class="full.right">
-      <h2>GESTION DE ALUMNOS</h2>
+    <div class="col-md-7 col-md-offset-2">
+      <h3 style="text-align: center"> DATOS DEL ALUMNO </h3>
       <br>
-      </div>
-    </div>
-  </div>
-  @if ($message = Session::get('success'))
-      <div class="alert alert-success">
-          <p>{{ $message }}</p>
-      </div>
-  @endif
-   @if ($message = Session::get('danger'))
-      <div class="alert alert-danger">
-          <p>{{ $message }}</p>
-      </div>
-  @endif
-      <div>
-        <a href="{{route('alumnos.create')}}" class="btn btn-success btn-lg">
-            <i class="glyphicon glyphicon-plus"> NUEVO</i>
-        </a>
-        <a href="{{route('alumnos.daraltas')}}" class="btn btn-success btn-lg">
-            <i class="glyphicon glyphicon"> ALUMNOS DADOS DE BAJA</i>
-        </a>
-        {!! Form::open(['route'=>'alumnos.index', 'method'=>'GET', 'class'=>'navbar-form pull-right', 'role'=>'search'])!!}
-        <div class="input-group"> 
-            {!! Form::text('nombre', null, ['class'=>'form-control', 'placeholder'=>'Buscar'])!!}
-        </div>
-         <button type="submit" class="glyphicon glyphicon-search btn-sm" data-toggle="tooltip" data-placement="top" title="Buscar"></button>
-        {!! Form::close()!!}
-      </div>
-      <br>
-  <table class="table table-striped" style="text-align:center" >
+      {{ Form::open(['route'=>'alumnos.alta', 'method'=>'POST']) }}
+        
+       <table class="table table-striped" style="text-align:center" >
     <tr>
       <th with="80px">No</th>
       <th style="text-align:center">Nombre</th>
@@ -44,7 +17,7 @@
     </tr>
     <?php $no=1; ?>
     @foreach ($alumnos as $key => $value)
-    @if ($value->estado == 1)
+    @if ($value->estado == 0)
     <tr>
         <td>{{$no++}}</td>
         <td>{{ $value->nombre }}</td>
@@ -73,8 +46,8 @@ echo date_format($date, 'd-m-Y');
       @endif
     @endforeach
   </table>
-  {!!$alumnos->render()!!}
- <div class="text-center">
-    <a class="btn btn-primary" href="{{ url('/gestion') }}">Regresar</a>
+
+      {{ form::close() }}
+    </div>
   </div>
 @endsection

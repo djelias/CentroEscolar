@@ -127,6 +127,7 @@ class ExamenesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /**
         foreach ($request->get('examen1') as $key => $value) {
             $examenes = Examenes::find($request->get('id')[$key]);
             $examenes->id_asignacion_al_gr = (integer) $request->get('id_asignacion_al_gr')[$key];
@@ -143,6 +144,17 @@ class ExamenesController extends Controller
 }
         //Examenes::find($id)->update($request->all());
         return redirect()->route('examenes.index')->with('success','Examenes actualizado con exito');
+        */
+        $this->validate($request,[
+          'examen1',
+          'examen2',
+          'examen3',
+          'actividad1',
+          'actividad2',
+          
+        ]);
+        Examenes::find($id)->update($request->all());
+        return redirect()->route('examenes.index')->with('success','Notas actualizada con exito');
     }
 
     /**
@@ -158,13 +170,17 @@ class ExamenesController extends Controller
     }
 
     public function modificar($id)    {
+        /**
         $identificador = Grados::find($id);
         $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
         //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
         $examenes = Examenes::all();
         $materias = Materias::all();
         //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
-        return view('examenes.modificar')->with('identificador',$identificador)->with('examenes',$examenes)->with('alumnos',$alumnos)->with('materias',$materias);
+        return view('examenes.modificar')->with('identificador',$identificador)->with('examenes',$examenes)->with('alumnos',$alumnos)->with('materias',$materias);*/
+
+        $examenes = Examenes::find($id);
+        return view('examenes.modificar',compact('examenes'));
     }
 
         public function detalle(Request $request, $id)

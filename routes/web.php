@@ -29,8 +29,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 	});
  });	
 
+
 Route::group(['middleware' => 'admin'], function() {
-   	Route::resource('docentes','DocentesController'); 
+   	Route::resource('docentes','DocentesController');
+   	Route::get('docentes/alta/{id}', [
+      'uses'=> 'DocentesController@alta',
+      'as'  => 'docentes.alta'
+  ]);
+
 	Route::resource('grados','GradosController');
 	Route::resource('asignaciones','AsignacionesController');
 	Route::resource('usuarios','UserController');
@@ -38,6 +44,11 @@ Route::group(['middleware' => 'admin'], function() {
 });
 Route::group(['middleware' => 'auth'], function() {
 	Route::resource('alumnos','AlumnosController');
+	Route::get('alumnos/daraltas', [
+      'uses'=> 'AlumnosController@daraltas',
+      'as'  => 'alumnos.daraltas'
+  ]);
+
 	Route::resource('materias','MateriasController');
 	Route::resource('examenes','ExamenesController');
 	Route::get('examenes/modificar/{id}', [
@@ -51,10 +62,6 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('examenes/materias/{id}', [
       'uses'=> 'ExamenesController@materias',
       'as'  => 'examenes.materias'
-  ]);
-	Route::get('examenes/crear/{grado},{materia}', [
-      'uses'=> 'ExamenesController@crear',
-      'as'  => 'examenes.crear'
   ]);
 	Route::resource('asignacionAlumnosGrados','AsignacionAlumnosGradosController');
 	Route::resource('asignacionMateriasGrados','AsignacionMateriasGradosController');

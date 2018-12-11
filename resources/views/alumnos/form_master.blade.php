@@ -355,3 +355,26 @@
             $("#miento").datepicker();
         });
 </script>
+<script type="text/javascript">
+  $(document).ready(Principal);
+    function Principal(){
+        var flag1 = true;
+        $(document).on('keyup','[id=dui_madre]',function(e){
+            if($(this).val().length == 8 && flag1) {
+                $(this).val($(this).val()+"-");
+                flag1 = false;
+            }
+        });
+    }
+</script> <script type="text/javascript">
+  $(document).ready(Principal);
+    function Principal(){
+        var flag2 = true;
+        $(document).on('keyup','[id=dui_padre]',function(e){
+            if($(this).val().length == 8 && flag1) {
+                $(this).val($(this).val()+"-");
+                flag2 = false;
+            }
+        });
+    }
+</script> 
