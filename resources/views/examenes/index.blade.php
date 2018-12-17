@@ -41,7 +41,7 @@
         <td>{{$value->Docentes->User->name }}</td>
         <td>{{$value->Grados->nombre }} {{$value->Grados->seccion }}</td>
         <td>
-          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Ver" href="{{route('examenes.detalle',$value->Grados->id)}}">
+          <a class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="top" title="Ver" href="{{route('examenes.listado',$value->Grados->id)}}">
               <i class="glyphicon glyphicon-list-alt"></i></a>
           <a class=" btn btn-success btn-lg" data-toggle="tooltip" data-placement="top" title="Crear" href="{{route('examenes.edit',$value->Grados->id)}}">
               <i class="glyphicon glyphicon-plus"></i></a>

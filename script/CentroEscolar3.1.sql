@@ -299,20 +299,23 @@ create table REPORTES
 
 
 /*==============================================================*/
-/* Table:   PROMEDIO_FINAL                                            */
+/* Table:   PROMEDIOS                                           */
 /*==============================================================*/
-create table PROMEDIO_FINAL 
+create table PROMEDIOS 
 (
    id                   int                            not null AUTO_INCREMENT,
    id_asignaciones      int                            null,
-   id_asignacionAlumnosGrados      int                            null,
+   id_asignacionAlumnosGrados     int                            null,
    id_asignacionMateriasGrados     int                            null,
    id_examenes          int                            null,
-   promedio             float                          null,
+   trimestre1           float                          null,
+   trimestre2           float                          null,
+   trimestre3           float                          null,
+   prom_final           float                          null,
    anio                 int                            null,
    created_at           timestamp,
    updated_at           timestamp,
-   constraint PK_REPORTES primary key (id)
+   constraint PK_PROMEDIOS primary key (id)
 );
 
 alter table DOCENTES add foreign key (id_usuario) references USERS (id);
@@ -348,6 +351,14 @@ alter table REPORTES add foreign key (id_asignaciones) references ASIGNACIONES (
 alter table REPORTES add foreign key (id_asignacionAlumnosGrados) references ASIGNACION_ALUMNOS_GRADOS (id);
 
 alter table REPORTES add foreign key (id_asignacionMateriasGrados) references ASIGNACION_MATERIAS_GRADOS (id);
+
+alter table PROMEDIOS add foreign key (id_asignaciones) references ASIGNACIONES (id);
+
+alter table PROMEDIOS add foreign key (id_asignacionMateriasGrados) references ASIGNACION_MATERIAS_GRADOS (id);
+
+alter table PROMEDIOS add foreign key (id_asignacionAlumnosGrados) references ASIGNACION_ALUMNOS_GRADOS (id);
+
+alter table PROMEDIOS add foreign key (id_examenes) references EXAMENES (id);
 
 alter table GRADOS add constraint GRADO_UNICO unique (nombre, seccion);
 

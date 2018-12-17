@@ -9,6 +9,7 @@ use App\Alumnos;
 use App\Grados;
 use App\Asignaciones;
 use App\Materias;
+use App\Promedios;
 use App\AsignacionAlumnosGrados;
 use App\AsignacionMateriasGrados;
 use examenes1\http\Request\ExamenesRequest;
@@ -183,14 +184,13 @@ class ExamenesController extends Controller
         return view('examenes.modificar',compact('examenes'));
     }
 
-        public function detalle(Request $request, $id)
+        public function detalle($idgrado, $idalumno)
     {
-        $identificador = Grados::find($id);
-        $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
-        //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
+        $identificador = Grados::find($idgrado);
+        $identificador2 = Alumnos::find($idalumno);
         $examenes = Examenes::all();
         //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
-        return view('examenes.detalle')->with('identificador',$identificador)->with('examenes',$examenes)->with('alumnos',$alumnos);
+        return view('examenes.detalle')->with('identificador',$identificador)->with('identificador2',$identificador2)->with('examenes',$examenes);
 
     }
 /**
@@ -213,5 +213,25 @@ class ExamenesController extends Controller
         return view('examenes.crear')->with('grado',$grado)->with('materia',$materia)->with('asignacion',$asignacion)->with('alumnos',$alumnos);
     }
  */
+
+    public function listado(Request $request, $id)
+    {
+        $identificador = Grados::find($id);
+        $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
+        $examenes = Examenes::all();
+        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
+        return view('examenes.listado')->with('identificador',$identificador)->with('examenes',$examenes)->with('asignacionAlumnosGrados',$asignacionAlumnosGrados);
+
+    }
+
+    public function promedioFinal($idgrado, $idalumno)
+    {
+        $identificador = Grados::find($idgrado);
+        $identificador2 = Alumnos::find($idalumno);
+        $examenes = Examenes::all();
+        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
+        return view('examenes.promedioFinal')->with('identificador',$identificador)->with('identificador2',$identificador2)->with('examenes',$examenes);
+
+    }
 }
  

@@ -55,13 +55,21 @@ Route::group(['middleware' => 'auth'], function() {
       'uses'=> 'ExamenesController@modificar',
       'as'  => 'examenes.modificar'
   ]);
-	Route::get('examenes/detalle/{id}', [
+	Route::get('examenes/detalle/{idgrado}/{idalumno}', [
       'uses'=> 'ExamenesController@detalle',
       'as'  => 'examenes.detalle'
+  ]);
+  Route::get('examenes/promedioFinal/{idgrado}/{idalumno}', [
+      'uses'=> 'ExamenesController@promedioFinal',
+      'as'  => 'examenes.promedioFinal'
   ]);
 	Route::get('examenes/materias/{id}', [
       'uses'=> 'ExamenesController@materias',
       'as'  => 'examenes.materias'
+  ]);
+  Route::get('examenes/listado/{id}', [
+      'uses'=> 'ExamenesController@listado',
+      'as'  => 'examenes.listado'
   ]);
 	Route::resource('asignacionAlumnosGrados','AsignacionAlumnosGradosController');
 	Route::resource('asignacionMateriasGrados','AsignacionMateriasGradosController');
@@ -76,7 +84,8 @@ Route::group(['middleware' => 'auth'], function() {
       'as'  => 'asistencias.detalle'
   ]);
 
-	Route::resource('reportes','ReportesController');
+  Route::resource('reportes','ReportesController');
+	Route::resource('promedios','PromediosController');
 
 });
 
