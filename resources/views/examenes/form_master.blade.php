@@ -40,10 +40,11 @@
           <th style="text-align:center"></th>
         </thead>
  <tbody>
+  <?php $fechaActual = date("Y"); ?>
   <?php $no=1; ?>
             @foreach($asignacion as $asignacionAlumnoGrado)
                 @if($asignacionAlumnoGrado->Grados->id == $identificador->id)
-
+@if($asignacionAlumnoGrado->anio == $fechaActual)
 <tr>
 <td>{{$no++}}</td>
 <td style="width:200px;">{{ $asignacionAlumnoGrado->Alumnos->nombre }}</td>
@@ -81,6 +82,7 @@
 </td>
                   </tr>
 
+            @endif     
             @endif     
              @endforeach
 

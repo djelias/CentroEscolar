@@ -46,12 +46,6 @@
     <ul class="nav navbar-nav">
       <li><a href="{{ route('usuarios.index') }}">Usuarios del Sistema</a></li>
     </ul>
-    <ul class="nav navbar-nav">
-      <li><a href="{{ route('promedios.index') }}">Promedios</a></li>
-    </ul>
-    <ul class="nav navbar-nav">
-      <li><a href="{{ url('/gestion') }}">Reportes</a></li>
-    </ul>
    </div>
  </nav>
  @else
@@ -97,9 +91,6 @@
     </ul>
     <ul class="nav navbar-nav">
       <li><a href="{{ route('eventos.index') }}">Eventos</a></li>
-    </ul>
-    <ul class="nav navbar-nav">
-      <li><a href="{{ route('promedios.index') }}">Promedios</a></li>
     </ul>
    </div>
  </nav>

@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('content')
+
+<div>
+        {!! Form::open(['route'=>['asistencias.detalle', $identificador->id], 'method'=>'GET', 'class'=>'navbar-form pull-right', 'role'=>'search'])!!}
+        <div class="input-group"> 
+            {!! Form::date('fecha', null, ['class'=>'form-control', 'placeholder'=>'Buscar'])!!}
+        </div>
+         <button type="submit" class="glyphicon glyphicon-search btn-sm" data-toggle="tooltip" data-placement="top" title="Buscar"></button>
+        {!! Form::close()!!}
+      </div>
+
+
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <h3 style="text-align:center"> CONTROL DE LA ASISTENCIA </h3>

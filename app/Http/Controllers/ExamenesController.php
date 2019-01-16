@@ -229,8 +229,9 @@ class ExamenesController extends Controller
         $identificador = Grados::find($idgrado);
         $identificador2 = Alumnos::find($idalumno);
         $examenes = Examenes::all();
-        //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
-        return view('examenes.promedioFinal')->with('identificador',$identificador)->with('identificador2',$identificador2)->with('examenes',$examenes);
+        $asignacionAlumnosGrados = AsignacionAlumnosGrados::all();
+        $asignacionMateriasGrados = AsignacionMateriasGrados::all();
+        return view('examenes.promedioFinal')->with('identificador',$identificador)->with('identificador2',$identificador2)->with('examenes',$examenes)->with('asignacionAlumnosGrados',$asignacionAlumnosGrados)->with('asignacionMateriasGrados',$asignacionMateriasGrados);
 
     }
 }

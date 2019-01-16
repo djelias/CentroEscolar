@@ -22,9 +22,7 @@
         <a href="{{route('alumnos.create')}}" class="btn btn-success btn-lg">
             <i class="glyphicon glyphicon-plus"> NUEVO</i>
         </a>
-        <a href="{{route('alumnos.daraltas')}}" class="btn btn-success btn-lg">
-            <i class="glyphicon glyphicon"> ALUMNOS DADOS DE BAJA</i>
-        </a>
+        
         {!! Form::open(['route'=>'alumnos.index', 'method'=>'GET', 'class'=>'navbar-form pull-right', 'role'=>'search'])!!}
         <div class="input-group"> 
             {!! Form::text('nombre', null, ['class'=>'form-control', 'placeholder'=>'Buscar'])!!}

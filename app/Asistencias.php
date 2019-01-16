@@ -9,9 +9,9 @@ class Asistencias extends Model
     protected $fillable = ['id_asignaciones','id_asig_alum_gr','estado','fecha'];
     protected $dates = ['created_at','updated_at'];
 
-    public function scopeNombre($query, $id_asignaciones)
+    public function scopeNombre($query, $fecha)
 	{
-		return $query->where('id_asignaciones', 'LIKE', "%$id_asignaciones%");
+		return $query->where('fecha', 'LIKE', "%$fecha%");
 	}
 
 	public function Asignaciones(){

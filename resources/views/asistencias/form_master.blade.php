@@ -11,8 +11,10 @@
                 <th>Alumno</th>
                 <th>Asistencia</th>
                 </thead>
+                <?php $fechaActual = date("Y"); ?>
                 @foreach($asignacion as $registro)
                 @if($registro->Grados->id == $identificador->id)
+                @if($registro->anio == $fechaActual)
                     <tr><input type="hidden" name="id_asig_alum_gr[]" value="{{$registro->id}}">
                         <td>{{$registro->Alumnos->nombre}}</td>
                         <td>
@@ -27,6 +29,7 @@
                             </div>
                         </td>
                     </tr>
+                    @endif
                     @endif
                 @endforeach
   </table>

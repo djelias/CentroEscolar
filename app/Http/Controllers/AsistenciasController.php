@@ -149,12 +149,14 @@ class AsistenciasController extends Controller
         return view('asistencias.modificar',compact('asistencias'));
     }
 
-        public function detalle($id)
+        public function detalle(Request $request, $id)
     {
+        $fecha =$request->get('fecha');
+        $asistencias = Asistencias::orderBy('id','DESC')->nombre($fecha)->paginate(50);
         $identificador = Grados::find($id);
         $alumnos = Alumnos::orderBy('id','ASC')->pluck('nombre','id');
         //$grados = Grados::orderBy('id','ASC')->pluck('nombre','id');
-        $asistencias = Asistencias::all();
+        //$asistencias = Asistencias::all();
         //$asignacion = AsignacionAlumnosGrados::orderBy('id','ASC')->pluck('id_alumno','id_grado');
         return view('asistencias.detalle')->with('identificador',$identificador)->with('asistencias',$asistencias)->with('alumnos',$alumnos);
 
