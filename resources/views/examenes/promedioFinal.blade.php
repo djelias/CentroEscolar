@@ -34,6 +34,14 @@
                 @php $materiaActual = ''@endphp
 
                 @foreach($asignacionMateriasGrados as $registro)
+
+                <?php 
+                            $promedio1 = '0';
+                            $promedio2 = '0';
+                            $promedio3 = '0';
+                            $final = '0';
+                             ?>
+
                 @if($registro->Grados->id == $identificador->id)
                 @if($registro->anio == $fechaActual)
                     <tr>
@@ -44,11 +52,19 @@
                           </td>
                           <td>
                             @foreach($examenes as $examen)
+
+                            
+
                             @if($examen->Materias->nombre == $registro->Materias->nombre)
                             @if($examen->trimestre == 1)
                             @if($examen->AsignacionAlumnosGrados->anio == $fechaActual)
                             @if($examen->AsignacionAlumnosGrados->Alumnos->id == $identificador->id)
                             {{$examen->promedio }}
+
+                            <?php 
+                            $promedio1 = $examen->promedio;
+                             ?>
+
                             @endif
                             @endif
                             @endif
@@ -61,6 +77,11 @@
                             @if($examen->AsignacionAlumnosGrados->anio == $fechaActual)
                             @if($examen->AsignacionAlumnosGrados->Alumnos->id == $identificador->id)
                             {{$examen->promedio }}
+
+                            <?php 
+                            $promedio2 = $examen->promedio;
+                             ?>
+
                             @endif
                             @endif
                             @endif
@@ -73,11 +94,25 @@
                             @if($examen->AsignacionAlumnosGrados->anio == $fechaActual)
                             @if($examen->AsignacionAlumnosGrados->Alumnos->id == $identificador->id)
                             {{$examen->promedio }}
+
+                            <?php 
+                            $promedio3 = $examen->promedio;
+                             ?>
+
                             @endif
                             @endif
                             @endif
                             @endif
                             @endforeach
+                          </td>
+                          <td>
+                            <?php 
+                            $final = round((($promedio1+$promedio2+$promedio3)/3),2);
+                            if ($final == 0) {
+                              echo "N/A";
+                            }else
+                            echo "$final";
+                             ?>
                           </td>
                     </tr>
                     @endif
