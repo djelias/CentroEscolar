@@ -81,8 +81,8 @@ create table ALUMNOS
 create table ASIGNACIONES 
 (
    id                   int                            not null AUTO_INCREMENT,
-   id_docente           int                            null,
-   id_grado             int                            null,
+   id_docente           int                            not null,
+   id_grado             int                            not null,
    anio                 int                            not null,
    created_at           timestamp,
    updated_at           timestamp,
@@ -95,9 +95,9 @@ create table ASIGNACIONES
 create table ASIGNACION_ALUMNOS_GRADOS 
 (
    id                   int                            not null AUTO_INCREMENT,
-   id_alumno            int                            null,
-   id_grado             int                            null,
-   anio                 int                            null,
+   id_alumno            int                            not null,
+   id_grado             int                            not null,
+   anio                 int                            not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_ASIGNACION_ALUMNOS_GRADOS primary key (id)
@@ -109,9 +109,9 @@ create table ASIGNACION_ALUMNOS_GRADOS
 create table ASIGNACION_MATERIAS_GRADOS 
 (
    id                   int                            not null AUTO_INCREMENT,
-   id_materia           int                            null,
-   id_grado             int                            null,
-   anio                 int                            null,
+   id_materia           int                            not null,
+   id_grado             int                            not null,
+   anio                 int                            not null,
    created_at           timestamp,
    updated_at           timestamp,
    constraint PK_ASIGNACION_MATERIAS_GRADOS primary key (id)
@@ -254,7 +254,7 @@ create table EXAMENES
 create table EVENTOS 
 (
    id                   int                            not null AUTO_INCREMENT,
-   nombre               varchar(30)                    not null,
+   nombre               varchar(50)                    not null,
    fecha                date                           not null,
    hora                 time                           not null,
    descripcion          varchar(150)                   not null,
@@ -364,7 +364,9 @@ alter table GRADOS add constraint GRADO_UNICO unique (nombre, seccion);
 
 alter table ASIGNACIONES add constraint GRADO_DOCENTE_UNICO unique (id_grado, id_docente, anio);
 
-alter table ASIGNACION_ALUMNOS_GRADOS add constraint ALUMNO_GRADO_UNICO unique (id_grado, id_alumno);
+alter table ASIGNACION_ALUMNOS_GRADOS add constraint ALUMNO_GRADO_UNICO unique (id_grado, id_alumno, anio);
+
+alter table ASIGNACION_MATERIAS_GRADOS add constraint MATERIA_GRADO_UNICO unique (id_materia, id_grado, anio);
 
 INSERT INTO `USERS` (`id`, `usuario`, `name`, `password`, `email`) VALUES
 (1, 'Administrador', 'Directora', '$2y$10$Z1wsG.S9f/k4DQKiuqp/d.i9KaDghoHqxAVw0fDw7KyQEh0fLzRoa', 'directora@gmail.com');

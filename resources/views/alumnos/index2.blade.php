@@ -19,12 +19,6 @@
       </div>
   @endif
       <div>
-        <a href="{{route('alumnos.create')}}" class="btn btn-success btn-lg">
-            <i class="glyphicon glyphicon-plus"> NUEVO</i>
-        </a>
-        <a href="{{route('alumnos.index2')}}" class="btn btn-success btn-lg">
-            <i class="glyphicon glyphicon-plus"> Bajas</i>
-        </a>
         
         {!! Form::open(['route'=>'alumnos.index', 'method'=>'GET', 'class'=>'navbar-form pull-right', 'role'=>'search'])!!}
         <div class="input-group"> 
@@ -45,7 +39,7 @@
     </tr>
     <?php $no=1; ?>
     @foreach ($alumnos as $key => $value)
-    @if ($value->estado == 1)
+    @if ($value->estado == 0)
     <tr>
         <td>{{$no++}}</td>
         <td>{{ $value->nombre }}</td>

@@ -18,8 +18,13 @@
     </div>
     <div class="form-group">
        <select name="id_materia" id="materia" class="form-control" style="width:200px;" >
-           @foreach($materias as $materia)
-                      <option value="{{$materia->id}}">{{$materia->nombre}}</option>
+        <?php $fechaActual = date("Y"); ?>
+           @foreach($asignacionMateriasGrados as $materia)
+                @if($materia->Grados->id == $identificador->id)
+                @if($materia->anio == $fechaActual)
+                      <option value="{{$materia->Materias->id}}">{{$materia->Materias->nombre}}</option>
+                 @endif
+                 @endif
                  @endforeach
          </select>
  </div>
@@ -33,14 +38,14 @@
           <th></th>
           <th style="text-align:center">Examen</th>
           <th style="text-align:center">Laboratorio</th>
-          <th style="text-align:center">Actividad dotidiana</th>
+          <th style="text-align:center">Actividad cotidiana</th>
           <th style="text-align:center">Actividad integradora 1</th>
           <th style="text-align:center">Actividad integradora 2</th>
           <th></th>
           <th style="text-align:center"></th>
         </thead>
  <tbody>
-  <?php $fechaActual = date("Y"); ?>
+  
   <?php $no=1; ?>
             @foreach($asignacion as $asignacionAlumnoGrado)
                 @if($asignacionAlumnoGrado->Grados->id == $identificador->id)

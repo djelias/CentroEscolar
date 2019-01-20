@@ -46,7 +46,7 @@ class AlumnosRequest extends FormRequest
             'rendimiento',
             'nuevo_ingreso',
             'escuela_proviene',
-            'municipio'=>'required|alpha_spaces',
+            'municipio',
             'observaciones',
             'quien_inscribe'=>'required|alpha_spaces',
             'estado'

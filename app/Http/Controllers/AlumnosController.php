@@ -61,7 +61,7 @@ class AlumnosController extends Controller
             'rendimiento',
             'nuevo_ingreso',
             'escuela_proviene',
-            'municipio'=>'required|alpha_spaces',
+            'municipio',
             'observaciones',
             'quien_inscribe'=>'required|alpha_spaces',
             'estado'
@@ -126,7 +126,7 @@ class AlumnosController extends Controller
             'rendimiento',
             'nuevo_ingreso',
             'escuela_proviene',
-            'municipio'=>'required|alpha_spaces',
+            'municipio',
             'observaciones',
             'quien_inscribe'=>'required|alpha_spaces',
             'estado'
@@ -149,11 +149,11 @@ class AlumnosController extends Controller
        
     }
 
-    public function daraltas()
+    public function index2(Request $request)
     {
         $nombre =$request->get('nombre');
         $alumnos = Alumnos::orderBy('id','DESC')->nombre($nombre)->paginate(20);
-        return view('alumnos.daraltas',compact('alumnos'));
+        return view('alumnos.index2',compact('alumnos'));
     }
 
     public function alta($id)
@@ -162,7 +162,7 @@ class AlumnosController extends Controller
          $alumnos->estado=1;
          $alumnos->save();
 
-         return redirect()->route('alumnos.index');        
+         return redirect()->route('alumnos.index2');        
      }
 }
  

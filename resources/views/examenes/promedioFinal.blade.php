@@ -8,18 +8,8 @@
     <div>
       {{ Form::model(array($identificador,$identificador2,['route'=>['examenes.detalle',$identificador->id,$identificador2->id],'method'=>'POST'])) }}
       
-<div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            {{ $identificador2->nombre}}
-        </div>
-    </div>
-
-<div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            {{ $identificador2->nombre}}
-        </div>
-    </div>
-<br>
+<p>Nombre del alumno: {{$identificador2->nombre}} &nbsp;&nbsp;&nbsp;&nbsp;NIE: {{$identificador2->no_nie}} &nbsp;&nbsp;&nbsp;&nbsp; Grado: {{$identificador->nombre}}<br><br>
+Docente: {{ Auth::user()->name }}</p>
 
       <table class="table table-striped" style="text-align:center" >
      <thead>
@@ -109,7 +99,7 @@
                             <?php 
                             $final = round((($promedio1+$promedio2+$promedio3)/3),2);
                             if ($final == 0) {
-                              echo "N/A";
+                              echo "N/I";
                             }else
                             echo "$final";
                              ?>

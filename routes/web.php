@@ -44,9 +44,9 @@ Route::group(['middleware' => 'admin'], function() {
 });
 Route::group(['middleware' => 'auth'], function() {
 	Route::resource('alumnos','AlumnosController');
-	Route::get('alumnos/daraltas', [
-      'uses'=> 'AlumnosController@daraltas',
-      'as'  => 'alumnos.daraltas'
+	Route::get('alumnos/index2', [
+      'uses'=> 'AlumnosController@index2',
+      'as'  => 'alumnos.index2'
   ]);
 
 	Route::resource('materias','MateriasController');
@@ -55,7 +55,7 @@ Route::group(['middleware' => 'auth'], function() {
       'uses'=> 'ExamenesController@modificar',
       'as'  => 'examenes.modificar'
   ]);
-	Route::get('examenes/detalle/{idgrado}/{idalumno}', [
+	Route::get('examenes/detalle/{idgrado}/{idalumno}/{trim}', [
       'uses'=> 'ExamenesController@detalle',
       'as'  => 'examenes.detalle'
   ]);

@@ -59,7 +59,7 @@
     </div>
     <div class="col-sm-10">
       <div class="form-group {{ $errors->has('telefono') ? 'has-error' : "" }}">
-        <i>{{ Form::text('telefono',NULL, ['class'=>'form-control', 'id'=>'telefono', 'placeholder'=>'Telefono de contacto...']) }}</i>
+        <i>{{ Form::text('telefono',NULL, ['class'=>'form-control', 'id'=>'telefono', 'placeholder'=>'Telefono de contacto...','maxlength' => 8]) }}</i>
         <div class="help-block" >
         <strong>{{ $errors->first('telefono', '**Ingrese datos válidos A-Z') }}</strong> 
       </div>
@@ -147,7 +147,7 @@
     </div>
     <div class="col-sm-10">
       <div class="form-group {{ $errors->has('telefono_madre') ? 'has-error' : "" }}">
-        <i>{{ Form::text('telefono_madre',NULL, ['class'=>'form-control', 'id'=>'telefono_madre', 'placeholder'=>'Telefono de la madre...']) }}</i>
+        <i>{{ Form::text('telefono_madre',NULL, ['class'=>'form-control', 'id'=>'telefono_madre', 'placeholder'=>'Telefono de la madre...', 'maxlength' => 8]) }}</i>
         <div class="help-block" >
         <strong>{{ $errors->first('telefono_madre', '**Ingrese datos válidos A-Z') }}</strong> 
       </div>
@@ -203,7 +203,7 @@
     </div>
     <div class="col-sm-10">
       <div class="form-group {{ $errors->has('telefono_padre') ? 'has-error' : "" }}">
-        <i>{{ Form::text('telefono_padre',NULL, ['class'=>'form-control', 'id'=>'telefono_padre', 'placeholder'=>'Telefono del padre...']) }}</i>
+        <i>{{ Form::text('telefono_padre',NULL, ['class'=>'form-control', 'id'=>'telefono_padre', 'placeholder'=>'Telefono del padre...', 'maxlength' => 8]) }}</i>
         <div class="help-block" >
         <strong>{{ $errors->first('telefono_padre', '**Ingrese datos válidos A-Z') }}</strong> 
       </div>
@@ -371,7 +371,7 @@
     function Principal(){
         var flag2 = true;
         $(document).on('keyup','[id=dui_padre]',function(e){
-            if($(this).val().length == 8 && flag1) {
+            if($(this).val().length == 8 && flag2) {
                 $(this).val($(this).val()+"-");
                 flag2 = false;
             }
