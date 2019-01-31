@@ -47,15 +47,9 @@
         </ul>
       </li>
     </ul>
-     <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Consultas<b class="caret"></b>
-        </a>
-      </li>
-    </ul>
-   </div>
  </nav>
+
+ 
          <br>
             <div class="content">
                     <h3>La ferre</h3>
