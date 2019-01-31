@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>La ferre</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -80,27 +80,12 @@
 
             <div class="content">
                 <div>
-                    <h1>SISTEMA DE GESTION ESCOLAR</h1>
-                    <h3>CENTRO ESCOLAR CATOLICO SANTO TOMAS</h3> 
+                    <h1>SISTEMA DE GESTION DE INVENTARIO</h1>
                     <br>
                     <div>
-                    <img src="{{URL::asset('/img/logo.png')}}" alt="profile Pic" height="200" width="200"></img>
+                    <img src="{{URL::asset('/img/logo.jpg')}}" alt="profile Pic" height="200" width="200"></img>
                 </div>
-                <div>
-                        <h4>
-                            <i>
-                            Calle Alberto Masferrer, Contiguo a Iglesia parroquial, Santo Tomás
-                            </i>
-                        </h4> 
-                </div>
-                 <div>
-                        <h4>
-                            <i>
-                            Teléfono: 2220-9942, correo eléctronico: catolicosantotomas@gmail.com
-                            </i>
-                        </h4> 
-                </div>
-                <br>
+                
                 </div>
                 <br>
             </div>

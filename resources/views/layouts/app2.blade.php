@@ -95,6 +95,13 @@
 </div>
 </div>
 
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+@stack('scripts')
+<!-- Bootstrap 3.3.7 -->
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('js/adminlte.min.js') }}"></script>
 
 
     

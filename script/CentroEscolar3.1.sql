@@ -362,9 +362,9 @@ alter table PROMEDIOS add foreign key (id_examenes) references EXAMENES (id);
 
 alter table GRADOS add constraint GRADO_UNICO unique (nombre, seccion);
 
-alter table ASIGNACIONES add constraint GRADO_DOCENTE_UNICO unique (id_grado, id_docente);
+alter table ASIGNACIONES add constraint GRADO_DOCENTE_UNICO unique (id_grado, id_docente, anio);
 
 alter table ASIGNACION_ALUMNOS_GRADOS add constraint ALUMNO_GRADO_UNICO unique (id_grado, id_alumno);
 
-INSERT INTO `users` (`id`, `usuario`, `name`, `password`, `email`) VALUES
+INSERT INTO `USERS` (`id`, `usuario`, `name`, `password`, `email`) VALUES
 (1, 'Administrador', 'Directora', '$2y$10$Z1wsG.S9f/k4DQKiuqp/d.i9KaDghoHqxAVw0fDw7KyQEh0fLzRoa', 'directora@gmail.com');
